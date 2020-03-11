@@ -10,7 +10,8 @@
                     <div class="circle"></div>
                     </div>
                 </div>
-                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                <!--<div class="spinner-layer spinner-spinner-teal lighten-1">-->
+                   <div class="spinner-layer spinner-spinner-teal lighten-1">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div><div class="gap-patch">
