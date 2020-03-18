@@ -74,31 +74,12 @@ $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $dptcount=$query->rowCount();
 ?>                            
-                                <!--<span class="stats-counter"><span class="counter"><?php echo htmlentities($dptcount);?></span></span>
+                                 <span class="stats-counter"><span class="counter"><?php echo htmlentities($dptcount);?></span></span>
                             </div>
                             <div id="sparkline-line"></div>
                         </div>
                     </div>
-                    <div class="col s12 m12 l3">
-                        <div class="card stats-card">
-                            <div class="card-content">
-                                <span class="card-title">Permisos</span>
-                                    <?php
-$sql = "SELECT id from  tblleavetype";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$leavtypcount=$query->rowCount();  
-     
-?>   -->
-                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($leavtypcount);?></span></span>
-                      
-                            </div>
-                            <div class="progress stats-card-progress">
-                                <div class="determinate" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
+
                                         <div class="col s12 m12 l3">
                         <div class="card stats-card">
                             <div class="card-content">
@@ -118,6 +99,8 @@ $leavtypcount=$query->rowCount();
                             </div>
                         </div>
                     </div>    
+                    
+                    
                 </div>
                  
                     <!--<div class="row no-m-t no-m-b">

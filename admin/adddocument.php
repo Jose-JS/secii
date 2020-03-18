@@ -156,299 +156,294 @@ $msg="Documentos de Técnico agregados con éxito";
 
 }
     
-    ?> 
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        
-        <!-- Title -->
-        <title>Admin | Agregar Documentos</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <meta charset="UTF-8">
-        <meta name="description" content="Responsive Admin Dashboard Template" />
-        <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        
-        <!-- Styles -->
-        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"> 
-        <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
-        
 
-<style type="text/css">
-  #AUTO fieldset {
-  display:none
-}
-#AUTO fieldset:first-child {
-  display: block;
-}
-     
-  </style>
-<style>
-  
+<head>
 
-        .errorWrap {
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solid #dd3d36;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-.succWrap{
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solid #5cb85c;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-.div2 { border-style: solid; border-width: 1px; border-color: gainsboro}    
-        </style>
-    <script type="text/javascript">
-      
-    function comprobar(checkbox){
-        otro = checkbox.parentNode.querySelector("[type=checkbox]:not(#" + checkbox.id + ")");
-     
-        if (otro.checked){
-            otro.checked = false;
+    <!-- Title -->
+    <title>Admin | Agregar Documentos</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Responsive Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+    <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/custom.css" rel="stylesheet" type="text/css" />
+
+
+    <style type="text/css">
+        #AUTO fieldset {
+            display: none
         }
-    }
-   
-        
-function valid()
-{
-    
-var txtFoto2= document.getElementById('foto2').value;    
-var txtFoto4= document.getElementById('foto4').value;      
-var txtFoto6= document.getElementById('foto6').value;   
-var txtFoto7= document.getElementById('foto7').value;   
-var txtFoto8= document.getElementById('foto8').value;            
-var txtFoto10= document.getElementById('foto10').value;            
-var txtFoto16= document.getElementById('foto16').value;      
-var txtFoto17= document.getElementById('foto17').value;      
-var txtFoto18= document.getElementById('foto18').value;      
-var txtFoto19= document.getElementById('foto19').value;          
-    
-   
-if (txtFoto2 == null || txtFoto2 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione docuemnto (acta de nacimiento)');
-    return false;
-  }
-else if (txtFoto6 == null || txtFoto6 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (INE o IFE)');
-    return false;
-  }
-else if (txtFoto7 == null || txtFoto7 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (No.IMSS)');
-    return false;
-  }
-else if (txtFoto10 == null || txtFoto10 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (Actecedentes No Penales)');
-    return false;
-  }
-else if (txtFoto4 == null || txtFoto4 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (Certificado de Estudios)');
-    return false;
-  }    
-else if (txtFoto8 == null || txtFoto8 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (RFC)');
-    return false;
-  }
-    
-else if (txtFoto16 == null || txtFoto16 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (HOJA 1)');
-    return false;
-  }
-    
-else if (txtFoto17 == null || txtFoto17 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (HOJA 2)');
-    return false;
-  }    
 
-else if (txtFoto18 == null || txtFoto18 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (HOJA 3)');
-    return false;
-  }    
-else if (txtFoto19 == null || txtFoto19 == 0) {
-    // Si no se cumple la condicion...
-    alert('[ERROR] Por favor seleccione documento (HOJA 4)');
-    return false;
-  }    
-return true;
-}
-                </script>
+        #AUTO fieldset:first-child {
+            display: block;
+        }
+    </style>
+    <style>
+        .errorWrap {
+            padding: 10px;
+            margin: 0 0 20px 0;
+            background: #fff;
+            border-left: 4px solid #dd3d36;
+            -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+        }
+
+        .succWrap {
+            padding: 10px;
+            margin: 0 0 20px 0;
+            background: #fff;
+            border-left: 4px solid #5cb85c;
+            -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+        }
+
+        .div2 {
+            border-style: solid;
+            border-width: 1px;
+            border-color: gainsboro
+        }
+    </style>
+    <script type="text/javascript">
+        function comprobar(checkbox) {
+            otro = checkbox.parentNode.querySelector("[type=checkbox]:not(#" + checkbox.id + ")");
+
+            if (otro.checked) {
+                otro.checked = false;
+            }
+        }
 
 
+        function valid() {
+
+            var txtFoto2 = document.getElementById('foto2').value;
+            var txtFoto4 = document.getElementById('foto4').value;
+            var txtFoto6 = document.getElementById('foto6').value;
+            var txtFoto7 = document.getElementById('foto7').value;
+            var txtFoto8 = document.getElementById('foto8').value;
+            var txtFoto10 = document.getElementById('foto10').value;
+            var txtFoto16 = document.getElementById('foto16').value;
+            var txtFoto17 = document.getElementById('foto17').value;
+            var txtFoto18 = document.getElementById('foto18').value;
+            var txtFoto19 = document.getElementById('foto19').value;
+
+
+            if (txtFoto2 == null || txtFoto2 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione docuemnto (acta de nacimiento)');
+                return false;
+            } else if (txtFoto6 == null || txtFoto6 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (INE o IFE)');
+                return false;
+            } else if (txtFoto7 == null || txtFoto7 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (No.IMSS)');
+                return false;
+            } else if (txtFoto10 == null || txtFoto10 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (Actecedentes No Penales)');
+                return false;
+            } else if (txtFoto4 == null || txtFoto4 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (Certificado de Estudios)');
+                return false;
+            } else if (txtFoto8 == null || txtFoto8 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (RFC)');
+                return false;
+            } else if (txtFoto16 == null || txtFoto16 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (HOJA 1)');
+                return false;
+            } else if (txtFoto17 == null || txtFoto17 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (HOJA 2)');
+                return false;
+            } else if (txtFoto18 == null || txtFoto18 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (HOJA 3)');
+                return false;
+            } else if (txtFoto19 == null || txtFoto19 == 0) {
+                // Si no se cumple la condicion...
+                alert('[ERROR] Por favor seleccione documento (HOJA 4)');
+                return false;
+            }
+            return true;
+        }
+    </script>
 
 
 
-<script type="text/javascript">
-$(document).ready(function() {
-    setTimeout(function() {
-        $(".content").fadeOut(1500);
-    },6000);
 
-});  
 
-</script>        
-    </head>
-    <body>
-  <?php include('includes/header.php');?>
-            
-       <?php include('includes/sidebar.php');?>
-   <main class="mn-inner">
-                <div class="row">
-                   
-                    <div class="col s12 m12 l12">
-                        <div class="card">
-                            <div class="card-content">
-      
-                                <form id="AUTO" method="post" name="addemp" enctype="multipart/form-data"  >
-                                    <?php if($error){?><div class="succWrap content"><strong>ÉXITO</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".content").fadeOut(1500);
+            }, 6000);
+
+        });
+    </script>
+</head>
+
+<body>
+    <?php include('includes/header.php');?>
+
+    <?php include('includes/sidebar.php');?>
+    <main class="mn-inner">
+        <div class="row">
+
+            <div class="col s12 m12 l12">
+                <div class="card">
+                    <div class="card-content">
+
+                        <form id="AUTO" method="post" name="addemp" enctype="multipart/form-data">
+                            <?php if($error){?><div class="succWrap content"><strong>ÉXITO</strong>:<?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap content"><strong>ÉXITO</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
-                                    <div>
-                                        <section>
-                                            <div class="wizard-content">
-            
-<h3> ARCHIVOS</h3>
-<hr style="border-color:black;">
-<h4> DOCUMENTOS</h4>     
-     
-<div class="row">
-<div class="col m6">
-<div class="row">
-    
-<div class="input-field col s12">
-  <label for="foto2">Acta de nacimiento</label><br><br>
-<input id="foto2" name="foto2" type="file"  maxlength="30" autocomplete="off" required>  
- </div>
-<div class="input-field col s12">
-<label for="foto3">Comprobante de domicilio</label><br><br>
-<input id="foto3" name="foto3" type="file"  maxlength="30" autocomplete="off" >  
- </div>
-<div class="input-field col s12">
-  <label for="foto6">Ine o Ife</label><br><br>
-<input id="foto6" name="foto6" type="file"  maxlength="30" autocomplete="off" required>  
- </div>    
-    <div class="input-field col s12">
-  <label for="foto7">No. imss</label><br><br>
-<input id="foto7" name="foto7" type="file"  maxlength="30" autocomplete="off" required>  
- </div>
-<div class="input-field col s12">
-  <label for="foto10">Antecedentes no penales</label><br><br>
-<input id="foto10" name="foto10" type="file"  maxlength="30" autocomplete="off" required>  
- </div>    
-   
-    </div>
-    </div>
-    
-    
-   <div class="col m6">
-<div class="row">
-<div class="input-field col s12">
-  <label for="foto4">Certificado de estudios</label><br><br>
-<input id="foto4" name="foto4" type="file"  maxlength="30" autocomplete="off" required>  
- </div>
-<div class="input-field col s12">
-<label for="foto5">Cartilla militar</label><br><br>
-<input id="foto5" name="foto5" type="file"  maxlength="30" autocomplete="off" >  
- </div>    
-<div class="input-field col s12">
-  <label for="foto8">Rfc</label><br><br>
-<input id="foto8" name="foto8" type="file"  maxlength="30" autocomplete="off" required>  
- </div>    
-<div class="input-field col s12">
-<label for="foto9">Curp</label><br><br>
-<input id="foto9" name="foto9" type="file"  maxlength="30" autocomplete="off" >  
- </div>    
-    <div class="input-field col s12">
-<label for="foto11">No adeudo infonavit</label><br><br>
-<input id="foto11" name="foto11" type="file"  maxlength="30" autocomplete="off" >  
- </div>
-    
-  
-    </div>
-       </div></div>
+                            <div>
+                                <section>
+                                    <div class="wizard-content">
 
-<hr style="border-color:black;">
-<h4> HUELLAS DIGITALES</h4>     
-     
-<div class="row">
-<div class="col m6">
-<div class="row">
-    
-<div class="input-field col m6 s12">
- <label for="foto16">Hoja 1</label><br><br>
-<input id="foto16" name="foto16" type="file"  maxlength="30" autocomplete="off" required>  
- </div>
-    
-<div class="input-field col m6 s12">
-  <label for="foto17">Hoja 2</label><br><br>
-<input id="foto17" name="foto17" type="file"  maxlength="30" autocomplete="off" required>  
- </div>    
+                                        <h3> ARCHIVOS</h3>
+                                        <hr style="border-color:black;">
+                                        <h4> DOCUMENTOS</h4>
 
-    </div>
-    </div>
-    
-    
-   <div class="col m6">
-<div class="row">
-<div class="input-field col m6 s12">
-  <label for="foto18">Hoja 3</label><br><br>
-<input id="foto18" name="foto18" type="file"  maxlength="30" autocomplete="off" required>  
- </div>
-    
-<div class="input-field col m6 s12">
-  <label for="foto19">Hoja 4</label><br><br>
-<input id="foto19" name="foto19" type="file"  maxlength="30" autocomplete="off" required>  
- </div>    
- 
-    </div>
-       </div></div>                                                
-                    
-                <!--<input type="button" name="previous" class="previous btn btn-default" value="Anterior" /><br>-->                            
-                <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">Guardar</button>                             
-                </fieldset>                            
-                         
-                        </section>   
-  
-                
-                                    
-                                    </div>
-                                </form>
+                                        <div class="row">
+                                            <div class="col m6">
+                                                <div class="row">
+
+                                                    <div class="input-field col s12">
+                                                        <label for="foto2">Acta de nacimiento</label><br><br>
+                                                        <input id="foto2" name="foto2" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto3">Comprobante de domicilio</label><br><br>
+                                                        <input id="foto3" name="foto3" type="file" maxlength="30" autocomplete="off">
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto6">Ine o Ife</label><br><br>
+                                                        <input id="foto6" name="foto6" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto7">No. imss</label><br><br>
+                                                        <input id="foto7" name="foto7" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto10">Antecedentes no penales</label><br><br>
+                                                        <input id="foto10" name="foto10" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col m6">
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <label for="foto4">Certificado de estudios</label><br><br>
+                                                        <input id="foto4" name="foto4" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto5">Cartilla militar</label><br><br>
+                                                        <input id="foto5" name="foto5" type="file" maxlength="30" autocomplete="off">
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto8">Rfc</label><br><br>
+                                                        <input id="foto8" name="foto8" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto9">Curp</label><br><br>
+                                                        <input id="foto9" name="foto9" type="file" maxlength="30" autocomplete="off">
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <label for="foto11">No adeudo infonavit</label><br><br>
+                                                        <input id="foto11" name="foto11" type="file" maxlength="30" autocomplete="off">
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr style="border-color:black;">
+                                        <h4> HUELLAS DIGITALES</h4>
+
+                                        <div class="row">
+                                            <div class="col m6">
+                                                <div class="row">
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="foto16">Hoja 1</label><br><br>
+                                                        <input id="foto16" name="foto16" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="foto17">Hoja 2</label><br><br>
+                                                        <input id="foto17" name="foto17" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col m6">
+                                                <div class="row">
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="foto18">Hoja 3</label><br><br>
+                                                        <input id="foto18" name="foto18" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="foto19">Hoja 4</label><br><br>
+                                                        <input id="foto19" name="foto19" type="file" maxlength="30" autocomplete="off" required>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--<input type="button" name="previous" class="previous btn btn-default" value="Anterior" /><br>-->
+                                        <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">Guardar</button>
+                                        </fieldset>
+                                        	<button id="firmame">Firma</button>
+
+                                </section>
+
+
+
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-            </main>
-       
-        <div class="left-sidebar-hover"></div>
-        
-        <!-- Javascripts -->
-        <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/form_elements.js"></script>
-       
-    </body>
+            </div>
+        </div>
+    </main>
+
+    <div class="left-sidebar-hover"></div>
+
+    <!-- Javascripts -->
+    <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
+    <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="../assets/js/alpha.min.js"></script>
+    <script src="../assets/js/pages/form_elements.js"></script>
+
+</body>
+
 </html>
-<?php } ?> 
+<?php } ?>

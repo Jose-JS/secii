@@ -14,7 +14,7 @@
                    
                     </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php"><i class="material-icons">settings_input_svideo</i>Escritorio</a></li>
                     
                     <li class="no-padding"><a class="waves-effect waves-grey" href="adduser.php"><i class="material-
                     icons"></i>Usuarios</a></li>

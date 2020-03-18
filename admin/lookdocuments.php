@@ -111,6 +111,7 @@ foreach($results as $result)
                </div>
            <div class="input-field col m6 s12">  <CENTER> INE</CENTER>
                <iframe src="<?php echo htmlentities($result->docine);?>" width="500" height="500"></iframe>   
+               <!--<embed src="<?php echo htmlentities($result->docine);?>" type="application/pdf" width="100%" height="600px" />-->
                <hr style="border-color:black;">
                </div>
            <div class="input-field col m6 s12">  <CENTER> NUMERO DE SEGURIDAD SOCIAL</CENTER>

@@ -31,8 +31,8 @@ $pdf->SetKeywords('Reporte, usuario, ficha tecnica, mysql');
     $PDF_HEADER_LOGO="../lib/reportes/logopdf.png"; 
 
     
-	$pdf->SetMargins(3, 3, 3, false); 
-	$pdf->SetAutoPageBreak(true, 5); 
+	$pdf->SetMargins(3, 5, 3, false); 
+	$pdf->SetAutoPageBreak(true, 10); 
 	$pdf->SetFont('helvetica', '',8.5);
 // set fill color
 
@@ -269,6 +269,9 @@ $typeblood=$result['typeblood'];
     $content .='</div>';
     $content .='</section>';    
     
+        
+    $content .='<section >';
+    $content .='<div align="left">';    
     $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';
     $content .='<tr>';    
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b> DATOS GENERALES</b></td>';
@@ -289,23 +292,6 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="2"align="center"> '.$email.'</td>';
     $content .='<td colspan="2"align="center"> '.$gender.'</td>';    
     $content .='</tr>';   
-        
-
-    $content .='<tr>';    
-    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>DIRECCION</b></td>';
-    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>COLONIA</b></td>';
-    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>MUNICIPIO</b></td>';
-    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>ESTADO</b></td>';
-    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>CODIGO POSTAL</b></td>';
-    $content .='</tr>';
-        
-     $content .='<tr>';
-    $content .='<td colspan="2"align="center"> '.$address.'</td>';
-    $content .='<td colspan="2"align="center"> '.$suburb.'</td>';
-    $content .='<td colspan="2"align="center"> '.$city.'</td>';
-    $content .='<td colspan="2"align="center"> '.$country.'</td>';
-    $content .='<td colspan="2"align="center"> '.$cp.'</td>';    
-    $content .='</tr>';
         
     $content .='<tr>';    
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>LUGAR DE NACIMIENTO</b></td>';
@@ -353,8 +339,43 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="2"align="center"> '.$typelicence.'</td>';
     $content .='<td colspan="2"align="center"> '.$military.'</td>';
     $content .='<td colspan="2"align="center"> '.$dependent.'</td>';    
-    $content .='</tr>';   
+    $content .='</tr>';  
+    $content .='</table>';      
+    $content .='</div>';
+    $content .='</section>';    
         
+    
+        
+        
+    $content .='<section >';
+    $content .='<div align="left">';
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';   
+    $content .='<tr>';    
+    $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>DIRECCION</b></td>';
+    $content .='</tr>';    
+    $content .='<tr>';    
+    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>DIRECCION</b></td>';
+    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>COLONIA</b></td>';
+    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>MUNICIPIO</b></td>';
+    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>ESTADO</b></td>';
+    $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>CODIGO POSTAL</b></td>';
+    $content .='</tr>';
+        
+    $content .='<tr>';
+    $content .='<td colspan="2"align="center"> '.$address.'</td>';
+    $content .='<td colspan="2"align="center"> '.$suburb.'</td>';
+    $content .='<td colspan="2"align="center"> '.$city.'</td>';
+    $content .='<td colspan="2"align="center"> '.$country.'</td>';
+    $content .='<td colspan="2"align="center"> '.$cp.'</td>';    
+    $content .='</tr>';    
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';          
+        
+        
+    $content .='<section >';
+    $content .='<div align="left">';
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';   
     $content .='<tr>';    
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>DEPENDIENTES</b></td>';
     $content .='</tr>';
@@ -419,8 +440,14 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="3"align="center"> '.$dependentrelation5.'</td>';
     $content .='<td colspan="3"align="center"> '.$dependentage5.'</td>'; 
     $content .='</tr>';
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';      
         
-     $content .='<tr>';    
+    $content .='<section >';
+    $content .='<div align="left">';  
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';       
+    $content .='<tr>';    
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>ESTUDIOS</b></td>';
     $content .='</tr>';    
     
@@ -486,8 +513,15 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="4"align="center"> '.$universityname.'</td>';
     $content .='<td colspan="3"align="center"> '.$universityadress.'</td>';
     $content .='<td colspan="3"align="center"> '.$universitydocument.'</td>'; 
-    $content .='</tr>';        
+    $content .='</tr>'; 
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';     
         
+    
+    $content .='<section >';
+    $content .='<div align="left">';     
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';      
     $content .='<tr>';    
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>REFERENCIAS LABORALES</b></td>';
     $content .='</tr>';
@@ -578,7 +612,14 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="3"align="center"> '.$timework3.'</td>';
     $content .='<td colspan="3"align="center"> '.$reasonexit3.'</td>'; 
     $content .='</tr>';
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';         
     
+        
+    $content .='<section >';
+    $content .='<div align="left">';      
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';      
     $content .='<tr>';    
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>REFERENCIAS FAMILIARES</b></td>';
     $content .='</tr>';
@@ -620,7 +661,13 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="2"align="center"> '.$familyphone2.'</td>'; 
     $content .='<td colspan="2"align="center"> '.$yearshim2.'</td>'; 
     $content .='</tr>'; 
-     
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';     
+        
+    $content .='<section >';
+    $content .='<div align="left">';      
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';    
     $content .='<tr>';     
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>REFERENCIAS PERSONALES</b></td>';
     $content .='</tr>';
@@ -660,7 +707,13 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="2"align="center" > '.$personalphone2.'</td>'; 
     $content .='<td colspan="2"align="center" > '.$personalyears2.'</td>';     
     $content .='</tr>';    
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';    
         
+    $content .='<section >';
+    $content .='<div align="left">';    
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';     
     $content .='<tr>';     
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>ESTUDIO SOCIOECONOMICO</b></td>';
     $content .='</tr>';
@@ -681,7 +734,7 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="2"align="center"> '.$homex1.'</td>';    
     $content .='</tr>';
         
-     $content .='<tr>';    
+    $content .='<tr>';    
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>INGRESOS EXTRA</b></td>';
     $content .='<td colspan="4"align="center" bgcolor="lightgrey"> <b>DESCRIPCION </b></td>';
     $content .='<td colspan="4"align="center" bgcolor="lightgrey"> <b>TIEMPO DE RESIDIR EN SU DOMICILIO</b></td>';
@@ -693,7 +746,7 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="4"align="center"> '.$yearsliving.'</td>'; 
     $content .='</tr>';  
         
-        $content .='<tr>';    
+    $content .='<tr>';    
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>DEUDAS</b></td>';
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>CELULAR</b></td>';
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>DESPENSA</b></td>';
@@ -709,7 +762,7 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="2"align="center"> '.$maintenance.'</td>';    
     $content .='</tr>';
     
-        $content .='<tr>';    
+    $content .='<tr>';    
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>PAGO DE ESCUELA</b></td>';
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>SERVICIOS MEDICOS</b></td>';
     $content .='<td colspan="1"align="center" bgcolor="lightgrey"> <b>ROPA Y CALZADO</b></td>';
@@ -726,7 +779,14 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="1"align="center"> '.$overall.'</td>';
     $content .='<td colspan="3"align="center"> '.$articulo.'</td>';
     $content .='</tr>';     
-    
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';
+     
+        
+     $content .='<section >';
+    $content .='<div align="left">';    
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';     
     $content .='<tr>';     
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>INFORME MEDICO</b></td>';
     $content .='</tr>';
@@ -758,7 +818,15 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="3"align="center"> '.$enervants.'</td>'; 
     $content .='<td colspan="2"align="center"> '.$enervants2.'</td>';     
     $content .='</tr>';
-    
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';
+        
+        
+        
+    $content .='<section >';
+    $content .='<div align="left">';     
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">';      
     $content .='<tr>';     
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>INFORMACION ADICIONAL</b></td>';
     $content .='</tr>';
@@ -804,12 +872,18 @@ $typeblood=$result['typeblood'];
     $content .='<td colspan="3"align="center"> '.$conciliation.'</td>'; 
     $content .='<td colspan="2"align="center"> '.$conciliation2.'</td>';     
     $content .='</tr>'; 
+    $content .='</table>';    
+    $content .='</div>';
+    $content .='</section>';    
         
-     $content .='<tr>';     
+    $content .='<section >';
+    $content .='<div align="left">';     
+    $content .= '<table  border="1" CELLPADDING=".5" CELLSPACING="3">'; 
+    $content .='<tr>';     
     $content .='<td colspan="10"align="center" bgcolor="lightgrey"> <b>CARACTERISTICAS FISICAS</b></td>';
     $content .='</tr>'; 
         
-         $content .='<tr>';    
+    $content .='<tr>';    
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>CARA</b></td>';
     $content .='<td colspan="2"align="center" bgcolor="lightgrey"> <b>COLOR DE PIEL</b></td>';
     $content .='<td colspan="1"align="center" bgcolor="lightgrey"> <b>COLOR DE OJOS</b></td>';
@@ -868,6 +942,8 @@ $typeblood=$result['typeblood'];
 	}
 	
 	$content .= '</table>';
+    $content .='</div>';
+    $content .='</section>';
 
     $cnt++;} 
 

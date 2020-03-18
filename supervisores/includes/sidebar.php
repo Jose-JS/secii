@@ -30,7 +30,7 @@ foreach($results as $result)
                    
                     </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php"><i class="material-icons">house</i>Dashboard</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php"><i class="material-icons">house</i>Escritorio</a></li>
                     
                     <!--<li class="no-padding"><a class="waves-effect waves-grey" href="adduser.php"><i class="material-
                     icons">user</i>Usuarios</a></li>-->

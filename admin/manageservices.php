@@ -82,6 +82,8 @@ $msg="Registro de servicio eliminado";
                                             <th>no</th>
                                             <th>Nombre del servicio</th>
                                             <th>Código de servicio</th>
+                                            <th>Dirección</th>
+                                            <th>Ubicación</th>
                                             <th>Fecha de creación</th>
                                             <th>Accion</th>
                                         </tr>
@@ -101,6 +103,8 @@ foreach($results as $result)
                                             <td> <?php echo htmlentities($cnt);?></td>
                                             <td><?php echo htmlentities($result->servicename);?></td>
                                             <td><?php echo htmlentities($result->servicecode);?></td>
+                                            <td><?php echo htmlentities($result->serviceaddress);?></td>
+                                            <td><?php echo htmlentities($result->coordinates);?></td>
                                             <td><?php echo htmlentities($result->creationdate);?></td>
                                             <td><a href="editservice.php?servid=<?php echo htmlentities($result->id);?>"><i class="material-icons">mode_edit</i></a><a href="manageservices.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Quieres borrar');"> <i class="material-icons">delete_forever</i></a></td>
                                         </tr>

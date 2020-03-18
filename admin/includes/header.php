@@ -55,29 +55,7 @@
    
 
                         </div>
-                        
-                      
-                        <ul class="right col s9 m3 nav-right-menu">
-                        
-                            <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">notifications_none</i>
-<?php 
-$isread=0;
-$sql = "SELECT id from tbldoublets where isread=0
-UNION ALL
-SELECT id from tblincidents where isread=0";
-$query = $dbh -> prepare($sql);
-$query->bindParam(':isread',$isread,PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$unreadcount=$query->rowCount();?>
-
-
-                                <span class="badge"><?php echo htmlentities($unreadcount);?></span>
-
-                            </a></li>
-                        </ul>
-                        
-                        <ul id="dropdown1" class="dropdown-content notifications-dropdown">
+                              <ul id="dropdown1" class="dropdown-content notifications-dropdown">
                             <li class="notificatoins-dropdown-container">
                                 <ul>
                                     <li class="notification-drop-title">Notificaciones</li>
@@ -115,7 +93,7 @@ $query -> execute();
                                         <div class="notification">
                                             <div class="notification-icon circle cyan"><i class="material-icons">done</i></div>
                     <div class="notification-text"><p><b><?php echo htmlentities($result->EmpId." ".$result->name." ".$result->FirstName);?>
-                                       <br/></b> creación de incidencia </p><span>a <?php echo htmlentities($result->datetime);?></b</span></div>
+                                       <br/></b> creación de incidencia </p><span>a <?php echo htmlentities($result->datetime);?></span></div>
                                         </div>
                                         </a>
                                     </li>
@@ -146,7 +124,7 @@ $query -> bindParam(':isread',$isread, PDO::PARAM_STR);
 $query -> execute();?>">
                                         <div class="notification">
                                             <div class="notification-icon circle red"><i class="material-icons">done</i></div>
-                    <div class="notification-text"><p><b><?php echo htmlentities($result->EmpId." ".$result->name." ".$result->FirstName);?><br/></b> creación de doblete </p><span>a <?php echo htmlentities($result->datetime);?></b</span></div>
+                    <div class="notification-text"><p><b><?php echo htmlentities($result->EmpId." ".$result->name." ".$result->FirstName);?><br/></b> creación de doblete </p><span>a <?php echo htmlentities($result->datetime);?></span></div>
                                         </div>
                                         </a>
                                     </li>
@@ -154,7 +132,37 @@ $query -> execute();?>">
                                                
                                    
                                   
+                        </ul></li></ul>
+                      
+                        <ul class="right col s9 m3 nav-right-menu">
+<?php 
+$isread=0;
+$sql = "SELECT id from tbldoublets where isread=0
+UNION ALL
+SELECT id from tblincidents where isread=0";
+$query = $dbh -> prepare($sql);
+$query->bindParam(':isread',$isread,PDO::PARAM_STR);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$unreadcount=$query->rowCount();
+                            if($unreadcount > 0){
+//var_dump("$undercount");                            ?>
+                           
+                                                                           
+                            <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large "><i class="material-icons">notifications_active</i>
+                                <span class="badge"><?php echo htmlentities($unreadcount);?></span>
+                            </a></li>
+                             <?php } else{?>
+                           <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large "><i class="material-icons">notifications_none</i>
+                                <span class="badge"><?php echo htmlentities($unreadcount);?></span>
+                            </a></li>
+                       
+                            <?php } ?> 
+                            
+                            
                         </ul>
+                        
+                  
                     </div>
                 </nav>
             </header>
