@@ -46,7 +46,7 @@ foreach($results as $result)
      			<!-- <li class="no-padding"><a class="waves-effect waves-grey" href="addincidents.php"><i class="material-
                     icons"></i>Incidencias</a></li>-->
 
-     			<!-- Opción de Incidencia***** 
+     			<!-- Opción de Incidencia***** -->
                     
                     <li class="no-padding">
                      <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">event</i>Incidencias<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
@@ -56,7 +56,7 @@ foreach($results as $result)
                              <li><a href="manageincidents.php">Administrar incidencia</a></li>
                          </ul>
                      </div>
-                 </li> -->
+                 </li> 
 
 
 
