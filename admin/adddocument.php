@@ -19,8 +19,7 @@ else{
 if(isset($_POST['add']))
 {
 $eid=intval($_GET['empid']);    
-$status=1;
-
+    
 $fecha2  = date("dmy");    
 $no_aleatorio2  = rand(0,100)* rand(0,100); //Generamos dos Digitos aleatorios     
 $ruta2 ='../Documentos/'.$fecha2.$no_aleatorio2.$_FILES['foto2']['name'];//Acta de nacimiento
@@ -126,10 +125,13 @@ $no_aleatorio19  = rand(0,100)* rand(0,100); //Generamos dos Digitos aleatorios
 $ruta19 ='../Documentos/'.$fecha19.$no_aleatorio19.$_FILES['foto19']['name'];//No adeudo infonavit
 opendir($ruta19);
 copy($_FILES['foto19']['tmp_name'],$ruta19);
-$nombre19=$ruta19;    
+$nombre19=$ruta19;   
+$creatoruser=$_SESSION['alogin'];
+$action=inserción;      
 
-$sql="UPDATE tblemployees SET birthcertificate=:nombre2,docadress=:nombre3,docstudies=:nombre4,docmilitary=:nombre5,docine=:nombre6,docimss=:nombre7,docrfc=:nombre8,doccurp=:nombre9,docnocriminal=:nombre10,docdebtinfona=:nombre11,sheet1=:nombre16,sheet2=:nombre17,sheet3=:nombre18,sheet4=:nombre19 where id=:eid";
+$sql="INSERT INTO tbldocument(idemp,name,namedoc,creatoruser,action)VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),(:eid,'COMPROBANTE DE DOMICILIO',:nombre3,:creatoruser,:action),(:eid,'CERTIFICADO DE ESTUDIOS',:nombre4,:creatoruser,:action),(:eid,'CARTILLA MILITAR',:nombre5,:creatoruser,:action),(:eid,'INE',:nombre6,:creatoruser,:action),(:eid,'NUMERO DE SEGURIDAD SOCIAL',:nombre7,:creatoruser,:action),(:eid,'RFC',:nombre8,:creatoruser,:action),(:eid,'CURP',:nombre9,:creatoruser,:action),(:eid,'ANTECEDENTES NO PENALES',:nombre10,:creatoruser,:action),(:eid,'CONSTANCIA DE NO ADEUDO INFONAVIT',:nombre11,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre16,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre17,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre18,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre19,:creatoruser,:action)";
 $query = $dbh->prepare($sql);  
+$query->bindParam(':eid',$eid,PDO::PARAM_STR); 
 $query->bindParam(':nombre2',$nombre2,PDO::PARAM_STR); 
 $query->bindParam(':nombre3',$nombre3,PDO::PARAM_STR); 
 $query->bindParam(':nombre4',$nombre4,PDO::PARAM_STR); 
@@ -144,14 +146,19 @@ $query->bindParam(':nombre16',$nombre16,PDO::PARAM_STR);
 $query->bindParam(':nombre17',$nombre17,PDO::PARAM_STR);
 $query->bindParam(':nombre18',$nombre18,PDO::PARAM_STR);
 $query->bindParam(':nombre19',$nombre19,PDO::PARAM_STR);
-$query->bindParam(':eid',$eid,PDO::PARAM_STR);  
+$query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);
+$query->bindParam(':action',$action,PDO::PARAM_STR);    
 
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
     
 
 $msg="Documentos de Técnico agregados con éxito";
-
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";
 
 
 }
@@ -243,7 +250,7 @@ $msg="Documentos de Técnico agregados con éxito";
 
             if (txtFoto2 == null || txtFoto2 == 0) {
                 // Si no se cumple la condicion...
-                alert('[ERROR] Por favor seleccione docuemnto (acta de nacimiento)');
+                alert('[ERROR] Por favor seleccione docuemnto (Acta de nacimiento)');
                 return false;
             } else if (txtFoto6 == null || txtFoto6 == 0) {
                 // Si no se cumple la condicion...
@@ -285,11 +292,6 @@ $msg="Documentos de Técnico agregados con éxito";
             return true;
         }
     </script>
-
-
-
-
-
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
@@ -319,15 +321,17 @@ $msg="Documentos de Técnico agregados con éxito";
                                     <div class="wizard-content">
 
                                         <h3> ARCHIVOS</h3>
+                                         <label for="foto2">LOS DOCUMENTOS Y/O IMAGENES CON UN <font color="red">*</font> SON OBLIGATORIOS.</label>
                                         <hr style="border-color:black;">
                                         <h4> DOCUMENTOS</h4>
+                                       
 
                                         <div class="row">
                                             <div class="col m6">
                                                 <div class="row">
 
                                                     <div class="input-field col s12">
-                                                        <label for="foto2">Acta de nacimiento</label><br><br>
+                                                        <label for="foto2">Acta de nacimiento <font color="red">*</font></label><br><br>
                                                         <input id="foto2" name="foto2" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
                                                     <div class="input-field col s12">
@@ -335,15 +339,15 @@ $msg="Documentos de Técnico agregados con éxito";
                                                         <input id="foto3" name="foto3" type="file" maxlength="30" autocomplete="off">
                                                     </div>
                                                     <div class="input-field col s12">
-                                                        <label for="foto6">Ine o Ife</label><br><br>
+                                                        <label for="foto6">Ine o Ife <font color="red">*</font></label><br><br>
                                                         <input id="foto6" name="foto6" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
                                                     <div class="input-field col s12">
-                                                        <label for="foto7">No. imss</label><br><br>
+                                                        <label for="foto7">No. imss <font color="red">*</font></label><br><br>
                                                         <input id="foto7" name="foto7" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
                                                     <div class="input-field col s12">
-                                                        <label for="foto10">Antecedentes no penales</label><br><br>
+                                                        <label for="foto10">Antecedentes no penales <font color="red">*</font></label><br><br>
                                                         <input id="foto10" name="foto10" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
 
@@ -354,7 +358,7 @@ $msg="Documentos de Técnico agregados con éxito";
                                             <div class="col m6">
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <label for="foto4">Certificado de estudios</label><br><br>
+                                                        <label for="foto4">Certificado de estudios <font color="red">*</font></label><br><br>
                                                         <input id="foto4" name="foto4" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
                                                     <div class="input-field col s12">
@@ -362,7 +366,7 @@ $msg="Documentos de Técnico agregados con éxito";
                                                         <input id="foto5" name="foto5" type="file" maxlength="30" autocomplete="off">
                                                     </div>
                                                     <div class="input-field col s12">
-                                                        <label for="foto8">Rfc</label><br><br>
+                                                        <label for="foto8">RFC <font color="red">*</font></label><br><br>
                                                         <input id="foto8" name="foto8" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
                                                     <div class="input-field col s12">
@@ -387,12 +391,12 @@ $msg="Documentos de Técnico agregados con éxito";
                                                 <div class="row">
 
                                                     <div class="input-field col m6 s12">
-                                                        <label for="foto16">Hoja 1</label><br><br>
+                                                        <label for="foto16">Hoja 1 <font color="red">*</font></label><br><br>
                                                         <input id="foto16" name="foto16" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
 
                                                     <div class="input-field col m6 s12">
-                                                        <label for="foto17">Hoja 2</label><br><br>
+                                                        <label for="foto17">Hoja 2 <font color="red">*</font></label><br><br>
                                                         <input id="foto17" name="foto17" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
 
@@ -403,12 +407,12 @@ $msg="Documentos de Técnico agregados con éxito";
                                             <div class="col m6">
                                                 <div class="row">
                                                     <div class="input-field col m6 s12">
-                                                        <label for="foto18">Hoja 3</label><br><br>
+                                                        <label for="foto18">Hoja 3 <font color="red">*</font></label><br><br>
                                                         <input id="foto18" name="foto18" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
 
                                                     <div class="input-field col m6 s12">
-                                                        <label for="foto19">Hoja 4</label><br><br>
+                                                        <label for="foto19">Hoja 4 <font color="red">*</font></label><br><br>
                                                         <input id="foto19" name="foto19" type="file" maxlength="30" autocomplete="off" required>
                                                     </div>
 
@@ -419,7 +423,7 @@ $msg="Documentos de Técnico agregados con éxito";
                                         <!--<input type="button" name="previous" class="previous btn btn-default" value="Anterior" /><br>-->
                                         <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">Guardar</button>
                                         </fieldset>
-                                        	<button id="firmame">Firma</button>
+                 
 
                                 </section>
 
@@ -441,7 +445,6 @@ $msg="Documentos de Técnico agregados con éxito";
     <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
     <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
     <script src="../assets/js/alpha.min.js"></script>
-    <script src="../assets/js/pages/form_elements.js"></script>
 
 </body>
 

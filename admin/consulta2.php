@@ -956,7 +956,7 @@ $typeblood=$result['typeblood'];
     	
 	';
       	$pdf->addPage(); 
-	ob_end_clean();
+	ob_end_clean(); //ESTA LINEA SE COMENTA EN PRODUCCION//
     //$pdf->Image('../lib/reportes/logopdf.png', 55, 90, 100, '', '', '', '', false, 300);
 	$pdf->writeHTML($content, true, 0, true, 0);
     //$pdf->Image('../lib/reportes/logopdf.png', 55, 90, 100, '', '', '', '', false, 300);

@@ -1,8 +1,9 @@
 <?php
 session_start();
+//error_reporting(E_ALL);
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
+if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
 }
@@ -14,7 +15,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>Admin | Dashboard</title>
+        <title>Supervisores | Escritorio</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -39,7 +40,6 @@ else{
             
        <?php include('includes/sidebar.php');?>
 
-        <CENTER><h1>BIENVENIDOS SUPERVISORES</h1></CENTER>
 
         
         

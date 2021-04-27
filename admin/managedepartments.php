@@ -33,6 +33,7 @@ $msg="Registro de departamento eliminado";
         <meta name="author" content="Steelcoders" />
         
         <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="../assets/css/responsive.dataTables.min.css" />
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
@@ -75,14 +76,13 @@ $msg="Registro de departamento eliminado";
                             <div class="card-content">
                                 <span class="card-title">Información de Puestos</span>
                                  <?php if($msg){?><div class="succWrap content"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                <table id="example" class="display responsive-table ">
+                                <table id="example" class="display responsive nowrap" width="100%">
                                     <thead>
                                         <tr>
                                             <th>No </th>
                                             <th>Nombre del Puesto</th>
                                             <th>Nombre corto del Puesto</th>
                                             <th>Código de Puesto</th>
-                                            <th>Fecha de creación</th>
                                             <th>Accion</th>
                                         </tr>
                                     </thead>
@@ -102,7 +102,6 @@ foreach($results as $result)
                                             <td><?php echo htmlentities($result->DepartmentName);?></td>
                                             <td><?php echo htmlentities($result->DepartmentShortName);?></td>
                                             <td><?php echo htmlentities($result->DepartmentCode);?></td>
-                                            <td><?php echo htmlentities($result->CreationDate);?></td>
                                             <td><a href="editdepartment.php?deptid=<?php echo htmlentities($result->id);?>"><i class="material-icons">mode_edit</i></a><a href="managedepartments.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Quieres borrar');"> <i class="material-icons">delete_forever</i></a></td>
                                         </tr>
                                          <?php $cnt++;} }?>
@@ -124,6 +123,7 @@ foreach($results as $result)
         <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
         <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
         <script src="../assets/js/alpha.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
         <script src="../assets/js/pages/table-data.js"></script>
                   <script type="text/javascript">
 $(document).ready(function() {

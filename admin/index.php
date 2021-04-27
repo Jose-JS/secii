@@ -1,10 +1,12 @@
 <?php
 session_start();
+
 include('includes/config.php');
 if(isset($_POST['signin']))
 {
 $uname=$_POST['username'];
 $password=md5($_POST['password']);
+$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 $sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
@@ -13,6 +15,11 @@ $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
+$sql2="INSERT INTO tblsesions(user,ip) VALUES(:uname,:ip)";
+$query2= $dbh->prepare($sql2);
+$query2->bindParam(':uname',$uname,PDO::PARAM_STR);
+$query2->bindParam(':ip',$ip,PDO::PARAM_STR);
+$query2->execute();  
 $_SESSION['alogin']=$_POST['username'];
 echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 } else{
@@ -27,6 +34,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         
         <!-- Title -->
@@ -44,12 +52,13 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../assets/plugins/particles/css/style.css">
         <!--<link rel="Shortcut Icon" href="../../sim/assets/images/favicon.ico" type="image/x-icon" />-->
     </head>
-    <body class="signin-page">
-
-        <div class="mn-content valign-wrapper">
-
+    <body  class="signin-page">
+   <div id="particles-js"></div>
+        <div  class="mn-content valign-wrapper">
+            
             <main class="mn-inner container">
   <h4 align="center"><a href="../index.php" bgcolor="white">Administrador</a></h4>
                 <div class="valign">
@@ -89,6 +98,11 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
         <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
         <script src="../assets/js/alpha.min.js"></script>
+           <!--    particulas   -->   
+    <script src="../assets/plugins/particles/js/particles.js"></script>   
+    <script src="../assets/plugins/particles/js/lib/stats.js"></script>     
+    <script src="../assets/plugins/particles/js/app.js"></script>
+
         
     </body>
 </html>

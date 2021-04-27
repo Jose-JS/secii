@@ -180,7 +180,7 @@ body:not(.loaded) .mn-content {
 .mn-header {
     z-index: 999;
     height: 60px!important;
-}
+6
 
 .header-title {
     font-size: 15px;
@@ -1329,6 +1329,7 @@ nav .nav-wrapper ul li span.badge {
     color: #555;
     line-height: 37px;
     text-transform: uppercase;
+   
 }
 
 .page-title-buttons {
@@ -1814,7 +1815,7 @@ li.active .nav-drop-icon {
     display: block;
     margin-bottom: 20px;
     text-transform: uppercase;
-    color: rgba(0,0,0,0.54);
+    color: rgba(0, 0, 0, .6);
 }
 
 .card .card-image .card-title {
@@ -2411,10 +2412,12 @@ blockquote {
 .search-container .card-content,
 .search-container .card-action {
     padding: 20px 20px 20px 0;
+	
 }
 
 .search-container .card-content.first {
     padding-top: 0px;
+	
 }
 
 .res-not-found {
@@ -2431,7 +2434,7 @@ blockquote {
     float: left;
     font-size: 24px;
     font-weight: 400;
-    color: rgba(0,0,0,0.6);
+    color: rgba(0, 0, 0, .6);
     margin-bottom: 0px!important;
     display: block;
 }
@@ -2478,6 +2481,7 @@ blockquote {
     z-index: 2;
     position: relative;
     overflow: hidden;
+	
 }
 
 .stats-card .percent-info {
@@ -2665,6 +2669,7 @@ input.expand-search[type=text]:focus:not([readonly]), input.expand-search[type=p
 
 .grid-showcase .card-content {
     padding: 20px 0;
+	
 }
 
 
@@ -3617,7 +3622,7 @@ body.search-app .search-input input:-ms-input-placeholder {
 .signin-page {
     height: 100%;
     width: 100%;
-    background: url('../images/f1.png') no-repeat;
+    background: url('../images/3474978%20Degradado%20(1).jpg') no-repeat;
     background-size: cover;
 }
 
@@ -3752,6 +3757,7 @@ body.mailbox .page-footer {
 
 .card.mailbox-content .card-content {
     padding: 0;
+
 }
 
 .mailbox-content .row {

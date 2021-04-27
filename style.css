@@ -1,0 +1,297 @@
+	.contenedor {
+		position: absolute;
+		top: 270px;
+		left: 125px;
+	}
+
+	/*Departamento o Puesto*/
+	.p1 {
+		font-size: 13px;
+		position: absolute;
+		top: 380px;
+		left: 137px;
+		color: #FFF;
+		stroke: #000;
+	}
+
+	/*Nombre*/
+	.p2 {
+		font-size: 11px;
+		position: absolute;
+		top: 400px;
+		left: 137px;
+		color: #FFF;
+	}
+
+	/*Curp*/
+	.p3 {
+		font-size: 9px;
+		position: absolute;
+		top: 416.5px;
+		left: 137px;
+		color: #FFF;
+	}
+
+	/*RFC*/
+	.p4 {
+		font-size: 9px;
+		position: absolute;
+		top: 416.5px;
+		left: 300px;
+		color: #FFF;
+	}
+
+	/*Tipo de sangre*/
+	.p5 {
+		font-size: 9px;
+		position: absolute;
+		top: 425px;
+		left: 137px;
+		color: #FFF;
+	}
+
+	/*Fecha emision*/
+	.p6 {
+		font-size: 8px;
+		position: absolute;
+		top: 434px;
+		left: 137px;
+		color: #FFF;
+	}
+
+	/*Vigencia*/
+	.p7 {
+		font-size: 8px;
+		position: absolute;
+		top: 442px;
+		left: 137px;
+		color: #FFF;
+	}
+
+	/*imagen*/
+	.imgg {
+		border-radius: 100px;
+		position: absolute;
+		top: 280px;
+		left: 135px;
+	}
+
+	/*imagen LOGO*/
+	.contenedor2 {
+
+		top: 500px;
+		left: 200px;
+	}
+
+	/*/////////////OIFSI////////////////////*/
+
+	.contenedoroifsi {
+		position: absolute;
+		top: 265px;
+		left: 122px;
+	}
+
+	/*Departamento o Puesto*/
+	.p8 {
+		font-size: 13px;
+		position: absolute;
+		top: 381px;
+		left: 172px;
+		color: #FFF;
+		border-color: black;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+
+	}
+
+	/*Nombre*/
+	.p9 {
+		font-size: 11px;
+		position: absolute;
+		top: 390px;
+		left: 134px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Curp*/
+	.p10 {
+		font-size: 9px;
+		position: absolute;
+		top: 402px;
+		left: 137px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*RFC*/
+	.p11 {
+		font-size: 9px;
+		position: absolute;
+		top: 402px;
+		left: 300px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Tipo de sangre*/
+	.p12 {
+		font-size: 9px;
+		position: absolute;
+		top: 411px;
+		left: 137px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Fecha emision*/
+	.p13 {
+		font-size: 8px;
+		position: absolute;
+		top: 420px;
+		left: 137px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Vigencia*/
+	.p14 {
+		font-size: 8px;
+		position: absolute;
+		top: 428px;
+		left: 137px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*imagen*/
+	.imgg2 {
+		border-radius: 100px;
+		position: absolute;
+		top: 302px;
+		left: 149px;
+	}
+
+	/*/////////////ASLO////////////////////*/
+
+	/*Departamento o Puesto*/
+
+	.p15 {
+		font-size: 13px;
+		position: absolute;
+		top: 353px;
+		left: 245px;
+		color: #FFF;
+		border-color: black;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+
+	}
+
+	/*Nombre*/
+	.p16 {
+		font-size: 11px;
+		position: absolute;
+		top: 372px;
+		left: 149px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Curp*/
+	.p17 {
+		font-size: 9px;
+		position: absolute;
+		top: 384px;
+		left: 149px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*RFC*/
+	.p18 {
+		font-size: 9px;
+		position: absolute;
+		top: 383px;
+		left: 300px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Tipo de sangre*/
+	.p19 {
+		font-size: 9px;
+		position: absolute;
+		top: 393x;
+		left: 149px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Fecha emision*/
+	.p20 {
+		font-size: 8px;
+		position: absolute;
+		top: 403px;
+		left: 149px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*Vigencia*/
+	.p21 {
+		font-size: 8px;
+		position: absolute;
+		top: 412px;
+		left: 149px;
+		color: #FFF;
+		text-shadow: 1px 0px 0px black,
+			0px 1px 0px black,
+			-1px 0px 0px black,
+			0px -1px 0px black;
+	}
+
+	/*imagen*/
+	.imgg3 {
+		border-radius: 100px;
+		position: absolute;
+		top: 296px;
+		left: 149px;
+	}

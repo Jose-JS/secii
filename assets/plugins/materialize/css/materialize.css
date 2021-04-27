@@ -3555,6 +3555,7 @@ input[type=range] + .thumb {
   right: auto;
 }
 
+
 .row .col.offset-s1 {
   margin-left: 8.3333333333%;
 }
@@ -4250,7 +4251,7 @@ nav .input-field label.active {
     line-height: 64px;
   }
   .navbar-fixed {
-    height: 64px;
+    height: 56px;
   }
 }
 

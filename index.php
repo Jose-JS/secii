@@ -54,6 +54,7 @@ else{
         <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+       
 
 
     
@@ -62,6 +63,8 @@ else{
         <!-- Theme Styles -->
         <link href="assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+         <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+         <link rel="stylesheet" href="assets/plugins/particles/css/style.css">
 <style>
         .errorWrap {
     padding: 10px;
@@ -141,7 +144,7 @@ else{
                             </a>
                         </section>
                         <div class="header-title col s3">
-                            <span class="chapter-title">sistema</span>
+                        <!--    <span class="chapter-title">sistema</span>-->
                         </div>
 
 
@@ -158,23 +161,42 @@ else{
 
 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" style="">
-                    <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Logueo de Técnico</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i> recuperar contraseña</a></li>
-
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Logueo administrador</a></li>
+                    
+                    <!--<li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Logueo de Técnico</a></li>-->
+                    <!--<li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i> recuperar contraseña</a></li>-->
+                        <?php 
+					$id=$_GET['id'];
+					//var_dump($id);
+					if($id=='administrator'){?>
+					   <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">admin_panel_settings</i>Acceso Administrador</a></li>
+					
+				<?php	}else{?>
+                    
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">admin_panel_settings</i>Acceso Administrador</a></li>
+					
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="administracion/"><i class="material-icons">login</i>Acceso Administración</a></li>
                        
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="supervisores/"><i class="material-icons">account_box</i>Logueo supervisores</a></li>
-
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="supervisores/"><i class="material-icons">login</i>Acceso Supervisores</a></li>
+                       
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="recursoshumanos/"><i class="material-icons">login</i>Acceso Recursos Humanos</a></li>
+                       
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="cimo/"><i class="material-icons">login</i>Acceso C.I.M.O.</a></li>
+                    
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="clientes/"><i class="material-icons">login</i>Acceso Clientes</a></li>
+                      
+                      
+                      
+ <?php }?>
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="">sistema</a>©</p>
+                    <p class="copyright"><a href="">SECII</a>©</p>
 
                 </div>
                 </div>
             </aside>
             <main class="mn-inner">
-                <div class="row">
+                <div id="particles-js"></div>
+                <!--<div class="row">
                     <div class="col s12">
                         <div class="page-title"><h4>Bienvenido al sistema </h4></div>
 
@@ -193,10 +215,11 @@ else{
                                                <div class="input-field col s12">
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
                                                    <label for="password">contraseña</label>
-                                               </div>
+                                               </div><div class="shake-slow">
                                                <div class="col s12 right-align m-t-sm">
 
-                                                   <input type="submit" name="signin" value="Sign in" class="waves-effect waves-light btn teal">
+                                                   <input type="submit" name="signin" value="Sign in" class="waves-effect waves-light btn teal ">
+                                               </div>
                                                </div>
                                            </form>
                                       </div>
@@ -204,7 +227,7 @@ else{
                               </div>
                           </div>
                     </div>
-                </div>
+                </div>-->
             </main>
 
         </div>
@@ -216,6 +239,10 @@ else{
         <script src="assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
         <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
         <script src="assets/js/alpha.min.js"></script>
+         <!--    particulas   -->   
+    <script src="assets/plugins/particles/js/particles.js"></script>   
+    <script src="assets/plugins/particles/js/lib/stats.js"></script>     
+    <script src="assets/plugins/particles/js/app.js"></script>
 
     </body>
 </html>

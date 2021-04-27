@@ -1,0 +1,6 @@
+	body {
+		background: url(../assets/images/logot.png) no-repeat center;
+		/*background-image-resolution:300dpi;
+ background-image-resize:6;*/
+		filter: alpha(opacity=50);
+	}

@@ -12,15 +12,24 @@ if(isset($_POST['update']))
 $did=intval($_GET['deptid']);    
 $deptname=$_POST['departmentname'];
 $deptshortname=$_POST['departmentshortname'];
-$deptcode=$_POST['deptcode'];   
-$sql="update tbldepartments set DepartmentName=:deptname,DepartmentCode=:deptcode,DepartmentShortName=:deptshortname where id=:did";
+$deptcode=$_POST['deptcode'];
+$creatoruser=$_SESSION['alogin'];
+$action=inserción;    
+$sql="update tbldepartments set DepartmentName=:deptname,DepartmentCode=:deptcode,DepartmentShortName=:deptshortname,creatoruser=:creatoruser,action=:action where id=:did";
 $query = $dbh->prepare($sql);
 $query->bindParam(':deptname',$deptname,PDO::PARAM_STR);
 $query->bindParam(':deptcode',$deptcode,PDO::PARAM_STR);
 $query->bindParam(':deptshortname',$deptshortname,PDO::PARAM_STR);
+$query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);
+$query->bindParam(':action',$action,PDO::PARAM_STR);    
 $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
 $msg="Departamento actualizado con éxito";
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";    
 }
 
     ?>
@@ -79,7 +88,7 @@ $msg="Departamento actualizado con éxito";
                                 <div class="row">
                                     <form class="col s12" name="chngpwd" method="post">
                                           <?php if($error){?><div class="errorWrap content"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-                else if($msg){?><div class="succWrap content"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
+                else if($msg){?><div class="succWrap content"><strong>ÉXITO</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
 <?php 
 $did=intval($_GET['deptid']);
 $sql = "SELECT * from tbldepartments WHERE id=:did";

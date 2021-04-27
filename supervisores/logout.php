@@ -8,8 +8,7 @@ if (ini_get("session.use_cookies")) {
         $params["secure"], $params["httponly"]
     );
 }
-unset($_SESSION['alogin']);
+unset($_SESSION['supervisor']);
 session_destroy(); // destroy session
 header("location:../index.php"); 
 ?>
-

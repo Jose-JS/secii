@@ -12,20 +12,35 @@ if(isset($_POST['add']))
 $deptname=$_POST['departmentname'];
 $deptshortname=$_POST['departmentshortname'];
 $deptcode=$_POST['deptcode'];   
-$sql="INSERT INTO tbldepartments(DepartmentName,DepartmentCode,DepartmentShortName) VALUES(:deptname,:deptcode,:deptshortname)";
+$creatoruser=$_SESSION['alogin'];
+$action=inserción;
+    
+$sql="INSERT INTO tbldepartments(DepartmentName,DepartmentCode,DepartmentShortName,creatoruser,action) VALUES(:deptname,:deptcode,:deptshortname,:creatoruser,:action)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':deptname',$deptname,PDO::PARAM_STR);
 $query->bindParam(':deptcode',$deptcode,PDO::PARAM_STR);
 $query->bindParam(':deptshortname',$deptshortname,PDO::PARAM_STR);
+$query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);
+$query->bindParam(':action',$action,PDO::PARAM_STR);    
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
 $msg="Puesto creado con éxito";
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";    
 }
 else 
 {
 $error="Algo salió mal. Inténtalo de nuevo";
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";    
 }
   
 }
@@ -141,7 +156,6 @@ $error="Algo salió mal. Inténtalo de nuevo";
         <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
         <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
         <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/form_elements.js"></script>
                 <script type="text/javascript">
 $(document).ready(function() {
     setTimeout(function() {

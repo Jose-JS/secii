@@ -21,6 +21,9 @@ $lastname=$_POST['lastname'];
 $user=$_POST['user'];
 
 $password=$_POST['password'];
+    
+$creatoruser=$_SESSION['alogin'];
+$action=inserción;    
 
 
 $fecha2  = date("dmy");    
@@ -31,9 +34,28 @@ move_uploaded_file($_FILES['image']['tmp_name'],"$ruta2");
 $nombre2=$ruta2; 
     
 $kind=$_POST['kind'];
-  
     
-$sql="INSERT INTO tblusers(empid,name,firstname,lastname,user,password,image,kind) VALUES(:empid,:name,:firstname,:lastname,:user,:password,:nombre2,:kind)";
+$sql1 = "SELECT * from  tblusers where user='$user'";
+$query = $dbh -> prepare($sql1);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{
+ 
+$error="El usuario ya existe";    
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";    
+}}
+    
+    
+    else{
+$sql="INSERT INTO tblusers(empid,name,firstname,lastname,user,password,image,kind,creatoruser,action) VALUES(:empid,:name,:firstname,:lastname,:user,:password,:nombre2,:kind,:creatoruser,:action)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':empid',$empid,PDO::PARAM_STR);
 $query->bindParam(':name',$name,PDO::PARAM_STR);
@@ -42,18 +64,31 @@ $query->bindParam(':lastname',$lastname,PDO::PARAM_STR);
 $query->bindParam(':user',$user,PDO::PARAM_STR);    
 $query->bindParam(':password',$password,PDO::PARAM_STR);    
 $query->bindParam(':nombre2',$nombre2,PDO::PARAM_STR);    
-$query->bindParam(':kind',$kind,PDO::PARAM_STR);    
+$query->bindParam(':kind',$kind,PDO::PARAM_STR);
+$query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);
+$query->bindParam(':action',$action,PDO::PARAM_STR);        
+    
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
 $msg="Usuario creado con éxito";
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";        
 }
 else 
 {
 $error="Algo salió mal. Inténtalo de nuevo";
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";       
 }
-
+}
 }
 
     ?>
@@ -123,8 +158,14 @@ $error="Algo salió mal. Inténtalo de nuevo";
                                                 <label for="name">Matrícula</label>
                                             </div>
                                              <div class="input-field col s12">
-<input id="kind" type="text"  class="validate" autocomplete="off" name="kind"  required>
-                                                <label for="name">Tipo</label>
+<select id="kind" name="kind" tabindex="2" autocomplete="off" required>
+<option value="">Tipo</option>
+                                  
+<option value="administrativo">adminitrativo</option>
+<option value="operativo">operativo</option>
+<option value="supervisor">supervisor</option>
+
+</select>
                                             </div>
                                            
                                            
@@ -149,7 +190,7 @@ $error="Algo salió mal. Inténtalo de nuevo";
                                             </div>
                                             
                                               <div class="input-field col s12">
- <input id="password" type="text" name="password" class="validate" autocomplete="off" required>
+ <input id="password" type="password" name="password" class="validate" autocomplete="off" required>
                                                 <label for="password">Contraseña</label>
                                             </div>
                                             
@@ -163,7 +204,7 @@ $error="Algo salió mal. Inténtalo de nuevo";
 
 
 <div class="input-field col s12">
-<button type="submit" name="add" class="waves-effect waves-light btn indigo m-b-xs">AÑADIR</button>
+<button type="submit" name="add" class="waves-effect waves-light btn indigo m-b-xs">GUARDAR</button>
 
 </div>
 
@@ -194,7 +235,6 @@ $error="Algo salió mal. Inténtalo de nuevo";
         <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
         <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
         <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/form_elements.js"></script>
                 <script type="text/javascript">
 $(document).ready(function() {
     setTimeout(function() {

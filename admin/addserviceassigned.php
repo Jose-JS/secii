@@ -13,21 +13,35 @@ $servicename=$_POST['servicename'];
 $servicecode=$_POST['servicecode'];
 $serviceaddress=$_POST['serviceaddress'];
 $coordinates=$_POST['coordinates'];
-$sql="INSERT INTO tblserviceassigned(servicename,servicecode,serviceaddress,coordinates) VALUES(:servicename,:servicecode,:serviceaddress,:coordinates)";
+$creatoruser=$_SESSION['alogin'];
+$action=inserción;    
+$sql="INSERT INTO tblserviceassigned(servicename,servicecode,serviceaddress,coordinates,creatoruser,action) VALUES(:servicename,:servicecode,:serviceaddress,:coordinates,:creatoruser,:action)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':servicename',$servicename,PDO::PARAM_STR);
 $query->bindParam(':servicecode',$servicecode,PDO::PARAM_STR);
 $query->bindParam(':serviceaddress',$serviceaddress,PDO::PARAM_STR);    
 $query->bindParam(':coordinates',$coordinates,PDO::PARAM_STR);    
+$query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);    
+$query->bindParam(':action',$action,PDO::PARAM_STR);        
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
 $msg="Servicio creado con éxito";
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";     
 }
 else 
 {
 $error="Algo salió mal. Inténtalo de nuevo";
+echo "<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>";     
 }
 
 }
@@ -142,8 +156,10 @@ $error="Algo salió mal. Inténtalo de nuevo";
 
     </main>
 
-    <div id="map" align="center">aedfsdgsfgsf</div>
-
+                
+                   
+    
+<div id="map" class="row col s12 m12 l6" align="center">aedfsdgsfgsf</div>
 
 
     <div class="left-sidebar-hover"></div>
@@ -155,7 +171,6 @@ $error="Algo salió mal. Inténtalo de nuevo";
     <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
     <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
     <script src="../assets/js/alpha.min.js"></script>
-    <script src="../assets/js/pages/form_elements.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {

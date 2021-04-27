@@ -3,7 +3,11 @@
 .modal .modal-content h4,
 .page-title,
 .stats-info h5 {
-    text-transform: uppercase
+    text-transform: uppercase;
+             text-shadow: 1px  0px 0px white,
+               0px  1px 0px white,
+              -1px  0px 0px white,
+               0px -1px 0px white;
 }
 
 .mn-content,
@@ -25,9 +29,35 @@ html {
 }
 
 body {
-    background-color: #F4F4F4;   /* Color General del Fondo */
-    overflow-y: auto !important;
-    overflow-x: hidden
+    
+    background-image:url("../images/3474978%20Degradado%20(1).jpg"); /* Color General del Fondo */
+/* Ubicación de la imagen */
+
+
+/* Para dejar la imagen de fondo centrada, vertical y
+
+horizontalmente */
+
+background-position: center center;
+
+/* Para que la imagen de fondo no se repita */
+
+background-repeat: no-repeat;
+
+/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+background-attachment: fixed;
+
+/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+
+background-size: cover;
+
+/* Se muestra un color de fondo mientras se está cargando la imagen
+
+de fondo o si hay problemas para cargarla */
+
+background-color: #66999;
+        
 }
 
 a {
@@ -519,7 +549,7 @@ nav .nav-wrapper ul li span.badge {
 }
 
 .notificatoins-dropdown-container {
-    width: 300px !important;
+    width: 365px !important;
     max-height: 420px;
     overflow-y: auto;
     padding: 5px 0;
@@ -2345,6 +2375,7 @@ blockquote {
     z-index: 2;
     position: relative;
     overflow: hidden
+		
 }
 
 .stats-card .percent-info {
@@ -3617,7 +3648,7 @@ body.search-app .search-input input:-ms-input-placeholder {
 .signin-page {
     height: 100%;
     width: 100%;
-    background: url(../images/f1.png) no-repeat;
+    background: url('../images/3474978%20Degradado%20(1).jpg') no-repeat;
     background-size: cover
 }
 
