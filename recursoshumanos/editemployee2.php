@@ -153,6 +153,11 @@ if (strlen($_SESSION['recursos']) == 0) {
 		$operation2 = $_POST['operation2'];
 		$enervants = $_POST['enervants'];
 		$enervants2 = $_POST['enervants2'];
+		$incapacitado = $_POST['incapacitado'];
+		$incapacitado2 = $_POST['incapacitado2'];
+		$ingresomensual = $_POST['ingresomensual'];
+		$ingresomensual2 = $_POST['ingresomensual2'];
+		$ingresomensual3 = $_POST['ingresomensual3'];
 		$activities = $_POST['activities'];
 		$people = $_POST['people'];
 		$valuesperson = $_POST['valuesperson'];
@@ -190,7 +195,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 		$action = 'modificación';
 		$fechaingreso = $_POST['fechaingreso'];
 		$fechacapacitacion = $_POST['fechacapacitacion'];
-		$sql = "UPDATE tblemployees SET name=:name,FirstName=:fname,LastName=:lname,EmailId=:email,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,suburb=:suburb,Phonenumber=:mobileno,placebirth=:placebirth,nationality=:nationality,age=:age,marital=:marital,ife=:ife,curp=:curp,rfc=:rfc,imss=:imss,infonavit=:infonavit,infonavitmon=:infonavitmon,fonacot=:fonacot,fonacotmon=:fonacotmon,typelicence=:typelicence,military=:military,phonelocal=:phonelocal,phonerecado=:phonerecado,dependent=:dependent,dependentname=:dependentname,dependentrelation=:dependentrelation,dependentage=:dependentage,dependentname2=:dependentname2,dependentrelation2=:dependentrelation2,dependentage2=:dependentage2,dependentname3=:dependentname3,dependentrelation3=:dependentrelation3,dependentage3=:dependentage3,dependentname4=:dependentname4,dependentrelation4=:dependentrelation4,dependentage4=:dependentage4,dependentname5=:dependentname5,dependentrelation5=:dependentrelation5,dependentage5=:dependentage5,cp=:cp,fechini=:fechini,primaryname=:primaryname,primaryadress=:primaryadress,primarydocument=:primarydocument,highschoolname=:highschoolname,highschooladress=:highschooladress,highschooldocument=:highschooldocument,schoolname=:schoolname,schooladress=:schooladress,schooldocument=:schooldocument,universityname=:universityname,universityadress=:universityadress,universitydocument=:universitydocument,companyname=:companyname,companyadress=:companyadress,companyphone=:companyphone,companyjob=:companyjob,timework=:timework,reasonexit=:reasonexit,companyname2=:companyname2,companyadress2=:companyadress2,companyphone2=:companyphone2,companyjob2=:companyjob2,timework2=:timework2,reasonexit2=:reasonexit2,companyname3=:companyname3,companyadress3=:companyadress3,companyphone3=:companyphone3,companyjob3=:companyjob3,timework3=:timework3,reasonexit3=:reasonexit3,familyname=:familyname,relationship=:relationship,yearshim=:yearshim,familyphone=:familyphone,familyname2=:familyname2,relationship2=:relationship2,yearshim2=:yearshim2,familyphone2=:familyphone2,personalname=:personalname,personalyears=:personalyears,personalphone=:personalphone,personaladress=:personaladress,personalname2=:personalname2,personalyears2=:personalyears2,personalphone2=:personalphone2,personaladress2=:personaladress2,previous=:previous,required=:required,offered=:offered,incomeextra=:incomeextra,incomedesc=:incomedesc,yearsliving=:yearsliving,activities=:activities,people=:people,valueperson=:valuesperson,defect=:defect,observations=:observations,weight=:weight,stature=:stature,typeblood=:typeblood,homex1=:homex1,homex2=:homex2,articulo=:selected,glasses=:glasses,glasses2=:glasses2,chronic=:chronic,chronic2=:chronic2,operation=:operation,operation2=:operation2,enervants=:enervants,enervants2=:enervants2,sport=:sport,sport2=:sport2,politic=:politic,politic2=:politic2,syndicate=:syndicate,syndicate2=:syndicate2,conciliation=:conciliation,conciliation2=:conciliation2,face=:face,skincolor=:skincolor,eyecolor=:eyecolor,kindeyes=:kindeyes,haircolor=:haircolor,complexion=:complexion,tattoo=:tattoo,tattoo2=:tattoo2,tattoo3=:tattoo3,piercing=:piercing,piercing2=:piercing2,piercing3=:piercing3,company=:company,creatoruser=:creatoruser,action=:action,banco=:banco,nocuenta=:nocuenta,clabeint=:clabeint,sueldonet=:sueldonet,debts=:debts,debtscell=:debtscell,pantry=:pantry,transport=:transport,maintenance=:maintenance,paymentschool=:paymentschool,medicalservices=:medicalservices,clothes=:clothes,otherexpenses=:otherexpenses,overall=:overall,fechaingreso=:fechaingreso,fechacapacitacion=:fechacapacitacion where id=:eid";
+		$sql = "UPDATE tblemployees SET name=:name,FirstName=:fname,LastName=:lname,EmailId=:email,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,suburb=:suburb,Phonenumber=:mobileno,placebirth=:placebirth,nationality=:nationality,age=:age,marital=:marital,ife=:ife,curp=:curp,rfc=:rfc,imss=:imss,infonavit=:infonavit,infonavitmon=:infonavitmon,fonacot=:fonacot,fonacotmon=:fonacotmon,typelicence=:typelicence,military=:military,phonelocal=:phonelocal,phonerecado=:phonerecado,dependent=:dependent,dependentname=:dependentname,dependentrelation=:dependentrelation,dependentage=:dependentage,dependentname2=:dependentname2,dependentrelation2=:dependentrelation2,dependentage2=:dependentage2,dependentname3=:dependentname3,dependentrelation3=:dependentrelation3,dependentage3=:dependentage3,dependentname4=:dependentname4,dependentrelation4=:dependentrelation4,dependentage4=:dependentage4,dependentname5=:dependentname5,dependentrelation5=:dependentrelation5,dependentage5=:dependentage5,cp=:cp,fechini=:fechini,primaryname=:primaryname,primaryadress=:primaryadress,primarydocument=:primarydocument,highschoolname=:highschoolname,highschooladress=:highschooladress,highschooldocument=:highschooldocument,schoolname=:schoolname,schooladress=:schooladress,schooldocument=:schooldocument,universityname=:universityname,universityadress=:universityadress,universitydocument=:universitydocument,companyname=:companyname,companyadress=:companyadress,companyphone=:companyphone,companyjob=:companyjob,timework=:timework,reasonexit=:reasonexit,companyname2=:companyname2,companyadress2=:companyadress2,companyphone2=:companyphone2,companyjob2=:companyjob2,timework2=:timework2,reasonexit2=:reasonexit2,companyname3=:companyname3,companyadress3=:companyadress3,companyphone3=:companyphone3,companyjob3=:companyjob3,timework3=:timework3,reasonexit3=:reasonexit3,familyname=:familyname,relationship=:relationship,yearshim=:yearshim,familyphone=:familyphone,familyname2=:familyname2,relationship2=:relationship2,yearshim2=:yearshim2,familyphone2=:familyphone2,personalname=:personalname,personalyears=:personalyears,personalphone=:personalphone,personaladress=:personaladress,personalname2=:personalname2,personalyears2=:personalyears2,personalphone2=:personalphone2,personaladress2=:personaladress2,previous=:previous,required=:required,offered=:offered,incomeextra=:incomeextra,incomedesc=:incomedesc,yearsliving=:yearsliving,activities=:activities,people=:people,valueperson=:valuesperson,defect=:defect,observations=:observations,weight=:weight,stature=:stature,typeblood=:typeblood,homex1=:homex1,homex2=:homex2,articulo=:selected,glasses=:glasses,glasses2=:glasses2,chronic=:chronic,chronic2=:chronic2,operation=:operation,operation2=:operation2,enervants=:enervants,enervants2=:enervants2,sport=:sport,sport2=:sport2,politic=:politic,politic2=:politic2,syndicate=:syndicate,syndicate2=:syndicate2,conciliation=:conciliation,conciliation2=:conciliation2,face=:face,skincolor=:skincolor,eyecolor=:eyecolor,kindeyes=:kindeyes,haircolor=:haircolor,complexion=:complexion,tattoo=:tattoo,tattoo2=:tattoo2,tattoo3=:tattoo3,piercing=:piercing,piercing2=:piercing2,piercing3=:piercing3,company=:company,creatoruser=:creatoruser,action=:action,banco=:banco,nocuenta=:nocuenta,clabeint=:clabeint,sueldonet=:sueldonet,debts=:debts,debtscell=:debtscell,pantry=:pantry,transport=:transport,maintenance=:maintenance,paymentschool=:paymentschool,medicalservices=:medicalservices,clothes=:clothes,otherexpenses=:otherexpenses,overall=:overall,fechaingreso=:fechaingreso,fechacapacitacion=:fechacapacitacion,ingresomensual=:ingresomensual,ingresomensual2=:ingresomensual2,ingresomensual3=:ingresomensual3,incapacitado=:incapacitado,incapacitado2=:incapacitado2 where id=:eid";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':name', $name, PDO::PARAM_STR);
 		$query->bindParam(':fname', $fname, PDO::PARAM_STR);
@@ -349,6 +354,11 @@ if (strlen($_SESSION['recursos']) == 0) {
 		$query->bindParam(':overall', $overall, PDO::PARAM_STR);
 		$query->bindParam(':fechaingreso', $fechaingreso, PDO::PARAM_STR);
 		$query->bindParam(':fechacapacitacion', $fechacapacitacion, PDO::PARAM_STR);
+		$query->bindParam(':ingresomensual', $ingresomensual, PDO::PARAM_STR);
+		$query->bindParam(':ingresomensual2', $ingresomensual2, PDO::PARAM_STR);
+		$query->bindParam(':ingresomensual3', $ingresomensual3, PDO::PARAM_STR);
+		$query->bindParam(':incapacitado', $incapacitado, PDO::PARAM_STR);
+		$query->bindParam(':incapacitado2', $incapacitado2, PDO::PARAM_STR);
 		$query->bindParam(':eid', $eid, PDO::PARAM_STR);
 
 		$query->execute();
@@ -1352,13 +1362,17 @@ if (strlen($_SESSION['recursos']) == 0) {
 														</div>
 														<div class="col m6">
 															<div class="row">
-																<div class="input-field col  s12">
+																<div class="input-field col  m6 s12">
 																	<label for="companyadress">Dirección</label>
 																	<input id="companyadress" name="companyadress" value="<?php echo htmlentities($resul->companyadress); ?>" type="text">
 																</div>
-																<div class="input-field col s12">
+																<div class="input-field col m6 s12">
 																	<label for="reasonexit">Motivo de salida</label>
 																	<input id="reasonexit" name="reasonexit" value="<?php echo htmlentities($resul->reasonexit); ?>" type="text">
+																</div>
+																<div class="input-field col m6 s12">
+																	<label for="ingresomensual">Ingreso Mensual</label>
+																	<input id="ingresomensual" name="ingresomensual" value="<?php echo htmlentities($resul->ingresomensual); ?>" type="text">
 																</div>
 
 															</div>
@@ -1392,13 +1406,17 @@ if (strlen($_SESSION['recursos']) == 0) {
 														</div>
 														<div class="col m6">
 															<div class="row">
-																<div class="input-field col  s12">
+																<div class="input-field col  m6 s12">
 																	<label for="companyadress2">Dirección</label>
 																	<input id="companyadress2" name="companyadress2" value="<?php echo htmlentities($resul->companyadress2); ?>" type="text">
 																</div>
-																<div class="input-field col s12">
+																<div class="input-field col m6 s12">
 																	<label for="reasonexit2">Motivo de salida</label>
 																	<input id="reasonexit2" name="reasonexit2" value="<?php echo htmlentities($resul->reasonexit2); ?>" type="text">
+																</div>
+																<div class="input-field col m6 s12">
+																	<label for="ingresomensual2">Ingreso Mensual</label>
+																	<input id="ingresomensual2" name="ingresomensual2" value="<?php echo htmlentities($resul->ingresomensual2); ?>" type="text">
 																</div>
 
 															</div>
@@ -1433,13 +1451,17 @@ if (strlen($_SESSION['recursos']) == 0) {
 														</div>
 														<div class="col m6">
 															<div class="row">
-																<div class="input-field col  s12">
+																<div class="input-field col  m6 s12">
 																	<label for="companyadress3">Dirección</label>
 																	<input id="companyadress3" name="companyadress3" value="<?php echo htmlentities($resul->companyadress3); ?>" type="text">
 																</div>
-																<div class="input-field col s12">
+																<div class="input-field col m6 s12">
 																	<label for="reasonexit3">Motivo de salida</label>
 																	<input id="reasonexit3" name="reasonexit3" value="<?php echo htmlentities($resul->reasonexit3); ?>" type="text">
+																</div>
+																<div class="input-field col m6 s12">
+																	<label for="ingresomensual3">Ingreso Mensual</label>
+																	<input id="ingresomensual3" name="ingresomensual3" value="<?php echo htmlentities($resul->ingresomensual3); ?>" type="text">
 																</div>
 
 															</div>
@@ -1857,6 +1879,13 @@ if (strlen($_SESSION['recursos']) == 0) {
 																	<input type="radio" id="enervantss" name="enervants" value="si" class="check" <?php if (($resul->enervants) == 'si') print "checked=true" ?>> <label for="enervantss">Si</label>
 																	<input type="radio" id="enervantsn" name="enervants" value="no" class="check" <?php if (($resul->enervants) == 'no') print "checked=true" ?>> <label for="enervantsn">No</label>
 																</div>
+																<div class="input-field col  s12">
+																	<label for="incapacitado">En los últimos 5 años se ha incapacitado:</label><br><br>
+																	<input type="radio" id="incapacitados" name="incapacitado" value="si" class="check" <?php if (($resul->incapacitado) == 'si') print "checked=true" ?>> <label for="incapacitados">Si</label>
+																	<input type="radio" id="incapacitadon" name="incapacitado" value="no" class="check" <?php if (($resul->incapacitado) == 'no') print "checked=true" ?>> <label for="incapacitadon">No</label>
+																</div>
+
+
 
 
 															</div>
@@ -1881,6 +1910,10 @@ if (strlen($_SESSION['recursos']) == 0) {
 																<div class="input-field col   s12">
 																	<label for="enervants2">¿Cuál?</label>
 																	<input id="enervants2" name="enervants2" value="<?php echo htmlentities($resul->enervants2); ?>" type="text">
+																</div>
+																<div class="input-field col   s12">
+																	<label for="incapacitado2">¿Por qué?</label>
+																	<input id="incapacitado2" name="incapacitado2" value="<?php echo htmlentities($resul->incapacitado2); ?>" type="text">
 																</div>
 
 															</div>
@@ -2314,6 +2347,20 @@ if (strlen($_SESSION['recursos']) == 0) {
 					$conciliation2 = 'null';
 				}
 
+				function funcion21() {
+
+					// habilitamos
+					document.getElementById("incapacitado2").disabled = false;
+
+				}
+
+				function funcion22() {
+
+					// deshabilitamos
+					document.getElementById("incapacitado2").disabled = true;
+					$incapacitado2 = 'null';
+				}
+
 
 				// Ejemplo 1
 				$('input[id="glassess"]').on('change', this, function() {
@@ -2398,6 +2445,14 @@ if (strlen($_SESSION['recursos']) == 0) {
 				// Ejemplo 10
 				$('input[id="conciliationn"]').on('change', this, function() {
 					funcion20();
+				});
+				// Ejemplo 11
+				$('input[id="incapacitados"]').on('change', this, function() {
+					funcion21();
+				});
+				// Ejemplo 11
+				$('input[id="incapacitadon"]').on('change', this, function() {
+					funcion22();
 				});
 			});
 

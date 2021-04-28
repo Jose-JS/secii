@@ -45,7 +45,7 @@ file_put_contents($ruta1, $fileData1);
 $date=$_POST['date'];
 $description=$_POST['description'];     
 $creatoruser=$_SESSION['supervisor'];    
-$action=inserción;
+$action='inserción';
  
  
 $sql="INSERT INTO tblnovelties(invoice,date,description,firm1,firm2,creatoruser,action) VALUES(:invoice,:date,:description,:contract,:contract1,:creatoruser,:action)";

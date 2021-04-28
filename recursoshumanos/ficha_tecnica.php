@@ -241,6 +241,11 @@ if ($ids == 'OISME S.A. DE C.V.') {
             $nocuenta = $result['nocuenta'];
             $clabeint = $result['clabeint'];
             $sueldonet = $result['sueldonet'];
+            $ingresomensual=$result['ingresomensual'];
+            $ingresomensual2=$result['ingresomensual2'];
+            $ingresomensual3=$result['ingresomensual3'];
+            $incapacitado=$result['incapacitado'];
+            $incapacitado2=$result['incapacitado2'];
             $content = '';
 
             $content .= '<body>';
@@ -295,7 +300,7 @@ if ($ids == 'OISME S.A. DE C.V.') {
 
 
 
-            $content .= '<table CELLPADDING="15">';
+            $content .= '<br><table CELLPADDING="15">';
 
 
             $content .= '<tr>';
@@ -331,7 +336,7 @@ if ($ids == 'OISME S.A. DE C.V.') {
 
             $content .= '<section >';
             $content .= '<div align="left">';
-            $content .= '<table  border="1" >';
+            $content .= '<br><table  border="1" >';
             $content .= '<tr>';
             $content .= '<td colspan="10" align="RIGHT"><b><FONT SIZE=5>1. DATOS GENERALES</FONT></b></td>';
             $content .= '</tr>';
@@ -392,7 +397,7 @@ if ($ids == 'OISME S.A. DE C.V.') {
 
             $content .= '<section >';
             $content .= '<div align="left">';
-            $content .= '<table  border="1" CELLPADDING="5">';
+            $content .= '<br><table  border="1" CELLPADDING="5">';
             $content .= '<tr>';
             $content .= '<td colspan="10"align="LEFT"><b>DIRECCION</b></td>';
             $content .= '</tr>';
@@ -416,7 +421,7 @@ if ($ids == 'OISME S.A. DE C.V.') {
 
             $content .= '<section >';
             $content .= '<div align="left">';
-            $content .= '<table  border="1" CELLPADDING=".5">';
+            $content .= '<br><table  border="1" CELLPADDING=".5">';
             $content .= '<tr>';
             $content .= '<td colspan="10"align="LEFT"> <b>ESCOLARIDAD</b></td>';
             $content .= '</tr>';
@@ -461,7 +466,7 @@ if ($ids == 'OISME S.A. DE C.V.') {
             $content .= '<BR><br pagebreak="true"/>';
             $content .= '<section >';
             $content .= '<div align="left">';
-            $content .= '<table  border="1" CELLPADDING=".5"  >';
+            $content .= '<br><table  border="1" CELLPADDING=".5"  >';
 
 
             $content .= '<tr>';
@@ -481,9 +486,10 @@ if ($ids == 'OISME S.A. DE C.V.') {
             $content .= '<td colspan="3"align="center"> <b>TELEFONO</b><BR> ' . $companyphone . '</td>';
             $content .= '</tr>';
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual . '</td>';
             $content .= '</tr>';
 
 
@@ -501,9 +507,10 @@ if ($ids == 'OISME S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual2 . '</td>';
             $content .= '</tr>';
 
 
@@ -520,9 +527,10 @@ if ($ids == 'OISME S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual3 . '</td>';
             $content .= '</tr>';
 
 
@@ -533,7 +541,7 @@ if ($ids == 'OISME S.A. DE C.V.') {
 
             $content .= '<section >';
             $content .= '<div align="left">';
-            $content .= '<table  border="1" CELLPADDING=".5"  >';
+            $content .= '<br><table  border="1" CELLPADDING=".5"  >';
             $content .= '<tr>';
             $content .= '<td colspan="10"align="LEFT"> <b>REFERENCIAS FAMILIARES</b></td>';
             $content .= '</tr>';
@@ -711,6 +719,12 @@ if ($ids == 'OISME S.A. DE C.V.') {
             $content .= '<td colspan="5"align="center"> <b>CONSUME ENERVANTES</b><BR>' . $enervants . '</td>';
             $content .= '<td colspan="5"align="center"> <b>CUAL</b><BR>' . $enervants2 . '</td>';
             $content .= '</tr>';
+
+            $content .= '<tr>';
+            $content .= '<td colspan="5"align="center"> <b>¿EN LOS ULTIMOS 5 AÑOS SE HA INCAPACITADO?</b><BR>' . $incapacitado . '</td>';
+            $content .= '<td colspan="5"align="center"> <b>¿ POR QUE?</b><BR>' . $incapacitado2 . '</td>';
+            $content .= '</tr>';
+
             $content .= '</table>';
             $content .= '</div>';
             $content .= '</section>';
@@ -1122,6 +1136,11 @@ if ($ids == 'OIFSI S.A. DE C.V.') {
             $nocuenta = $result['nocuenta'];
             $clabeint = $result['clabeint'];
             $sueldonet = $result['sueldonet'];
+            $ingresomensual=$result['ingresomensual'];
+            $ingresomensual2=$result['ingresomensual2'];
+            $ingresomensual3=$result['ingresomensual3'];
+            $incapacitado=$result['incapacitado'];
+            $incapacitado2=$result['incapacitado2'];
             $content = '';
 
             $content .= '<body>';
@@ -1362,9 +1381,10 @@ if ($ids == 'OIFSI S.A. DE C.V.') {
             $content .= '<td colspan="3"align="center"> <b>TELEFONO</b><BR> ' . $companyphone . '</td>';
             $content .= '</tr>';
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual . '</td>';
             $content .= '</tr>';
 
 
@@ -1382,9 +1402,10 @@ if ($ids == 'OIFSI S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual2 . '</td>';
             $content .= '</tr>';
 
 
@@ -1401,9 +1422,10 @@ if ($ids == 'OIFSI S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual3 . '</td>';
             $content .= '</tr>';
 
 
@@ -1592,6 +1614,12 @@ if ($ids == 'OIFSI S.A. DE C.V.') {
             $content .= '<td colspan="5"align="center"> <b>CONSUME ENERVANTES</b><BR>' . $enervants . '</td>';
             $content .= '<td colspan="5"align="center"> <b>CUAL</b><BR>' . $enervants2 . '</td>';
             $content .= '</tr>';
+
+            $content .= '<tr>';
+            $content .= '<td colspan="5"align="center"> <b>¿EN LOS ULTIMOS 5 AÑOS SE HA INCAPACITADO?</b><BR>' . $incapacitado . '</td>';
+            $content .= '<td colspan="5"align="center"> <b>¿ POR QUE?</b><BR>' . $incapacitado2 . '</td>';
+            $content .= '</tr>';
+
             $content .= '</table>';
             $content .= '</div>';
             $content .= '</section>';
@@ -2003,6 +2031,11 @@ if ($ids == 'ASLO SEGURIDAD PRIVADA S.A. DE C.V.') {
             $nocuenta = $result['nocuenta'];
             $clabeint = $result['clabeint'];
             $sueldonet = $result['sueldonet'];
+            $ingresomensual=$result['ingresomensual'];
+            $ingresomensual2=$result['ingresomensual2'];
+            $ingresomensual3=$result['ingresomensual3'];
+            $incapacitado=$result['incapacitado'];
+            $incapacitado2=$result['incapacitado2'];
             $content = '';
 
             $content .= '<body>';
@@ -2240,9 +2273,10 @@ if ($ids == 'ASLO SEGURIDAD PRIVADA S.A. DE C.V.') {
             $content .= '<td colspan="3"align="center"> <b>TELEFONO</b><BR> ' . $companyphone . '</td>';
             $content .= '</tr>';
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual . '</td>';
             $content .= '</tr>';
 
 
@@ -2260,9 +2294,10 @@ if ($ids == 'ASLO SEGURIDAD PRIVADA S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual2 . '</td>';
             $content .= '</tr>';
 
 
@@ -2279,9 +2314,10 @@ if ($ids == 'ASLO SEGURIDAD PRIVADA S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual3 . '</td>';
             $content .= '</tr>';
 
 
@@ -2470,6 +2506,12 @@ if ($ids == 'ASLO SEGURIDAD PRIVADA S.A. DE C.V.') {
             $content .= '<td colspan="5"align="center"> <b>CONSUME ENERVANTES</b><BR>' . $enervants . '</td>';
             $content .= '<td colspan="5"align="center"> <b>CUAL</b><BR>' . $enervants2 . '</td>';
             $content .= '</tr>';
+
+            $content .= '<tr>';
+            $content .= '<td colspan="5"align="center"> <b>¿EN LOS ULTIMOS 5 AÑOS SE HA INCAPACITADO?</b><BR>' . $incapacitado . '</td>';
+            $content .= '<td colspan="5"align="center"> <b>¿ POR QUE?</b><BR>' . $incapacitado2 . '</td>';
+            $content .= '</tr>';
+
             $content .= '</table>';
             $content .= '</div>';
             $content .= '</section>';
@@ -2881,6 +2923,11 @@ if ($ids == 'APROSEMEX S.A. DE C.V.') {
             $nocuenta = $result['nocuenta'];
             $clabeint = $result['clabeint'];
             $sueldonet = $result['sueldonet'];
+            $ingresomensual=$result['ingresomensual'];
+            $ingresomensual2=$result['ingresomensual2'];
+            $ingresomensual3=$result['ingresomensual3'];
+            $incapacitado=$result['incapacitado'];
+            $incapacitado2=$result['incapacitado2'];
             $content = '';
 
             $content .= '<body>';
@@ -3121,9 +3168,10 @@ if ($ids == 'APROSEMEX S.A. DE C.V.') {
             $content .= '<td colspan="3"align="center"> <b>TELEFONO</b><BR> ' . $companyphone . '</td>';
             $content .= '</tr>';
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR> ' . $companyjob . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual . '</td>';
             $content .= '</tr>';
 
 
@@ -3141,9 +3189,10 @@ if ($ids == 'APROSEMEX S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework2 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit2 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual2 . '</td>';
             $content .= '</tr>';
 
 
@@ -3160,9 +3209,10 @@ if ($ids == 'APROSEMEX S.A. DE C.V.') {
 
 
             $content .= '<tr>';
-            $content .= '<td colspan="4"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
-            $content .= '<td colspan="3"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
+            $content .= '<td colspan="3"align="center"> <b>PUESTO</b><BR>' . $companyjob3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>TIEMPO QUE LABORO</b><BR>' . $timework3 . '</td>';
             $content .= '<td colspan="3"align="center"> <b>MOTIVO DE SALIDA</b><BR>' . $reasonexit3 . '</td>';
+            $content .= '<td colspan="2"align="center"> <b>SUELDO MENSUAL</b><BR>' . $ingresomensual3 . '</td>';
             $content .= '</tr>';
 
 
@@ -3351,6 +3401,12 @@ if ($ids == 'APROSEMEX S.A. DE C.V.') {
             $content .= '<td colspan="5"align="center"> <b>CONSUME ENERVANTES</b><BR>' . $enervants . '</td>';
             $content .= '<td colspan="5"align="center"> <b>CUAL</b><BR>' . $enervants2 . '</td>';
             $content .= '</tr>';
+
+            $content .= '<tr>';
+            $content .= '<td colspan="5"align="center"> <b>¿EN LOS ULTIMOS 5 AÑOS SE HA INCAPACITADO?</b><BR>' . $incapacitado . '</td>';
+            $content .= '<td colspan="5"align="center"> <b>¿ POR QUE?</b><BR>' . $incapacitado2 . '</td>';
+            $content .= '</tr>';
+
             $content .= '</table>';
             $content .= '</div>';
             $content .= '</section>';
