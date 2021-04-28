@@ -14,465 +14,7 @@ include('includes/config.php');
 if (strlen($_SESSION['recursos']) == 0) {
 	header('location:index.php');
 } else {
-	if (isset($_POST['add'])) {
-		$empid = $_POST['empcode'];
-		$department = $_POST['department'];
-		$assignedservice = $_POST['assignedservice'];
-		$fechini = $_POST['fechini'];
-		$name = $_POST['name'];
-		$fname = $_POST['firstName'];
-		$lname = $_POST['lastName'];
-		$gender = $_POST['gender'];
-		$marital = $_POST['marital'];
-		$placebirth = $_POST['placebirth'];
-		$nationality = $_POST['nationality'];
-		$ife = $_POST['ife'];
-		$curp = $_POST['curp'];
-		$dob = $_POST['dob'];
-		$age = $_POST['age'];
-		$rfc = $_POST['rfc'];
-		$imss = $_POST['imss'];
-		$infonavit = $_POST['infonavit'];
-		$infonavitmon = $_POST['infonavitmon'];
-		$fonacot = $_POST['fonacot'];
-		$fonacotmon = $_POST['fonacotmon'];
-		$phonelocal = $_POST['phonelocal'];
-		$phonerecado = $_POST['phonerecado'];
-		$typelicence = $_POST['typelicence'];
-		$military = $_POST['military'];
-		$mobileno = $_POST['mobileno'];
-		$dependent = $_POST['dependent'];
-		$dependentname = $_POST['dependentname'];
-		$dependentrelation = $_POST['dependentrelation'];
-		$dependentage = $_POST['dependentage'];
-		$dependentname2 = $_POST['dependentname2'];
-		$dependentrelation2 = $_POST['dependentrelation2'];
-		$dependentage2 = $_POST['dependentage2'];
-		$dependentname3 = $_POST['dependentname3'];
-		$dependentrelation3 = $_POST['dependentrelation3'];
-		$dependentage3 = $_POST['dependentage3'];
-		$dependentname4 = $_POST['dependentname4'];
-		$dependentrelation4 = $_POST['dependentrelation4'];
-		$dependentage4 = $_POST['dependentage4'];
-		$dependentname5 = $_POST['dependentname5'];
-		$dependentrelation5 = $_POST['dependentrelation5'];
-		$dependentage5 = $_POST['dependentage5'];
-		$address = $_POST['address'];
-		$city = $_POST['city'];
-		$suburb = $_POST['suburb'];
-		$email = $_POST['email'];
-		$country = $_POST['country'];
-		$cp = $_POST['cp'];
-		//$password=md5($_POST['password']); 
-		$password = $_POST['password'];
-		$status = 1;
 
-		$primaryname = $_POST['primaryname'];
-		$primaryadress = $_POST['primaryadress'];
-		$primarydocument = $_POST['primarydocument'];
-		$highschoolname = $_POST['highschoolname'];
-		$highschooladress = $_POST['highschooladress'];
-		$highschooldocument = $_POST['highschooldocument'];
-		$schoolname = $_POST['schoolname'];
-		$schooladress = $_POST['schooladress'];
-		$schooldocument = $_POST['schooldocument'];
-		$universityname = $_POST['universityname'];
-		$universityadress = $_POST['universityadress'];
-		$universitydocument = $_POST['universitydocument'];
-		$companyname = $_POST['companyname'];
-		$companyadress = $_POST['companyadress'];
-		$companyphone = $_POST['companyphone'];
-		$companyjob = $_POST['companyjob'];
-		$timework = $_POST['timework'];
-		$reasonexit = $_POST['reasonexit'];
-		$companyname2 = $_POST['companyname2'];
-		$companyadress2 = $_POST['companyadress2'];
-		$companyphone2 = $_POST['companyphone2'];
-		$companyjob2 = $_POST['companyjob2'];
-		$timework2 = $_POST['timework2'];
-		$reasonexit2 = $_POST['reasonexit2'];
-		$companyname3 = $_POST['companyname3'];
-		$companyadress3 = $_POST['companyadress3'];
-		$companyphone3 = $_POST['companyphone3'];
-		$companyjob3 = $_POST['companyjob3'];
-		$timework3 = $_POST['timework3'];
-		$reasonexit3 = $_POST['reasonexit3'];
-		$familyname = $_POST['familyname'];
-		$relationship = $_POST['relationship'];
-		$yearshim = $_POST['yearshim'];
-		$familyphone = $_POST['familyphone'];
-		$familyname2 = $_POST['familyname2'];
-		$relationship2 = $_POST['relationship2'];
-		$yearshim2 = $_POST['yearshim2'];
-		$familyphone2 = $_POST['familyphone2'];
-		$personalname = $_POST['personalname'];
-		$personalyears = $_POST['personalyears'];
-		$personalphone = $_POST['personalphone'];
-		$personaladress = $_POST['personaladress'];
-		$personalname2 = $_POST['personalname2'];
-		$personalyears2 = $_POST['personalyears2'];
-		$personalphone2 = $_POST['personalphone2'];
-		$personaladress2 = $_POST['personaladress2'];
-		$previous = $_POST['previous'];
-		$required = $_POST['required'];
-		$offered = $_POST['offered'];
-		$yearsliving = $_POST['yearsliving'];
-		if (isset($_POST['add'])) {
-			$homex1 = $_POST['homex1'];
-		}
-		if (isset($_POST['add'])) {
-			$homex2 = $_POST['homex2'];
-		}
-		$incomeextra = $_POST['incomeextra'];
-		$incomedesc = $_POST['incomedesc'];
-		$debts = $_POST['debts'];
-		$debtscell = $_POST['debtscell'];
-		$pantry = $_POST['pantry'];
-		$transport = $_POST['transport'];
-		$maintenance = $_POST['maintenance'];
-		$paymentschool = $_POST['paymentschool'];
-		$medicalservices = $_POST['medicalservices'];
-		$clothes = $_POST['clothes'];
-		$otherexpenses = $_POST['otherexpenses'];
-		$overall = $_POST['overall'];
-
-		if (isset($_POST['add'])) {
-			if (is_array($_POST['articulo'])) {
-				$selected = '';
-				$num_countries = count($_POST['articulo']);
-				$current = 0;
-				foreach ($_POST['articulo'] as $key => $value) {
-					if ($current != $num_countries - 1)
-						$selected .= $value . ', ';
-					else
-						//$selected .= $value.'.';
-						$current++;
-				}
-			}
-		}
-
-		if (isset($_POST['add'])) {
-			$glasses = $_POST['glasses'];
-		}
-		$glasses2 = $_POST['glasses2'];
-
-		if (isset($_POST['add'])) {
-			$chronic = $_POST['chronic'];
-		}
-
-		$chronic2 = $_POST['chronic2'];
-
-		if (isset($_POST['add'])) {
-			$operation = $_POST['operation'];
-		}
-
-		$operation2 = $_POST['operation2'];
-
-		if (isset($_POST['add'])) {
-			$enervants = $_POST['enervants'];
-		}
-
-		if (isset($_POST['add'])) {
-			$incapacitado = $_POST['incapacitado'];
-		}
-		$incapacitado2 = $_POST['incapacitado2'];
-		$ingresomensual = $_POST['ingresomensual'];
-		$ingresomensual2 = $_POST['ingresomensual2'];
-		$ingresomensual3 = $_POST['ingresomensual3'];
-
-		if (isset($_POST['add'])) {
-			$chronic = $_POST['chronic'];
-		}
-
-		$enervants2 = $_POST['enervants2'];
-		$activities = $_POST['activities'];
-		$people = $_POST['people'];
-		$valuesperson = $_POST['valuesperson'];
-		$defect = $_POST['defect'];
-
-		if (isset($_POST['add'])) {
-			$sport = $_POST['sport'];
-		}
-
-		$sport2 = $_POST['sport2'];
-
-		if (isset($_POST['add'])) {
-			$politic = $_POST['politic'];
-		}
-
-		$politic2 = $_POST['politic2'];
-
-		if (isset($_POST['add'])) {
-			$syndicate = $_POST['syndicate'];
-		}
-
-		$syndicate2 = $_POST['syndicate2'];
-		if (isset($_POST['add'])) {
-			$conciliation = $_POST['conciliation'];
-		}
-
-		$conciliation2 = $_POST['conciliation2'];
-
-		if (isset($_POST['add'])) {
-			$face = $_POST['face'];
-		}
-
-		if (isset($_POST['add'])) {
-			$skincolor = $_POST['skincolor'];
-		}
-		if (isset($_POST['add'])) {
-			$eyecolor = $_POST['eyecolor'];
-		}
-		if (isset($_POST['add'])) {
-			$kindeyes = $_POST['kindeyes'];
-		}
-		if (isset($_POST['add'])) {
-			$haircolor = $_POST['haircolor'];
-		}
-		if (isset($_POST['add'])) {
-			$complexion = $_POST['complexion'];
-		}
-		if (isset($_POST['add'])) {
-			$tattoo = $_POST['tattoo'];
-		}
-
-		$tattoo2 = $_POST['tattoo2'];
-		$tattoo3 = $_POST['tattoo3'];
-		if (isset($_POST['add'])) {
-			$piercing = $_POST['piercing'];
-		}
-
-		$piercing2 = $_POST['piercing2'];
-		$piercing3 = $_POST['piercing3'];
-		$observations = $_POST['observations'];
-		$weight = $_POST['weight'];
-		$stature = $_POST['stature'];
-		$typeblood = $_POST['typeblood'];
-		$company = $_POST['company'];
-		$banco = $_POST['banco'];
-		$nocuenta = $_POST['nocuenta'];
-		$clabeint = $_POST['clabeint'];
-		$sueldonet = $_POST['sueldonet'];
-		$creatoruser = $_SESSION['recursos'];
-		$action = 'inserción';
-		$fechaingreso = $_POST['fechaingreso'];
-		$fechacapacitacion = $_POST['fechacapacitacion'];
-		$sql = 'INSERT INTO tblemployees(EmpId,name,FirstName,LastName,EmailId,Password,
-Gender,Dob,Department,Address,City,Country,suburb,Phonenumber,Status,placebirth,
-nationality,age,marital,ife,curp,rfc,imss,infonavit,infonavitmon,fonacot,fonacotmon,typelicence,military,phonelocal,
-phonerecado,dependent,dependentname,dependentrelation,dependentage,dependentname2,
-dependentrelation2,dependentage2,dependentname3,dependentrelation3,dependentage3,
-dependentname4,dependentrelation4,dependentage4,dependentname5,dependentrelation5,
-dependentage5,cp,assignedservice,fechini,primaryname,primaryadress,primarydocument,
-highschoolname,highschooladress,highschooldocument,schoolname,schooladress,schooldocument,
-universityname,universityadress,universitydocument,companyname,companyadress,companyphone,
-companyjob,timework,reasonexit,companyname2,companyadress2,companyphone2,companyjob2,
-timework2,reasonexit2,companyname3,companyadress3,companyphone3,companyjob3,timework3,
-reasonexit3,familyname,relationship,yearshim,familyphone,familyname2,relationship2,
-yearshim2,familyphone2,personalname,personalyears,personalphone,personaladress,
-personalname2,personalyears2,personalphone2,personaladress2,previous,required,offered,
-homex1,homex2,incomeextra,incomedesc,yearsliving,debts,debtscell,pantry,transport,maintenance,
-paymentschool,medicalservices,clothes,otherexpenses,overall,articulo,glasses,glasses2,chronic,
-chronic2,operation,operation2,enervants,enervants2,activities,people,valueperson,defect,sport,
-sport2,politic,politic2,syndicate,syndicate2,conciliation,conciliation2,face,skincolor,eyecolor,
-kindeyes,haircolor,complexion,tattoo,tattoo2,tattoo3,piercing,piercing2,piercing3,observations,
-weight,stature,typeblood,company,creatoruser,action,banco,nocuenta,clabeint,sueldonet,fechaingreso,fechacapacitacion,ingresomensual,ingresomensual2,ingresomensual3,incapacitado,incapacitado2) 
-VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:address,:city,:country,:suburb,:mobileno,
-:status,:placebirth,:nationality,:age,:marital,:ife,:curp,:rfc,:imss,:infonavit,:infonavitmon,:fonacot,:fonacotmon,:typelicence,:military,:phonelocal,
-:phonerecado,:dependent,:dependentname,:dependentrelation,:dependentage,:dependentname2,:dependentrelation2,:dependentage2,
-:dependentname3,:dependentrelation3,:dependentage3,:dependentname4,:dependentrelation4,:dependentage4,:dependentname5,
-:dependentrelation5,:dependentage5,:cp,:assignedservice,:fechini,:primaryname,:primaryadress,:primarydocument,
-:highschoolname,:highschooladress,:highschooldocument,:schoolname,:schooladress,:schooldocument,:universityname,
-:universityadress,:universitydocument,:companyname,:companyadress,:companyphone,:companyjob,:timework,:reasonexit,
-:companyname2,:companyadress2,:companyphone2,:companyjob2,:timework2,:reasonexit2,:companyname3,:companyadress3,
-:companyphone3,:companyjob3,:timework3,:reasonexit3,:familyname,:relationship,:yearshim,:familyphone,:familyname2,
-:relationship2,:yearshim2,:familyphone2,:personalname,:persoanlyears,:persoanlphone,:persoanladress,:personalname2,
-:persoanlyears2,:persoanlphone2,:persoanladress2,:previous,:required,:offered,:homex1,:homex2,:incomeextra,:incomedesc,
-:yearsliving,:debts,:debtscell,:pantry,:transport,:maintenance,:paymentschool,:medicalservices,:clothes,:otherexpenses,
-:overall,:selected,:glasses,:glasses2,:chronic,:chronic2,:operation,:operation2,:enervants,:enervants2,:activities,
-:people,:valuesperson,:defect,:sport,:sport2,:politic,:politic2,:syndicate,:syndicate2,:conciliation,:conciliation2,
-:face,:skincolor,:eyecolor,:kindeyes,:haircolor,:complexion,:tattoo,:tattoo2,:tattoo3,:piercing,:piercing2,:piercing3,
-:observations,:weight,:stature,:typeblood,:company,:creatoruser,:action,:banco,:nocuenta,:clabeint,:sueldonet,:fechaingreso,:fechacapacitacion,:ingresomensual,:ingresomensual2,:ingresomensual3,:incapacitado,:incapacitado2)';
-		$query = $dbh->prepare($sql);
-		$query->bindParam(':empid', $empid, PDO::PARAM_STR);
-		$query->bindParam(':name', $name, PDO::PARAM_STR);
-		$query->bindParam(':fname', $fname, PDO::PARAM_STR);
-		$query->bindParam(':lname', $lname, PDO::PARAM_STR);
-		$query->bindParam(':email', $email, PDO::PARAM_STR);
-		$query->bindParam(':password', $password, PDO::PARAM_STR);
-		$query->bindParam(':gender', $gender, PDO::PARAM_STR);
-		$query->bindParam(':dob', $dob, PDO::PARAM_STR);
-		$query->bindParam(':department', $department, PDO::PARAM_STR);
-		$query->bindParam(':address', $address, PDO::PARAM_STR);
-		$query->bindParam(':city', $city, PDO::PARAM_STR);
-		$query->bindParam(':country', $country, PDO::PARAM_STR);
-		$query->bindParam(':suburb', $suburb, PDO::PARAM_STR);
-		$query->bindParam(':mobileno', $mobileno, PDO::PARAM_STR);
-		$query->bindParam(':status', $status, PDO::PARAM_STR);
-		$query->bindParam(':placebirth', $placebirth, PDO::PARAM_STR);
-		$query->bindParam(':nationality', $nationality, PDO::PARAM_STR);
-		$query->bindParam(':age', $age, PDO::PARAM_STR);
-		$query->bindParam(':marital', $marital, PDO::PARAM_STR);
-		$query->bindParam(':ife', $ife, PDO::PARAM_STR);
-		$query->bindParam(':curp', $curp, PDO::PARAM_STR);
-		$query->bindParam(':rfc', $rfc, PDO::PARAM_STR);
-		$query->bindParam(':imss', $imss, PDO::PARAM_STR);
-		$query->bindParam(':infonavit', $infonavit, PDO::PARAM_STR);
-		$query->bindParam(':infonavitmon', $infonavitmon, PDO::PARAM_STR);
-		$query->bindParam(':fonacot', $fonacot, PDO::PARAM_STR);
-		$query->bindParam(':fonacotmon', $fonacotmon, PDO::PARAM_STR);
-		$query->bindParam(':typelicence', $typelicence, PDO::PARAM_STR);
-		$query->bindParam(':military', $military, PDO::PARAM_STR);
-		$query->bindParam(':phonelocal', $phonelocal, PDO::PARAM_STR);
-		$query->bindParam(':phonerecado', $phonerecado, PDO::PARAM_STR);
-		$query->bindParam(':dependent', $dependent, PDO::PARAM_STR);
-		$query->bindParam(':dependentname', $dependentname, PDO::PARAM_STR);
-		$query->bindParam(':dependentrelation', $dependentrelation, PDO::PARAM_STR);
-		$query->bindParam(':dependentage', $dependentage, PDO::PARAM_STR);
-		$query->bindParam(':dependentname2', $dependentname2, PDO::PARAM_STR);
-		$query->bindParam(':dependentrelation2', $dependentrelation2, PDO::PARAM_STR);
-		$query->bindParam(':dependentage2', $dependentage2, PDO::PARAM_STR);
-		$query->bindParam(':dependentname3', $dependentname3, PDO::PARAM_STR);
-		$query->bindParam(':dependentrelation3', $dependentrelation3, PDO::PARAM_STR);
-		$query->bindParam(':dependentage3', $dependentage3, PDO::PARAM_STR);
-		$query->bindParam(':dependentname4', $dependentname4, PDO::PARAM_STR);
-		$query->bindParam(':dependentrelation4', $dependentrelation4, PDO::PARAM_STR);
-		$query->bindParam(':dependentage4', $dependentage4, PDO::PARAM_STR);
-		$query->bindParam(':dependentname5', $dependentname5, PDO::PARAM_STR);
-		$query->bindParam(':dependentrelation5', $dependentrelation5, PDO::PARAM_STR);
-		$query->bindParam(':dependentage5', $dependentage5, PDO::PARAM_STR);
-		$query->bindParam(':cp', $cp, PDO::PARAM_STR);
-		$query->bindParam(':assignedservice', $assignedservice, PDO::PARAM_STR);
-		$query->bindParam(':fechini', $fechini, PDO::PARAM_STR);
-		$query->bindParam(':primaryname', $primaryname, PDO::PARAM_STR);
-		$query->bindParam(':primaryadress', $primaryadress, PDO::PARAM_STR);
-		$query->bindParam(':primarydocument', $primarydocument, PDO::PARAM_STR);
-		$query->bindParam(':highschoolname', $highschoolname, PDO::PARAM_STR);
-		$query->bindParam(':highschooladress', $highschooladress, PDO::PARAM_STR);
-		$query->bindParam(':highschooldocument', $highschooldocument, PDO::PARAM_STR);
-		$query->bindParam(':schoolname', $schoolname, PDO::PARAM_STR);
-		$query->bindParam(':schooladress', $schooladress, PDO::PARAM_STR);
-		$query->bindParam(':schooldocument', $schooldocument, PDO::PARAM_STR);
-		$query->bindParam(':universityname', $universityname, PDO::PARAM_STR);
-		$query->bindParam(':universityadress', $universityadress, PDO::PARAM_STR);
-		$query->bindParam(':universitydocument', $universitydocument, PDO::PARAM_STR);
-		$query->bindParam(':companyname', $companyname, PDO::PARAM_STR);
-		$query->bindParam(':companyadress', $companyadress, PDO::PARAM_STR);
-		$query->bindParam(':companyphone', $companyphone, PDO::PARAM_STR);
-		$query->bindParam(':companyjob', $companyjob, PDO::PARAM_STR);
-		$query->bindParam(':timework', $timework, PDO::PARAM_STR);
-		$query->bindParam(':reasonexit', $reasonexit, PDO::PARAM_STR);
-		$query->bindParam(':companyname2', $companyname2, PDO::PARAM_STR);
-		$query->bindParam(':companyadress2', $companyadress2, PDO::PARAM_STR);
-		$query->bindParam(':companyphone2', $companyphone2, PDO::PARAM_STR);
-		$query->bindParam(':companyjob2', $companyjob2, PDO::PARAM_STR);
-		$query->bindParam(':timework2', $timework2, PDO::PARAM_STR);
-		$query->bindParam(':reasonexit2', $reasonexit2, PDO::PARAM_STR);
-		$query->bindParam(':companyname3', $companyname3, PDO::PARAM_STR);
-		$query->bindParam(':companyadress3', $companyadress3, PDO::PARAM_STR);
-		$query->bindParam(':companyphone3', $companyphone3, PDO::PARAM_STR);
-		$query->bindParam(':companyjob3', $companyjob3, PDO::PARAM_STR);
-		$query->bindParam(':timework3', $timework3, PDO::PARAM_STR);
-		$query->bindParam(':reasonexit3', $reasonexit3, PDO::PARAM_STR);
-		$query->bindParam(':familyname', $familyname, PDO::PARAM_STR);
-		$query->bindParam(':relationship', $relationship, PDO::PARAM_STR);
-		$query->bindParam(':yearshim', $yearshim, PDO::PARAM_STR);
-		$query->bindParam(':familyphone', $familyphone, PDO::PARAM_STR);
-		$query->bindParam(':familyname2', $familyname2, PDO::PARAM_STR);
-		$query->bindParam(':relationship2', $relationship2, PDO::PARAM_STR);
-		$query->bindParam(':yearshim2', $yearshim2, PDO::PARAM_STR);
-		$query->bindParam(':familyphone2', $familyphone2, PDO::PARAM_STR);
-		$query->bindParam(':personalname', $personalname, PDO::PARAM_STR);
-		$query->bindParam(':persoanlyears', $personalyears, PDO::PARAM_STR);
-		$query->bindParam(':persoanlphone', $personalphone, PDO::PARAM_STR);
-		$query->bindParam(':persoanladress', $personaladress, PDO::PARAM_STR);
-		$query->bindParam(':personalname2', $personalname2, PDO::PARAM_STR);
-		$query->bindParam(':persoanlyears2', $personalyears2, PDO::PARAM_STR);
-		$query->bindParam(':persoanlphone2', $personalphone2, PDO::PARAM_STR);
-		$query->bindParam(':persoanladress2', $personaladress2, PDO::PARAM_STR);
-		$query->bindParam(':previous', $previous, PDO::PARAM_STR);
-		$query->bindParam(':required', $required, PDO::PARAM_STR);
-		$query->bindParam(':offered', $offered, PDO::PARAM_STR);
-		$query->bindParam(':homex1', $homex1, PDO::PARAM_STR);
-		$query->bindParam(':homex2', $homex2, PDO::PARAM_STR);
-		$query->bindParam(':incomeextra', $incomeextra, PDO::PARAM_STR);
-		$query->bindParam(':incomedesc', $incomedesc, PDO::PARAM_STR);
-		$query->bindParam(':yearsliving', $yearsliving, PDO::PARAM_STR);
-		$query->bindParam(':debts', $debts, PDO::PARAM_STR);
-		$query->bindParam(':debtscell', $debtscell, PDO::PARAM_STR);
-		$query->bindParam(':pantry', $pantry, PDO::PARAM_STR);
-		$query->bindParam(':transport', $transport, PDO::PARAM_STR);
-		$query->bindParam(':maintenance', $maintenance, PDO::PARAM_STR);
-		$query->bindParam(':paymentschool', $paymentschool, PDO::PARAM_STR);
-		$query->bindParam(':medicalservices', $medicalservices, PDO::PARAM_STR);
-		$query->bindParam(':clothes', $clothes, PDO::PARAM_STR);
-		$query->bindParam(':otherexpenses', $otherexpenses, PDO::PARAM_STR);
-		$query->bindParam(':overall', $overall, PDO::PARAM_STR);
-		$query->bindParam(':selected', $selected, PDO::PARAM_STR);
-		$query->bindParam(':glasses', $glasses, PDO::PARAM_STR);
-		$query->bindParam(':glasses2', $glasses2, PDO::PARAM_STR);
-		$query->bindParam(':chronic', $chronic, PDO::PARAM_STR);
-		$query->bindParam(':chronic2', $chronic2, PDO::PARAM_STR);
-		$query->bindParam(':operation', $operation, PDO::PARAM_STR);
-		$query->bindParam(':operation2', $operation2, PDO::PARAM_STR);
-		$query->bindParam(':enervants', $enervants, PDO::PARAM_STR);
-		$query->bindParam(':enervants2', $enervants2, PDO::PARAM_STR);
-		$query->bindParam(':activities', $activities, PDO::PARAM_STR);
-		$query->bindParam(':people', $people, PDO::PARAM_STR);
-		$query->bindParam(':valuesperson', $valuesperson, PDO::PARAM_STR);
-		$query->bindParam(':defect', $defect, PDO::PARAM_STR);
-		$query->bindParam(':sport', $sport, PDO::PARAM_STR);
-		$query->bindParam(':sport2', $sport2, PDO::PARAM_STR);
-		$query->bindParam(':politic', $politic, PDO::PARAM_STR);
-		$query->bindParam(':politic2', $politic2, PDO::PARAM_STR);
-		$query->bindParam(':syndicate', $politic, PDO::PARAM_STR);
-		$query->bindParam(':syndicate2', $politic2, PDO::PARAM_STR);
-		$query->bindParam(':conciliation', $conciliation, PDO::PARAM_STR);
-		$query->bindParam(':conciliation2', $conciliation2, PDO::PARAM_STR);
-		$query->bindParam(':face', $face, PDO::PARAM_STR);
-		$query->bindParam(':skincolor', $skincolor, PDO::PARAM_STR);
-		$query->bindParam(':eyecolor', $eyecolor, PDO::PARAM_STR);
-		$query->bindParam(':kindeyes', $kindeyes, PDO::PARAM_STR);
-		$query->bindParam(':haircolor', $haircolor, PDO::PARAM_STR);
-		$query->bindParam(':complexion', $complexion, PDO::PARAM_STR);
-		$query->bindParam(':tattoo', $tattoo, PDO::PARAM_STR);
-		$query->bindParam(':tattoo2', $tattoo2, PDO::PARAM_STR);
-		$query->bindParam(':tattoo3', $tattoo3, PDO::PARAM_STR);
-		$query->bindParam(':piercing', $piercing, PDO::PARAM_STR);
-		$query->bindParam(':piercing2', $piercing2, PDO::PARAM_STR);
-		$query->bindParam(':piercing3', $piercing3, PDO::PARAM_STR);
-		$query->bindParam(':observations', $observations, PDO::PARAM_STR);
-		$query->bindParam(':weight', $weight, PDO::PARAM_STR);
-		$query->bindParam(':stature', $stature, PDO::PARAM_STR);
-		$query->bindParam(':typeblood', $typeblood, PDO::PARAM_STR);
-		$query->bindParam(':company', $company, PDO::PARAM_STR);
-		$query->bindParam(':creatoruser', $creatoruser, PDO::PARAM_STR);
-		$query->bindParam(':action', $action, PDO::PARAM_STR);
-		$query->bindParam(':banco', $banco, PDO::PARAM_STR);
-		$query->bindParam(':nocuenta', $nocuenta, PDO::PARAM_STR);
-		$query->bindParam(':clabeint', $clabeint, PDO::PARAM_STR);
-		$query->bindParam(':sueldonet', $sueldonet, PDO::PARAM_STR);
-		$query->bindParam(':fechaingreso', $fechaingreso, PDO::PARAM_STR);
-		$query->bindParam(':fechacapacitacion', $fechacapacitacion, PDO::PARAM_STR);
-		$query->bindParam(':ingresomensual', $ingresomensual, PDO::PARAM_STR);
-		$query->bindParam(':ingresomensual2', $ingresomensual2, PDO::PARAM_STR);
-		$query->bindParam(':ingresomensual3', $ingresomensual3, PDO::PARAM_STR);
-		$query->bindParam(':incapacitado', $incapacitado, PDO::PARAM_STR);
-		$query->bindParam(':incapacitado2', $incapacitado2, PDO::PARAM_STR);
-		$query->execute();
-
-		$lastInsertId = $dbh->lastInsertId();
-		if ($lastInsertId) {
-			$msg = "Registro de Técnico, agregado con éxito";
-			echo "<script>
-	if (window.history.replaceState) {
-		window.history.replaceState(null, null, window.location.href);
-	}
-</script>";
-		} else {
-			$error = "Algo salió mal. Inténtalo de nuevo";
-		}
-	}
 
 ?>
 
@@ -492,7 +34,7 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 		<!-- Styles -->
 		<link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css" />
@@ -500,6 +42,7 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 		<link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
 		<link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css" />
 		<link href="../assets/css/custom.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">-->
 
 		<style type="text/css">
@@ -1761,14 +1304,10 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<input type="radio" id="homex2d" name="homex2" value="departamento" class="check"> <label for="homex2d">Departamento</label>
 															<input type="radio" id="homex2o" name="homex2" value="otra" class="check"> <label for="homex2o">Otra</label>
 														</div>
-
-
 													</div>
 												</div>
 												<div class="col m6">
 													<div class="row">
-
-
 														<div class="input-field col m6 s12">
 															<label for="incomeextra">Ingresos extra</label>
 															<input id="incomeextra" name="incomeextra" type="text">
@@ -1812,10 +1351,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<label for="otherexpenses">Otros gastos</label>
 															<input id="otherexpenses" name="otherexpenses" type="text" onchange="sumar(this.value);">
 														</div>
-
-
-
-
 													</div>
 												</div>
 												<div class="col m6">
@@ -1841,8 +1376,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 													</div>
 												</div>
 											</div>
-
-
 											<hr style="border-color:black;">
 											<h4>SELECCIONE LAS CARACTERISTICAS DE SU VIVIENDA Y LOS SERVICIOS CON LOS QUE CUENTA</h4>
 
@@ -1867,9 +1400,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 														<div class="input-field col m6 s12">
 															<input type="checkbox" id="internet" name="articulo[]" value="internet"> <label for="internet">Internet</label>
 														</div>
-
-
-
 													</div>
 												</div>
 												<div class="col m6">
@@ -1895,9 +1425,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 													</div>
 												</div>
 											</div>
-
-
-
 											<input type="button" name="previous" class="previous btn btn-default" value="Anterior" /><br><br>
 											<input type="button" name="next" class="next btn btn-info" value="Siguiente" />
 										</fieldset>
@@ -1913,89 +1440,59 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<input type="radio" id="glassess" name="glasses" value="si" class="test"> <label for="glassess">Si</label>
 															<input type="radio" id="glassesn" name="glasses" value="no" class="test"> <label for="glassesn" class="only-one">No</label>
 														</div>
-
 														<div class="input-field col   s12"><br>
 															<label for="glasses2">¿Cuál es el diagnóstico?</label>
 															<input id="glasses2" name="glasses2" disabled="true" type="text">
 														</div>
-														<!--     
-     <div class="input-field col m6 s12">
-<label for="glasses">¿Cuál es el diagnóstico?</label><br>
-<input type="radio" id="glasses2" disabled="true" name="glasses2"value="miopia" > <label for="glasses2">Miopía</label>
-<input type="radio" id="glasses3" disabled="true" name="glasses3"value="astigmatismo" > <label for="glasses3">Astigmatismo</label>
-
-</div>-->
-
 														<div class="input-field col  s12">
 															<label for="chronic">Enfermedades crónicas:</label><br>
 															<input type="radio" id="chronics" name="chronic" value="si" class="check"> <label for="chronics">Si</label>
 															<input type="radio" id="chronicn" name="chronic" value="no"> <label for="chronicn" class="check">No</label>
 														</div>
-
 														<div class="input-field col   s12">
 															<label for="chronic2">¿Cuál?</label>
 															<input id="chronic2" name="chronic2" disabled="true" type="text">
 														</div>
-
 														<div class="input-field col  s12">
 															<label for="operation">Operaciones practicadas:</label><br><br>
 															<input type="radio" id="operations" name="operation" value="si"> <label for="operations">Si</label>
 															<input type="radio" id="operationn" name="operation" value="no"> <label for="operationn">No</label>
 														</div>
-
 														<div class="input-field col    s12">
 															<label for="operation2">¿Cuál?</label>
 															<input id="operation2" name="operation2" disabled="true" type="text">
 														</div>
-
 														<div class="input-field col  s12">
 															<label for="enervants">Consume algún enervante:</label><br><br>
 															<input type="radio" id="enervantss" name="enervants" value="si" class="check"> <label for="enervantss">Si</label>
 															<input type="radio" id="enervantsn" name="enervants" value="no" class="check"> <label for="enervantsn">No</label>
 														</div>
-
 														<div class="input-field col   s12">
 															<label for="enervants2">¿Cuál?</label>
 															<input id="enervants2" name="enervants2" disabled="true" type="text">
 														</div>
-
 														<div class="input-field col  s12">
 															<label for="incapacitado">En los últimos 5 años se ha incapacitado:</label><br><br>
 															<input type="radio" id="incapacitados" name="incapacitado" value="si" class="check"> <label for="incapacitados">Si</label>
 															<input type="radio" id="incapacitadon" name="incapacitado" value="no" class="check"> <label for="incapacitadon">No</label>
 														</div>
-
 														<div class="input-field col   s12">
 															<label for="incapacitado2">¿Por qué?</label>
 															<input id="incapacitado2" name="incapacitado2" disabled="true" type="text">
 														</div>
-
-
 													</div>
 												</div>
 												<div class="col m6">
 													<div class="row">
-
-
-
-
-
-
-
-
 													</div>
 												</div>
 											</div>
-
 											<input type="button" name="previous" class="previous btn btn-default" value="Anterior" /><br><br>
 											<input type="button" name="next" class="next btn btn-info" value="Siguiente" />
 										</fieldset>
-
-
 										<fieldset>
 											<h4>INFORMACION ADICIONAL</h4>
 											<hr style="border-color:black;">
-
 											<div class="row">
 												<div class="col m6">
 													<div class="row">
@@ -2007,8 +1504,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<label for="people">Con quien convive en su tiempo libre</label>
 															<input id="people" name="people" type="text">
 														</div>
-
-
 														<div class="input-field col m6 s12">
 															<label for="valuesperson">Tres valores más importantes</label>
 															<input id="valuesperson" name="valuesperson" type="text">
@@ -2017,8 +1512,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<label for="defect">Tres defectos que más le generan conflicto</label>
 															<input id="defect" name="defect" type="text">
 														</div>
-
-
 														<div class="input-field col s12">
 															<label for="sport">¿Practica algún deporte?</label><br><br>
 															<input type="radio" id="sports" name="sport" value="si" class="check"> <label for="sports">Si</label>
@@ -2028,20 +1521,15 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<label for="sport2">¿Cuál?</label>
 															<input id="sport2" name="sport2" disabled="true" type="text">
 														</div>
-
 														<div class="input-field col  s12">
 															<label for="politic">¿Pertenece o ha pertenecido a un partido político?</label><br><br><br>
 															<input type="radio" id="politics" name="politic" value="si" class="check"> <label for="politics">Si</label>
 															<input type="radio" id="politicn" name="politic" value="no" class="check"> <label for="politicn">No</label>
 														</div>
-
 														<div class="input-field col  s12">
 															<label for="politic2">¿Cuál?</label>
 															<input id="politic2" name="politic2" disabled="true" type="text">
 														</div>
-
-
-
 														<div class="input-field col s12">
 															<label for="syndicate">¿Pertenece o ha pertenecido a un sindicato?</label><br><br><br>
 															<input type="radio" id="syndicates" name="syndicate" value="si" class="check"> <label for="syndicates">Si</label>
@@ -2170,9 +1658,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<label for="weight">Peso</label>
 															<input id="weight" name="weight" type="text">
 														</div>
-
-
-
 														<div class="input-field col m6 s12">
 															<label for="stature">Estatura</label>
 															<input id="stature" name="stature" type="text">
@@ -2202,9 +1687,6 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 											<div class="row">
 												<div class="col m6">
 													<div class="row">
-
-
-
 														<div class="input-field col m6 s12">
 															<label for="banco">BANCO</label>
 															<input id="banco" name="banco" type="text">
@@ -2214,17 +1696,10 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 															<label for="nocuenta">No. Cuenta</label>
 															<input id="nocuenta" name="nocuenta" type="text">
 														</div>
-
-
 													</div>
 												</div>
 												<div class="col m6">
 													<div class="row">
-
-
-
-
-
 														<div class="input-field col m6 s12">
 															<label for="clabeint">Clabe Interbancaria</label>
 															<input id="clabeint" name="clabeint" type="text">
@@ -2243,56 +1718,10 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
                                         <input type="button" name="next" class="next btn btn-info" value="Siguiente" />-->
 
 											<input type="button" name="previous" class="previous btn btn-default" value="Anterior" /><br><br>
-											<button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">Guardar</button>
+											<input type="submit" onclick="return valid();" class="waves-effect waves-light btn indigo m-b-xs" value="Guardar" />
 
 										</fieldset>
-										<!--  <fieldset>
 
-
-                                       <h3> ARCHIVOS</h3>
-                                        <hr style="border-color:black;">
-                                        <h4> IMAGENES</h4>
-
-                                        <div class="row">
-                                            <div class="col m6">
-                                                <div class="row">
-                                                    <div class="input-field col m6 s12">
-                                                        <label for="foto">Medio Cuerpo</label><br><br>
-                                                        <input id="foto" name="foto" type="file" maxlength="30" autocomplete="off" required>
-                                                    </div>
-                                                    <div class="input-field col m6 s12">
-                                                        <label for="foto12">Cuerpo completo</label><br><br>
-                                                        <input id="foto12" name="foto12" type="file" maxlength="30" autocomplete="off" required>
-                                                    </div>
-
-                                                    <div class="input-field col m6 s12">
-                                                        <label for="foto15">Toxicológico </label><br><br>
-                                                        <input id="foto15" name="foto15" type="file" maxlength="30" autocomplete="off" required>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="col m6">
-                                                <div class="row">
-                                                    <div class="input-field col m6 s12">
-                                                        <label for="foto13">Perfil izquierdo</label><br><br>
-                                                        <input id="foto13" name="foto13" type="file" maxlength="30" autocomplete="off" required>
-                                                    </div>
-                                                    <div class="input-field col m6 s12">
-                                                        <label for="foto14">Perfil derecho</label><br><br>
-                                                        <input id="foto14" name="foto14" type="file" maxlength="30" autocomplete="off" required>
-                                                    </div>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        
-                                    </fieldset>-->
 
 									</section>
 
@@ -2314,9 +1743,88 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 		<script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
 		<script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
 		<script src="../assets/js/alpha.min.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	</body>
 
 	</html>
+	<script>
+		$(function() {
+
+			$("#AUTO").on("submit", function(e) {
+				e.preventDefault();
+				var url = "addemployeeB.php";
+				var datos = $("#AUTO").serialize();
+				//alert(datos);
+				//return false;
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: datos,
+					beforeSend: function(b) {
+						if (b != 0) {
+							let timerInterval
+							Swal.fire({
+								title: '',
+								html: 'Se estan guardando los datos !',
+								timerProgressBar: true,
+								didOpen: () => {
+									Swal.showLoading()
+									timerInterval = setInterval(() => {
+										const content = Swal.getContent()
+										if (content) {
+											const b = content.querySelector('b')
+											if (b) {
+												b.textContent = Swal.getTimerLeft()
+											}
+										}
+									}, 100)
+								},
+								willClose: () => {
+									clearInterval(timerInterval)
+								}
+							}).then((result) => {})
+						} else {
+
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'OCURRIO UN ERROR! 1',
+							})
+						}
+					},
+					success: function(r) {
+						if (r != 0) {
+							Swal.fire({
+								position: 'top-end',
+								icon: 'success',
+								title: 'Registro de Técnico, agregado con éxito',
+								showConfirmButton: false,
+								timer: 2500
+
+							})
+							document.getElementById("AUTO").reset();
+						} else {
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'OCURRIO UN ERROR! 2',
+							})
+						}
+					},
+					error: function(e) {
+						if (e != 0) {
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'OCURRIO UN ERROR! 3',
+							})
+						}
+					},
+				})
+				return false;
+			});
+		});
+	</script>
 	<script>
 		$(function() {
 
