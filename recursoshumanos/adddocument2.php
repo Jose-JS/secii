@@ -72,7 +72,7 @@ else{
                         <table id="example" class="display responsive-table ">
                            <thead>
                                 <tr>
-                                    <th>No. </th>
+                                    <th>No.</th>
                                     <th>DOCUMENTO</th>
                                     <th>UBICACION</th>
                                     <th>ACCION</th>

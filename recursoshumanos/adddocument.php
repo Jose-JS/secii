@@ -207,7 +207,35 @@ if (strlen($_SESSION['recursos']) == 0) {
 			$nombre24 = $ruta24;
 		}
 
-
+		$foto25 = $_FILES['foto25']['name'];
+		if ($foto25 <> null) {
+			$fecha25  = date("dmy");
+			$no_aleatorio25  = rand(0, 100) * rand(0, 100); //Generamos dos Digitos aleatorios     
+			$ruta25 = '../Documentos/' . $name . '/' . $fecha25 . $no_aleatorio25 . $_FILES['foto25']['name']; //CERTIFICADO MEDICO
+			opendir($ruta25);
+			copy($_FILES['foto25']['tmp_name'], $ruta25);
+			$nombre25 = $ruta25;
+		}
+        
+		$foto26 = $_FILES['foto26']['name'];
+		if ($foto26 <> null) {
+			$fecha26  = date("dmy");
+			$no_aleatorio26  = rand(0, 100) * rand(0, 100); //Generamos dos Digitos aleatorios     
+			$ruta26 = '../Documentos/' . $name . '/' . $fecha26 . $no_aleatorio26 . $_FILES['foto26']['name']; //REFERENCIAS LABORALES
+			opendir($ruta26);
+			copy($_FILES['foto26']['tmp_name'], $ruta26);
+			$nombre26 = $ruta26;
+		}
+        
+		$foto27 = $_FILES['foto27']['name'];
+		if ($foto27 <> null) {
+			$fecha27  = date("dmy");
+			$no_aleatorio27  = rand(0, 100) * rand(0, 100); //Generamos dos Digitos aleatorios     
+			$ruta27 = '../Documentos/' . $name . '/' . $fecha27 . $no_aleatorio27 . $_FILES['foto27']['name']; //CONSTANCIA FONACOT
+			opendir($ruta27);
+			copy($_FILES['foto27']['tmp_name'], $ruta27);
+			$nombre27 = $ruta27;
+		}
 
 		$creatoruser = $_SESSION['recursos'];
 		$action = 'inserción';
@@ -216,8 +244,10 @@ if (strlen($_SESSION['recursos']) == 0) {
 VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
       (:eid,'COMPROBANTE DE DOMICILIO',:nombre3,:creatoruser,:action),
 	  (:eid,'CERTIFICADO DE ESTUDIOS',:nombre4,:creatoruser,:action),
-	  (:eid,'CARTILLA MILITAR',:nombre5,:creatoruser,:action),(:eid,'INE',:nombre6,:creatoruser,:action),
-	  (:eid,'NUMERO DE SEGURIDAD SOCIAL',:nombre7,:creatoruser,:action),(:eid,'RFC',:nombre8,:creatoruser,:action),
+	  (:eid,'CARTILLA MILITAR',:nombre5,:creatoruser,:action)
+	  (:eid,'INE',:nombre6,:creatoruser,:action),
+	  (:eid,'NUMERO DE SEGURIDAD SOCIAL',:nombre7,:creatoruser,:action),
+	  (:eid,'RFC',:nombre8,:creatoruser,:action),
 	  (:eid,'CURP',:nombre9,:creatoruser,:action),
 	  (:eid,'ANTECEDENTES NO PENALES',:nombre10,:creatoruser,:action),
 	  (:eid,'CONSTANCIA DE NO ADEUDO INFONAVIT',:nombre11,:creatoruser,:action),
@@ -225,9 +255,13 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 	  (:eid,'ESTUDIO SOCIOECONOMICO',:nombre17,:creatoruser,:action),
 	  (:eid,'PSICOMETRIA',:nombre18,:creatoruser,:action),
 	  (:eid,'MEDIO CUERPO',:nombre20,:creatoruser,:action),
-	  (:eid,'CUERPO COMPLETO',:nombre21,:creatoruser,:action),(:eid,'TOXICOLOGICO',:nombre22,:creatoruser,:action),
+	  (:eid,'CUERPO COMPLETO',:nombre21,:creatoruser,:action),
+	  (:eid,'TOXICOLOGICO',:nombre22,:creatoruser,:action),
 	  (:eid,'PERFIL IZQUIERDO',:nombre23,:creatoruser,:action),
-	  (:eid,'PERFIL DERECHO',:nombre24,:creatoruser,:action)";
+	  (:eid,'PERFIL DERECHO',:nombre24,:creatoruser,:action),
+	  (:eid,'CERTIFICADO MEDICO',:nombre25,:creatoruser,:action),
+	  (:eid,'REFERENCIAS LABORALES',:nombre26,:creatoruser,:action),
+	  (:eid,'CONSTANCIA FONACOT',:nombre27,:creatoruser,:action),";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':eid', $eid, PDO::PARAM_STR);
 		$query->bindParam(':nombre2', $nombre2, PDO::PARAM_STR);
@@ -250,6 +284,8 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 		$query->bindParam(':nombre23', $nombre23, PDO::PARAM_STR);
 		$query->bindParam(':nombre24', $nombre24, PDO::PARAM_STR);
 		$query->bindParam(':nombre25', $nombre25, PDO::PARAM_STR);
+		$query->bindParam(':nombre26', $nombre26, PDO::PARAM_STR);
+		$query->bindParam(':nombre27', $nombre27, PDO::PARAM_STR);
 		$query->bindParam(':creatoruser', $creatoruser, PDO::PARAM_STR);
 		$query->bindParam(':action', $action, PDO::PARAM_STR);
 
@@ -445,14 +481,20 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 													<div class="row">
 
 														<div class="input-field col m6 s12">
-															<label for="foto16">HUELLAS Y FIRMA</label><br><br>
+															<label for="foto16">Huellas y firma</label><br><br>
 															<input id="foto16" class="form-control" name="foto16" type="file" maxlength="30" autocomplete="off">
 														</div>
 
 														<div class="input-field col m6 s12">
-															<label for="foto17">ESTUDIO SOCIECONOMICO </label><br><br>
+															<label for="foto17">Estudio socioeconomico </label><br><br>
 															<input id="foto17" class="form-control" name="foto17" type="file" maxlength="30" autocomplete="off">
 														</div>
+														<div class="row">
+														<div class="input-field col m6 s12">
+															<label for="foto27">Constancia fonacot</label><br><br>
+															<input id="foto27" class="form-control" name="foto27" type="file" maxlength="30" autocomplete="off">
+														</div>
+													</div>
 
 													</div>
 												</div>
@@ -461,9 +503,23 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 												<div class="col m6">
 													<div class="row">
 														<div class="input-field col m6 s12">
-															<label for="foto18">PSICOMETRIA</label><br><br>
+															<label for="foto18">Psicometria</label><br><br>
 															<input id="foto18" class="form-control" name="foto18" type="file" maxlength="30" autocomplete="off">
 														</div>
+														<div class="row">
+														<div class="input-field col m6 s12">
+															<label for="foto25">Certificado médico</label><br><br>
+															<input id="foto25" class="form-control" name="foto25" type="file" maxlength="30" autocomplete="off">
+														</div>
+													</div>
+													<div class="row">
+														<div class="input-field col m6 s12">
+															<label for="foto26">Referencias laborales</label><br><br>
+															<input id="foto26" class="form-control" name="foto26" type="file" maxlength="30" autocomplete="off">
+														</div>
+													</div>
+													
+													
 													</div>
 												</div>
 											</div>
