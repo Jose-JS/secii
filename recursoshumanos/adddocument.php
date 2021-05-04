@@ -2,10 +2,10 @@
 session_start();
 
 // No mostrar los errores de PHP
-error_reporting(0);
+//error_reporting(0);
 
 // Motrar todos los errores de PHP
-//error_reporting(E_ALL);
+error_reporting(E_ALL);
 
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
@@ -244,7 +244,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
       (:eid,'COMPROBANTE DE DOMICILIO',:nombre3,:creatoruser,:action),
 	  (:eid,'CERTIFICADO DE ESTUDIOS',:nombre4,:creatoruser,:action),
-	  (:eid,'CARTILLA MILITAR',:nombre5,:creatoruser,:action)
+	  (:eid,'CARTILLA MILITAR',:nombre5,:creatoruser,:action),
 	  (:eid,'INE',:nombre6,:creatoruser,:action),
 	  (:eid,'NUMERO DE SEGURIDAD SOCIAL',:nombre7,:creatoruser,:action),
 	  (:eid,'RFC',:nombre8,:creatoruser,:action),
@@ -261,7 +261,7 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 	  (:eid,'PERFIL DERECHO',:nombre24,:creatoruser,:action),
 	  (:eid,'CERTIFICADO MEDICO',:nombre25,:creatoruser,:action),
 	  (:eid,'REFERENCIAS LABORALES',:nombre26,:creatoruser,:action),
-	  (:eid,'CONSTANCIA FONACOT',:nombre27,:creatoruser,:action),";
+	  (:eid,'CONSTANCIA FONACOT',:nombre27,:creatoruser,:action)";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':eid', $eid, PDO::PARAM_STR);
 		$query->bindParam(':nombre2', $nombre2, PDO::PARAM_STR);
@@ -296,8 +296,6 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 		$query3 = $dbh->prepare($sql3);
 		$query3->execute();
 		$lastInsertId = $dbh->lastInsertId();
-
-
 
 		$msg = "Documentos de Técnico agregados con éxito";
 		echo "<script>

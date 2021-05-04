@@ -25,7 +25,6 @@ if (strlen($_SESSION['recursos']) == 0) {
 
 		<!-- Title -->
 		<title>Recursos Humanos | Agregar Técnico</title>
-
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta charset="UTF-8">
 		<meta name="description" content="Responsive Admin Dashboard Template" />
@@ -34,6 +33,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
 		<!-- Styles -->
@@ -43,7 +43,6 @@ if (strlen($_SESSION['recursos']) == 0) {
 		<link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css" />
 		<link href="../assets/css/custom.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
-		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">-->
 
 		<style type="text/css">
 			#AUTO fieldset {
@@ -379,63 +378,40 @@ if (strlen($_SESSION['recursos']) == 0) {
 			function calcular_edad() {
 
 				var fechanac = dob.value;
-
 				var diaB = <?php echo date('d') ?>;
-
 				var mesB = <?php echo date('m') ?>;
-
 				var anoB = <?php echo date('Y') ?>;
-
 				var array_fecha = fechanac.split("-")
-
 				var ano = parseInt(array_fecha[0]);
-
 				var mes = parseInt(array_fecha[1]);
-
 				var dia = parseInt(array_fecha[2]);
-
 				//	alert(ano);
-
 				edad = anoB - ano;
-
 				//	alert(edad);
-
 				edad = anoB - ano - 1; //-1 No se sabe si cumplio o no años este año 
-
 				if (mesB + 1 - mes < 0) //-1 
-
 				{
 					edad = edad - 1;
 				}
-
 				if (mesB + 1 - mes > 0) //Igual 
-
 				{
 					edad = edad;
 				}
-
 				if (diaB - dia >= 0) //+1 
-
 				{
 					edad = edad + 1;
 				}
-
 				age.value = edad;
-
 			}
 
 			function sumar(valor) {
 				var total = 0;
 				valor = parseInt(valor); // Convertir el valor a un entero (número).
-
 				total = document.getElementById('spTotal').innerHTML;
-
 				// Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
 				total = (total == null || total == undefined || total == "") ? 0 : total;
-
 				/* Esta es la suma. */
 				total = (parseInt(total) + parseInt(valor));
-
 				// Colocar el resultado de la suma en el control "span".
 				var c = document.getElementById('spTotal').innerHTML = total;
 				overall.value = c;
@@ -449,7 +425,6 @@ if (strlen($_SESSION['recursos']) == 0) {
 		<?php include('includes/sidebar.php'); ?>
 		<main class="mn-inner">
 			<div class="row">
-
 				<div class="col s12 m12 l12">
 					<div class="card">
 						<div class="card-content">
@@ -457,27 +432,19 @@ if (strlen($_SESSION['recursos']) == 0) {
 								<div class="progress-bar progress-bar-striped active" role="progressbar" style="height: 20px;" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 							<form id="AUTO" method="post" name="addemp" enctype="multipart/form-data">
-								<?php if ($error) { ?><div class="errorWrap content"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap content"><strong>ÉXITO</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
 								<div>
 									<h3>FICHA TECNICA</h3>
 									<section>
-
-
 										<div class="wizard-content">
-
 											<div class="row">
 												<fieldset>
-
 													<div class="col m6">
 														<div class="row">
-
-
 															<div class="input-field col m6 s12">
 																<label for="empcode">Matrícula (debe ser única)</label>
 																<input name="empcode" id="empcode" onBlur="checkAvailabilityEmpid()" maxlength="6" type="text" autocomplete="off" tabindex="1" required>
 																<span id="empid-availability" style="font-size:12px;"></span>
 															</div>
-
 															<div class="input-field col m6 s12">
 																<select id="departament" name="department" autocomplete="off" tabindex="2" required>
 																	<option value="">Puesto</option>
@@ -707,11 +674,6 @@ if (strlen($_SESSION['recursos']) == 0) {
 																<input id="dependent" tabindex="33" name="dependent" type="text" maxlength="2" autocomplete="off">
 															</div>
 
-															<!-- <div class="input-field col m6 s12">
-<label for="foto">Foto</label><br><br>
-<input id="foto" name="foto" type="file"  maxlength="30" autocomplete="off" required>  
- </div>
-    -->
 
 															<div class="input-field col s12">
 																<!-- <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">Guardar</button>-->
@@ -1802,7 +1764,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 								timer: 2500
 
 							})
-							document.getElementById("AUTO").reset();
+							//document.getElementById("AUTO").reset();
 						} else {
 							Swal.fire({
 								icon: 'error',
