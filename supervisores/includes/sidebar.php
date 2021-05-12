@@ -8,29 +8,26 @@
      			<center>
      				<div class="sidebar-profile-info">
      					<?php
-$eid=$_SESSION['eid'];
-$sql = "SELECT * from  tblusers where id=:eid";
-$query = $dbh -> prepare($sql);                          
-$query->bindParam(':eid',$eid,PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
+							$eid = $_SESSION['eid'];
+							$sql = "SELECT * from  tblusers where id=:eid";
+							$query = $dbh->prepare($sql);
+							$query->bindParam(':eid', $eid, PDO::PARAM_STR);
+							$query->execute();
+							$results = $query->fetchAll(PDO::FETCH_OBJ);
+							$cnt = 1;
+							if ($query->rowCount() > 0) {
+								foreach ($results as $result) {
+									$resultado = substr($result->image, 0);
+									$r = $result->kind;
 
-{
-    $resultado = substr($result->image, 0);  
-	$r=$result->kind;  
-	
-                            ?>
-     					<ceneter>
+							?>
+     							<ceneter>
 
-     						<img id="foto" name="foto" class="circle" autocomplete="off" src="<?php echo htmlentities($resultado);?>" width="100" height="100" required>
-     						<p><?php echo htmlentities($result->name." ".$result->firstname." ".$result->lastname);?></p>
+     								<img id="foto" name="foto" class="circle" autocomplete="off" src="<?php echo htmlentities($resultado); ?>" width="100" height="100" required>
+     								<p><?php echo htmlentities($result->name . " " . $result->firstname . " " . $result->lastname); ?></p>
 
-     						<p><?php echo htmlentities($result->empid);?></p>
-     					</ceneter>
+     								<p><?php echo htmlentities($result->empid); ?></p>
+     							</ceneter>
 
 
      				</div>
@@ -47,16 +44,17 @@ foreach($results as $result)
                     icons"></i>Incidencias</a></li>-->
 
      			<!-- Opción de Incidencia***** -->
-                    
-                    <li class="no-padding">
-                     <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">event</i>Incidencias<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                     <div class="collapsible-body">
-                         <ul>
-                             <li><a href="addincidents.php">Agregar incidencia</a></li>
-                             <li><a href="manageincidents.php">Administrar incidencia</a></li>
-                         </ul>
-                     </div>
-                 </li> 
+
+     			<li class="no-padding">
+     				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">event</i>Incidencias<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+     				<div class="collapsible-body">
+     					<ul>
+     						<li><a href="addincidents.php">Agregar incidencia</a></li>
+     						<li><a href="manageincidents.php">Administrar incidencia</a></li>
+     					</ul>
+     				</div>
+     			</li>
+
 
 
 
@@ -87,12 +85,12 @@ foreach($results as $result)
      				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Formato FAR y FBR<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
      				<div class="collapsible-body">
      					<ul>
-     						<?php  
-	                       if($r=='admin'){ ?>
-     						<li><a href="adddoublets3.php">Agregar formatos</a></li>
-     						<li><a href="managedoublets3.php">Administrar PDF</a></li>
-     						<?php } else{ ?>
-     						<li><a href="managedoublets3.php">Administrar PDF</a></li>
+     						<?php
+									if ($r == 'admin') { ?>
+     							<li><a href="adddoublets3.php">Agregar formatos</a></li>
+     							<li><a href="managedoublets3.php">Administrar PDF</a></li>
+     						<?php } else { ?>
+     							<li><a href="managedoublets3.php">Administrar PDF</a></li>
 
      						<?php } ?>
      					</ul>
@@ -113,13 +111,23 @@ foreach($results as $result)
      					</ul>
      				</div>
      			</li>
-
-     			<?php }} ?>
-
-
      			<li class="no-padding">
-
+     				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Patrullaje<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+     				<div class="collapsible-body">
+     					<ul>
+     						<li><a href="addformatpat.php">Crear Formato</a></li>
+     						<li><a href="manageformatpat.php">Administrar Patrullaje</a></li>
+     					</ul>
+     				</div>
      			</li>
+
+     	<?php }
+							} ?>
+
+
+     	<li class="no-padding">
+
+     	</li>
 
 
 
