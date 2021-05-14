@@ -52,6 +52,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 			#AUTO fieldset:first-child {
 				display: block;
 			}
+			
 		</style>
 		<style>
 			.errorWrap {
@@ -1680,7 +1681,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                         <input type="button" name="next" class="next btn btn-info" value="Siguiente" />-->
 
 											<input type="button" name="previous" class="previous btn btn-default" value="Anterior" /><br><br>
-											<input type="submit" onclick="return valid();" class="waves-effect waves-light btn indigo m-b-xs" value="Guardar" />
+											<input type="submit" id="btnsave" onclick="return valid();" class="waves-effect waves-light btn indigo m-b-xs" value="Guardar" />
 
 										</fieldset>
 
@@ -1710,6 +1711,20 @@ if (strlen($_SESSION['recursos']) == 0) {
 
 	</html>
 	<script>
+	
+		// Si pulsamos tecla en un Input
+		$("input").keydown(function(e) {
+			// Capturamos qué telca ha sido
+			var keyCode = e.which;
+			// Si la tecla es el Intro/Enter
+			if (keyCode == 13) {
+				// Evitamos que se ejecute eventos
+				event.preventDefault();
+				// Devolvemos falso
+				return false;
+			}
+		});
+
 		$(function() {
 
 			$("#AUTO").on("submit", function(e) {
@@ -1726,10 +1741,11 @@ if (strlen($_SESSION['recursos']) == 0) {
 						if (b != 0) {
 							let timerInterval
 							Swal.fire({
-								title: '',
+								title: 'ESPERA',
 								html: 'Se estan guardando los datos !',
 								timerProgressBar: true,
 								didOpen: () => {
+									document.getElementById('btnsave').disabled = true;
 									Swal.showLoading()
 									timerInterval = setInterval(() => {
 										const content = Swal.getContent()
