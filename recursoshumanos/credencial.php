@@ -187,6 +187,11 @@ $content .='
 		$content .='<p class="p19">TIPO DE SANGRE: <b>'.$typeblood.'</b></p>';
 		$content .='<p class="p20">FECHA DE EMISION: <b>'.$hoy.'</b></p>';
 		$content .='<p class="p21">FECHA DE VENCIMIENTO: <b>'.$nuevafecha.'</b></p>';
+		$content .='<pagebreak>';//SALTO DE HOJA EN MPDF.
+		$content .='
+        <div class="contenedoroifsi">
+		<img src="../assets/images/CredencialAtrasASLO.jpg" width="8.5cm" height="5.3cm">
+		</div>';
 	
 		
         }
@@ -201,4 +206,3 @@ $content .='
 	
 		return $content;
 	}
-?>
