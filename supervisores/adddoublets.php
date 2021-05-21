@@ -181,7 +181,7 @@ $error="Algo salió mal. Inténtalo de nuevo";
 								<div class="input-field col s12">
 									<select id="technical" name="technical" autocomplete="off" required>
 										<option value="">Técnico</option>
-										<?php $sql = "SELECT EmpId,name,firstname,lastname from tblemployees";
+										<?php $sql = "SELECT EmpId,name,firstname,lastname from tblemployees order by firstname asc";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -190,7 +190,7 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {   ?>
-										<option value="<?php echo htmlentities($result->EmpId);?>&nbsp;<?php echo htmlentities($result->name);?>&nbsp;<?php echo htmlentities($result->firstname);?>&nbsp;<?php echo htmlentities($result->lastname);?>" required><?php echo htmlentities($result->EmpId);?>&nbsp;<?php echo htmlentities($result->name);?>&nbsp;<?php echo htmlentities($result->firstname);?>&nbsp;<?php echo htmlentities($result->lastname);?></option>
+										<option value="<?php echo htmlentities($result->EmpId);?>&nbsp;<?php echo htmlentities($result->firstname);?>&nbsp;<?php echo htmlentities($result->lastname);?>&nbsp;<?php echo htmlentities($result->name);?>" required><?php echo htmlentities($result->EmpId);?>&nbsp;<?php echo htmlentities($result->firstname);?>&nbsp;<?php echo htmlentities($result->lastname);?>&nbsp;<?php echo htmlentities($result->name);?></option>
 										<?php }} ?>
 									</select>
 								</div>

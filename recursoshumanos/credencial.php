@@ -206,3 +206,4 @@ $content .='
 	
 		return $content;
 	}
+?>
