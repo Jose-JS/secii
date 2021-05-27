@@ -2,10 +2,10 @@
 session_start();
 
 // No mostrar los errores de PHP
-//error_reporting(0);
+error_reporting(0);
 
 // Motrar todos los errores de PHP
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);

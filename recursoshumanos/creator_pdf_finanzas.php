@@ -50,7 +50,8 @@ if($query->rowCount() > 0)
 {
     foreach($query as $result)
 { 
-$fechadealta=$result['fechini'];         
+$fechadealta=$result['fechini'];
+$company=$result['company'];         
 $puesto=$result['Department'];
 $nombre=$result['name'];
 $apellidopa=$result['FirstName'];
@@ -140,9 +141,14 @@ $imagen=$result2['namedoc'];
         
     $content .='<section >';
     $content .='<div align="left">';
-    $content .='<table  CELLPADDING="2">';	
+    $content .='<table  CELLPADDING="2">';
+	
+	$content .='<tr>';
+    $content .='<td colspan="1" align="right"><b>'.$company.'</b></td>';     
+    $content .='</tr>';
+
     $content .='<tr>';
-    $content .='<td colspan="2"align="right"><img src="'.$imagen.'" align="left" width="100" height="120"></td>';     
+    $content .='<td colspan="1"align="right"><img src="'.$imagen.'" align="left" width="100" height="120"></td>';     
     $content .='</tr>';   
         
     $content .= '</table>';
