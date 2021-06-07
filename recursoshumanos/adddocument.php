@@ -216,7 +216,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 			copy($_FILES['foto25']['tmp_name'], $ruta25);
 			$nombre25 = $ruta25;
 		}
-        
+
 		$foto26 = $_FILES['foto26']['name'];
 		if ($foto26 <> null) {
 			$fecha26  = date("dmy");
@@ -226,7 +226,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 			copy($_FILES['foto26']['tmp_name'], $ruta26);
 			$nombre26 = $ruta26;
 		}
-        
+
 		$foto27 = $_FILES['foto27']['name'];
 		if ($foto27 <> null) {
 			$fecha27  = date("dmy");
@@ -488,11 +488,11 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 															<input id="foto17" class="form-control" name="foto17" type="file" maxlength="30" autocomplete="off">
 														</div>
 														<div class="row">
-														<div class="input-field col m6 s12">
-															<label for="foto27">Constancia fonacot</label><br><br>
-															<input id="foto27" class="form-control" name="foto27" type="file" maxlength="30" autocomplete="off">
+															<div class="input-field col m6 s12">
+																<label for="foto27">Constancia fonacot</label><br><br>
+																<input id="foto27" class="form-control" name="foto27" type="file" maxlength="30" autocomplete="off">
+															</div>
 														</div>
-													</div>
 
 													</div>
 												</div>
@@ -505,19 +505,19 @@ VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),
 															<input id="foto18" class="form-control" name="foto18" type="file" maxlength="30" autocomplete="off">
 														</div>
 														<div class="row">
-														<div class="input-field col m6 s12">
-															<label for="foto25">Certificado médico</label><br><br>
-															<input id="foto25" class="form-control" name="foto25" type="file" maxlength="30" autocomplete="off">
+															<div class="input-field col m6 s12">
+																<label for="foto25">Certificado médico</label><br><br>
+																<input id="foto25" class="form-control" name="foto25" type="file" maxlength="30" autocomplete="off">
+															</div>
 														</div>
-													</div>
-													<div class="row">
-														<div class="input-field col m6 s12">
-															<label for="foto26">Referencias laborales</label><br><br>
-															<input id="foto26" class="form-control" name="foto26" type="file" maxlength="30" autocomplete="off">
+														<div class="row">
+															<div class="input-field col m6 s12">
+																<label for="foto26">Referencias laborales</label><br><br>
+																<input id="foto26" class="form-control" name="foto26" type="file" maxlength="30" autocomplete="off">
+															</div>
 														</div>
-													</div>
-													
-													
+
+
 													</div>
 												</div>
 											</div>
