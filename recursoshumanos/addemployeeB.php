@@ -190,6 +190,7 @@ $creatoruser = $_SESSION['recursos'];
 $action = 'inserción';
 $fechaingreso = $_POST['fechaingreso'];
 $fechacapacitacion = $_POST['fechacapacitacion'];
+$sueldodiario = $_POST['sueldodiario'];
 $sql = 'INSERT INTO tblemployees(EmpId,name,FirstName,LastName,EmailId,Password,
 Gender,Dob,Department,Address,City,Country,suburb,Phonenumber,Status,placebirth,
 nationality,age,marital,ife,curp,rfc,imss,infonavit,infonavitmon,fonacot,fonacotmon,typelicence,military,phonelocal,
@@ -209,7 +210,8 @@ paymentschool,medicalservices,clothes,otherexpenses,overall,articulo,glasses,gla
 chronic2,operation,operation2,enervants,enervants2,activities,people,valueperson,defect,sport,
 sport2,politic,politic2,syndicate,syndicate2,conciliation,conciliation2,face,skincolor,eyecolor,
 kindeyes,haircolor,complexion,tattoo,tattoo2,tattoo3,piercing,piercing2,piercing3,observations,
-weight,stature,typeblood,company,creatoruser,action,banco,nocuenta,clabeint,sueldonet,fechaingreso,fechacapacitacion,ingresomensual,ingresomensual2,ingresomensual3,incapacitado,incapacitado2) 
+weight,stature,typeblood,company,creatoruser,action,banco,nocuenta,clabeint,sueldonet,fechaingreso,
+fechacapacitacion,ingresomensual,ingresomensual2,ingresomensual3,incapacitado,incapacitado2,sueldodiario) 
 VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:address,:city,:country,:suburb,:mobileno,
 :status,:placebirth,:nationality,:age,:marital,:ife,:curp,:rfc,:imss,:infonavit,:infonavitmon,:fonacot,:fonacotmon,:typelicence,:military,:phonelocal,
 :phonerecado,:dependent,:dependentname,:dependentrelation,:dependentage,:dependentname2,:dependentrelation2,:dependentage2,
@@ -225,7 +227,8 @@ VALUES(:empid,:name,:fname,:lname,:email,:password,:gender,:dob,:department,:add
 :overall,:selected,:glasses,:glasses2,:chronic,:chronic2,:operation,:operation2,:enervants,:enervants2,:activities,
 :people,:valuesperson,:defect,:sport,:sport2,:politic,:politic2,:syndicate,:syndicate2,:conciliation,:conciliation2,
 :face,:skincolor,:eyecolor,:kindeyes,:haircolor,:complexion,:tattoo,:tattoo2,:tattoo3,:piercing,:piercing2,:piercing3,
-:observations,:weight,:stature,:typeblood,:company,:creatoruser,:action,:banco,:nocuenta,:clabeint,:sueldonet,:fechaingreso,:fechacapacitacion,:ingresomensual,:ingresomensual2,:ingresomensual3,:incapacitado,:incapacitado2)';
+:observations,:weight,:stature,:typeblood,:company,:creatoruser,:action,:banco,:nocuenta,:clabeint,:sueldonet,:fechaingreso,:fechacapacitacion,:ingresomensual,
+:ingresomensual2,:ingresomensual3,:incapacitado,:incapacitado2,:sueldodiario)';
 $query = $dbh->prepare($sql);
 $query->bindParam(':empid', $empid, PDO::PARAM_STR);
 $query->bindParam(':name', $name, PDO::PARAM_STR);
@@ -392,6 +395,7 @@ $query->bindParam(':ingresomensual2', $ingresomensual2, PDO::PARAM_STR);
 $query->bindParam(':ingresomensual3', $ingresomensual3, PDO::PARAM_STR);
 $query->bindParam(':incapacitado', $incapacitado, PDO::PARAM_STR);
 $query->bindParam(':incapacitado2', $incapacitado2, PDO::PARAM_STR);
+$query->bindParam(':sueldodiario', $sueldodiario, PDO::PARAM_STR);
 $query->execute();
 
 $lastInsertId = $dbh->lastInsertId();

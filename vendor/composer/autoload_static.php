@@ -23,6 +23,10 @@ class ComposerStaticInit15ed1da4e247229bc73d0ae561e84f10
         array (
             'Mpdf\\' => 5,
         ),
+        'L' => 
+        array (
+            'Luecano\\NumeroALetras\\' => 22,
+        ),
         'D' => 
         array (
             'DeepCopy\\' => 9,
@@ -41,6 +45,10 @@ class ComposerStaticInit15ed1da4e247229bc73d0ae561e84f10
         'Mpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
+        'Luecano\\NumeroALetras\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/luecano/numero-a-letras/src',
         ),
         'DeepCopy\\' => 
         array (

@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '1a41fd5e8fc66e5abca9dabd3199e9c77b1f1002',
+    'reference' => '56cc52321f3b72475c37c485b2c7b8b53b155c93',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '1a41fd5e8fc66e5abca9dabd3199e9c77b1f1002',
+      'reference' => '56cc52321f3b72475c37c485b2c7b8b53b155c93',
+    ),
+    'luecano/numero-a-letras' => 
+    array (
+      'pretty_version' => 'v2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '84f682c62d7f91a2e8bd0a1626608410c0d1d2ae',
     ),
     'mpdf/mpdf' => 
     array (

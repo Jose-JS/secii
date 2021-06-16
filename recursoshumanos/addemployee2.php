@@ -1659,6 +1659,10 @@ if (strlen($_SESSION['recursos']) == 0) {
 															<label for="nocuenta">No. Cuenta</label>
 															<input id="nocuenta" name="nocuenta" type="text">
 														</div>
+														<div class="input-field col  m6 s12">
+															<label for="sueldodiario">Sueldo diario integrado</label>
+															<input id="sueldodiario" name="sueldodiario" type="text">
+														</div>
 													</div>
 												</div>
 												<div class="col m6">
