@@ -24,7 +24,7 @@ $vacaciones=$_POST['vacaciones'];
 $finiquito=$_POST['finiquito'];			
 $observaciones=$_POST['observaciones'];
 $creatoruser=$_SESSION['recursos'];
-$action=inserción;     
+$action='inserción';     
 $sql="INSERT INTO tblboletbaja(idempleado,idmatricula,ultimodia,fechabaja,motivo,observaciones,creatoruser,action,ultimosueldo,vacaciones,finiquito) VALUES(:id,:idemp,:ultimodia,:fechabaja,:motivo,:observaciones,:creatoruser,:action,:ultimosueldo,:vacaciones,:finiquito)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
