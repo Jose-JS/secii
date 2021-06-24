@@ -144,16 +144,12 @@ $error="Algo salió mal. Inténtalo de nuevo";
                                         <input id="ultimodia" type="date" name="ultimodia" class="validate" autocomplete="off" required>
                                         
                                     </div>
-                                    
-                                    
-
 
                                     <div class="input-field col s12">
                                         <input id="motivo" type="text" class="validate" autocomplete="off" name="motivo" required>
                                         <label for="motivo">Motivo de baja</label>
                                     </div>
-                                    
-                                    
+                                                        
 
                                     <div class="input-field col s12">
                                         <input id="ultimosueldo" type="text" class="validate" autocomplete="off" name="ultimosueldo" required>
@@ -164,8 +160,7 @@ $error="Algo salió mal. Inténtalo de nuevo";
                                         <input id="finiquito" type="text" class="validate" autocomplete="off" name="finiquito" required>
                                         <label for="finiquito">Solicitud de finiquito</label>
                                     </div>
-                                    
-                                    
+                         
                                     
                                     <div class="input-field col s12">
                                         <input id="vacaciones" type="text" class="validate" autocomplete="off" name="vacaciones" required>
