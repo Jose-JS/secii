@@ -9,6 +9,7 @@ require_once('../lib/tcpdf/tcpdf.php');
 include('includes/config.php');
 setlocale(LC_ALL, "es_ES");
 $eid = intval($_GET['empid']);
+$vigencia =$_GET['vigencia'];
 // Extend the TCPDF class to create custom Header and Footer
 class MYPDF extends TCPDF
 {
@@ -56,6 +57,10 @@ $cnt = 1;
 if ($query->rowCount() > 0) {
     foreach ($query as $result) {
         $fechadealta = $result['fechini'];
+        $fechaEntera = strtotime($fechadealta);
+        $anio = date("Y", $fechaEntera);
+        $mes = date("m", $fechaEntera);
+        $dia = date("d", $fechaEntera);
         $company = $result['company'];
         $puesto = $result['Department'];
         $name = $result['name'];
@@ -148,7 +153,7 @@ if ($query->rowCount() > 0) {
         $content .= '<b>';
         $content .= '
         <p align="center">CONTRATO LABORAL<br></p>
-        <p>CONTRATO INDIVIDUAL DE TRABAJO POR TIEMPO  INDETERMINADO QUE CELEBRAN CON FUNDAMENTO EN LOS ARTICULOS 24, 25, 35 Y 37 DE LA LEY FEDERAL DEL TRABAJO ( “ LA LEY “ ); POR UNA PARTE ' . $company . ' REPRESENTADA EN ESTE ACTO POR LIC. JOSE ALFREDO MARQUEZ HERNANDEZ, EN SU CARÁCTER DE APODERADO LEGAL, EN LO SUCESIVO EL “PATRON” Y POR OTRA PARTE EL C. ' . $name . ' ' . $firstname . ' ' . $lastname . ', A QUIEN SE LE DENOMINARA EL “TRABAJADOR”, DE CONFORMIDAD CON LAS SIGUIENTES DECLARACIONES Y CLAUSULAS:</p>
+        <p>CONTRATO INDIVIDUAL DE TRABAJO POR TIEMPO  '.$vigencia.' QUE CELEBRAN CON FUNDAMENTO EN LOS ARTICULOS 24, 25, 35 Y 37 DE LA LEY FEDERAL DEL TRABAJO ( “ LA LEY “ ); POR UNA PARTE ' . $company . ' REPRESENTADA EN ESTE ACTO POR LIC. JOSE ALFREDO MARQUEZ HERNANDEZ, EN SU CARÁCTER DE APODERADO LEGAL, EN LO SUCESIVO EL “PATRON” Y POR OTRA PARTE EL C. ' . $name . ' ' . $firstname . ' ' . $lastname . ', A QUIEN SE LE DENOMINARA EL “TRABAJADOR”, DE CONFORMIDAD CON LAS SIGUIENTES DECLARACIONES Y CLAUSULAS:</p>
 
 
         <p align="center">D E C L A R A C I O N E S<br></p>
@@ -197,7 +202,7 @@ if ($query->rowCount() > 0) {
 
         <p><b>CUARTA. RECIBO. El PATRON</b> se obliga a emitir los recibos de pagos contenidos en comprobantes fiscales digitales por Internet (CFDI), mismos que sustituirán a los recibos impresos; Haciéndole saber a el <b>TRABAJADOR</b> que el contenido de un CFDI tendrá valor probatorio si se verifica en el portal de Internet del SAT (SERVICIO DE ADMINISTRACION TRIBUTUARIA),  en el supuesto de que  <b>EL TRABAJADOR</b>, requiera los comprobantes impresos deberá de solicitarlos por escrito al <b>PATRON</b>. </p>
 
-        <p><b>QUINTA. VIGENCIA</b>. El presente contrato tendrá una vigencia <b>INDEFINIDO</b>, que correrá desde el día de la firma del presente contrato, y se dará por terminado el presente contrato y la relación laboral, sin responsabilidad para ninguna de las partes si <b>EL TRABAJOR</b> no cumple de manera correcta y responsable las tareas y funciones que <b>EL PATRÓN</b> le encomiende, asimismo, si <b>EL PATRÓN</b> da por terminado de manera anticipada el presente contrato, no existirá responsabilidad para <b>EL PATRÓN</b>.</p>
+        <p><b>QUINTA. VIGENCIA</b>. El presente contrato tendrá una vigencia <b>'.$vigencia.'</b>, que correrá desde el día de la firma del presente contrato, y se dará por terminado el presente contrato y la relación laboral, sin responsabilidad para ninguna de las partes si <b>EL TRABAJOR</b> no cumple de manera correcta y responsable las tareas y funciones que <b>EL PATRÓN</b> le encomiende, asimismo, si <b>EL PATRÓN</b> da por terminado de manera anticipada el presente contrato, no existirá responsabilidad para <b>EL PATRÓN</b>.</p>
 
         <p><b>SEXTA. PUESTO. El TRABAJADOR</b> desempeñará el puesto de <b>' . $puesto . '</b> el cual estará bajo la subordinación de EL PATRÓN y con las obligaciones y responsabilidades que se señalan en forma enunciativa en este contrato, y las instrucciones que sobre su trabajo y actividades relacionadas le ordene <b>EL PATRÓN</b>.</p>
 
@@ -275,7 +280,7 @@ if ($query->rowCount() > 0) {
         <p><b>DÉCIMA QUINTA</b>. Ambas partes convienen en que lo no estipulado en el presente Contrato se regirá por lo dispuesto en la Ley Federal de Trabajo. En caso de controversia entre las partes respecto de la interpretación y cumplimiento del presente Contrato, se someten a lo dispuesto por la Ley y a la jurisdicción de la Junta Federal o Local de Conciliación y Arbitraje, renunciando a la jurisdicción que en razón de domicilio o materia pudiera corresponderles.</p>
         
     
-        <p>Leído que fue por las partes este documento, que deja sin efecto, cancela o substituye cualquier anterior, y una vez enteradas éstas de su contenido, obligaciones y alcance, se firma el presente Contrato en Tepotzotlán Edo. de México, el día ' . date("d") . ' de ' . date("m") . ' del ' . date("Y") . '.</p>
+        <p>Leído que fue por las partes este documento, que deja sin efecto, cancela o substituye cualquier anterior, y una vez enteradas éstas de su contenido, obligaciones y alcance, se firma el presente Contrato en Tepotzotlán Edo. de México, el día '.$dia.' mes '.$mes.' año '.$anio.'.</p>
 
             <table>
             <tr>

@@ -47,12 +47,14 @@ if (strlen($_SESSION['recursos']) == 0) {
         <meta name="author" content="Steelcoders" />
 
         <!-- Styles -->
+
         <link type="text/css" rel="stylesheet" href="../assets/css/responsive.dataTables.min.css" />
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css" />
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
         <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
 
 
 
@@ -216,11 +218,9 @@ if (strlen($_SESSION['recursos']) == 0) {
 
                                                         <a name="create_pdf" href="creator_pdf_operaciones.php?empid=<?php echo htmlentities($result->id); ?>" target="_blank" title="PDF Operaciones" class="tooltipped" data-position="bottom" data-tooltip="PDF Operaciones"><i class="material-icons">picture_as_pdf</i></a><br>
 
-                                                        <a name="create_pdf" href="creator_pdf_contrato.php?empid=<?php echo htmlentities($result->id); ?>" target="_blank" title="PDF Contrato" class="tooltipped" data-position="bottom" data-tooltip="PDF Contrato"><i class="material-icons">picture_as_pdf</i></a>
+                                                        <!--<a name="create_pdf"  onClick="mensaje()" title="PDF Contrato" class="tooltipped" data-position="bottom" data-tooltip="PDF Contrato"><i class="material-icons">picture_as_pdf</i></a>-->
 
                                                         <a name="create_pdf" href="credencial_adelante2.php?empid=<?php echo htmlentities($result->id); ?>&idemp=<?php echo htmlentities($result->company); ?>" target="_blank" title="credencial" class="tooltipped" data-position="bottom" data-tooltip="credencial"><i class="material-icons">style</i></a>
-                                                        
-
 
                                                         <?php if ($result->Status == 1) { ?>
 
@@ -259,6 +259,53 @@ if (strlen($_SESSION['recursos']) == 0) {
         <script src="../assets/js/alpha.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
         <script src="../assets/js/pages/table-data.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script>
+            function mensaje() {
+                const {
+                    value: contrato
+                } = Swal.fire({
+                    title: 'Selecciona tipo de contrato',
+                    input: 'select',
+                    inputOptions: {
+                        'Contrato': {
+                            Indeterminado: 'Indeterminado',
+                            Determinado: 'Determinado',
+                        },
+                    },
+                    inputPlaceholder: 'Selecciona contrato',
+                    showCancelButton: true,
+                    inputValidator: (value) => {
+                        return new Promise((resolve) => {
+                            if (value === 'Indeterminado') {
+                                window.open('creator_pdf_contrato_indefinido.php?empid=<?php echo htmlentities($result->id); ?>', '_blank');
+                            } else if (value === 'Determinado') {
+                                mensaje2();
+                            } else {
+                                resolve('Selecciona una opción')
+                            }
+                        })
+                    }
+                })
+            }
+
+            function mensaje2() {
+                Swal.fire({
+                        title: "Vigencia del Contrato",
+                        input: "text",
+                        showCancelButton: true,
+                        confirmButtonText: "Guardar",
+                        cancelButtonText: "Cancelar",
+                    })
+                    .then(resultado => {
+                        if (resultado.value) {
+                            let vigencia = resultado.value;
+                            window.open('creator_pdf_contrato_determinado.php?empid=<?php echo htmlentities($result->id); ?>&vigencia=' + vigencia, '_blank');
+                            //console.log("Hola, " + nombre);
+                        }
+                    });
+            }
+        </script>
 
     </body>
 
