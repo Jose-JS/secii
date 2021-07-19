@@ -218,7 +218,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 
                                                         <a name="create_pdf" href="creator_pdf_operaciones.php?empid=<?php echo htmlentities($result->id); ?>" target="_blank" title="PDF Operaciones" class="tooltipped" data-position="bottom" data-tooltip="PDF Operaciones"><i class="material-icons">picture_as_pdf</i></a><br>
 
-                                                        <!--<a name="create_pdf"  onClick="mensaje()" title="PDF Contrato" class="tooltipped" data-position="bottom" data-tooltip="PDF Contrato"><i class="material-icons">picture_as_pdf</i></a>-->
+                                                        <a name="create_pdf" href="#"onClick="mensaje(<?php echo htmlentities($result->id); ?>)" title="PDF Contrato" class="tooltipped" data-position="bottom" data-tooltip="PDF Contrato"><i class="material-icons">picture_as_pdf</i></a>
 
                                                         <a name="create_pdf" href="credencial_adelante2.php?empid=<?php echo htmlentities($result->id); ?>&idemp=<?php echo htmlentities($result->company); ?>" target="_blank" title="credencial" class="tooltipped" data-position="bottom" data-tooltip="credencial"><i class="material-icons">style</i></a>
 
@@ -261,7 +261,7 @@ if (strlen($_SESSION['recursos']) == 0) {
         <script src="../assets/js/pages/table-data.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script>
-            function mensaje() {
+            function mensaje(result) {
                 const {
                     value: contrato
                 } = Swal.fire({
@@ -278,9 +278,10 @@ if (strlen($_SESSION['recursos']) == 0) {
                     inputValidator: (value) => {
                         return new Promise((resolve) => {
                             if (value === 'Indeterminado') {
-                                window.open('creator_pdf_contrato_indefinido.php?empid=<?php echo htmlentities($result->id); ?>', '_blank');
+                                window.open('creator_pdf_contrato_indefinido.php?empid='+result, '_blank');
+                                swal.close()
                             } else if (value === 'Determinado') {
-                                mensaje2();
+                                mensaje2(result);
                             } else {
                                 resolve('Selecciona una opción')
                             }
@@ -289,7 +290,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                 })
             }
 
-            function mensaje2() {
+            function mensaje2(result) {
                 Swal.fire({
                         title: "Vigencia del Contrato",
                         input: "text",
@@ -300,7 +301,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                     .then(resultado => {
                         if (resultado.value) {
                             let vigencia = resultado.value;
-                            window.open('creator_pdf_contrato_determinado.php?empid=<?php echo htmlentities($result->id); ?>&vigencia=' + vigencia, '_blank');
+                            window.open('creator_pdf_contrato_determinado.php?empid='+result+'&vigencia=' + vigencia, '_blank');
                             //console.log("Hola, " + nombre);
                         }
                     });
