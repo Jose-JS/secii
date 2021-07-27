@@ -218,7 +218,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 
                                                         <a name="create_pdf" href="creator_pdf_operaciones.php?empid=<?php echo htmlentities($result->id); ?>" target="_blank" title="PDF Operaciones" class="tooltipped" data-position="bottom" data-tooltip="PDF Operaciones"><i class="material-icons">picture_as_pdf</i></a><br>
 
-                                                        <a name="create_pdf" href="#"onClick="mensaje(<?php echo htmlentities($result->id); ?>)" title="PDF Contrato" class="tooltipped" data-position="bottom" data-tooltip="PDF Contrato"><i class="material-icons">picture_as_pdf</i></a>
+                                                        <a name="create_pdf" href="#" onClick="mensaje(<?php echo htmlentities($result->id); ?>)" title="PDF Contrato" class="tooltipped" data-position="bottom" data-tooltip="PDF Contrato"><i class="material-icons">picture_as_pdf</i></a>
 
                                                         <a name="create_pdf" href="credencial_adelante2.php?empid=<?php echo htmlentities($result->id); ?>&idemp=<?php echo htmlentities($result->company); ?>" target="_blank" title="credencial" class="tooltipped" data-position="bottom" data-tooltip="credencial"><i class="material-icons">style</i></a>
 
