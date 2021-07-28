@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -249,7 +249,7 @@ foreach($results22 as $result22)
 
 											<input type="hidden" name="pacient_id1" value="">
 											<input type="hidden" name="base641" value="" id="base641">
-													<?php}
+													<?php }
 	                                else{?>
                                     
                                     <?php } ?>

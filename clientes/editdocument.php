@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 
 //ini_set('error_reporting', E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['cliente'])==0)
     {   
 header('location:index.php');

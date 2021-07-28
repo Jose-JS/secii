@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 //error_reporting(0);
 //ini_set('error_reporting', E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -51,7 +51,7 @@ foreach($image as $result)
     }
 }}}
 $creatoruser=$_SESSION['alogin'];
-$action=modificación;
+$action='modificación';
 if (! empty($_GET["action"]) && $_GET["action"] == "save") {
     $sql = "UPDATE tbldocument SET namedoc='" . $imagePath . "',creatoruser='" . $creatoruser . "',action='" . $action . "' WHERE id='" . $_GET["image_id"] . "'";
     $query = $dbh->prepare($sql);

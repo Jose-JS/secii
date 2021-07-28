@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -78,7 +78,7 @@ $service=$_POST['service'];
 $description=$_POST['description']; 
 $status=1;
 $creatoruser=$_SESSION['supervisor'];    
-$action=inserción;
+$action='inserción';
  
  
 $sql="INSERT INTO tblactadmin(date,invoice,reason,technical,empid,turn,service,description,firm1,firm2,creatoruser,action,letter,img1,img2,img3) VALUES(:date,:invoice,:reason,:technical,:empid,:turn,:service,:description,:contract,:contract1,:creatoruser,:action,:letter,:nombre,:nombre2,:nombre3)";

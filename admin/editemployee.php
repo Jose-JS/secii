@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -21,7 +21,7 @@ $city=$_POST['city'];
 $country=$_POST['country']; 
 $mobileno=$_POST['mobileno']; 
 $creatoruser=$_SESSION['alogin'];
-$action=modificación;        
+$action='modificación';        
 $sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno,creatoruser=:creatoruser,action=:action where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);

@@ -1,202 +1,207 @@
-
 <?php
 session_start();
 error_reporting(0);
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 include('includes/config.php');
-if(isset($_POST['signin']))
-{
-$uname=$_POST['username'];
-$password=md5($_POST['password']);
-$sql ="SELECT EmailId,Password,Status,id FROM tblemployees WHERE EmailId=:uname and Password=:password";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
-$query-> bindParam(':password', $password, PDO::PARAM_STR);
-$query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
-{
- foreach ($results as $result) {
-    $status=$result->Status;
-    $_SESSION['eid']=$result->id;
-  }
-if($status==0)
-{
-$msg="Tu cuenta está inactiva. Por favor, póngase en contacto con el administrador";
-} else{
-$_SESSION['emplogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'emp-changepassword.php'; </script>";
-} }
+if (isset($_POST['signin'])) {
+    $uname = $_POST['username'];
+    $password = md5($_POST['password']);
+    $sql = "SELECT EmailId,Password,Status,id FROM tblemployees WHERE EmailId=:uname and Password=:password";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':uname', $uname, PDO::PARAM_STR);
+    $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->execute();
+    $results = $query->fetchAll(PDO::FETCH_OBJ);
+    if ($query->rowCount() > 0) {
+        foreach ($results as $result) {
+            $status = $result->Status;
+            $_SESSION['eid'] = $result->id;
+        }
+        if ($status == 0) {
+            $msg = "Tu cuenta está inactiva. Por favor, póngase en contacto con el administrador";
+        } else {
+            $_SESSION['emplogin'] = $_POST['username'];
+            echo "<script type='text/javascript'> document.location = 'emp-changepassword.php'; </script>";
+        }
+    } else {
 
-else{
-
-  echo "<script>alert('Detalles invalidos');</script>";
-
+        echo "<script>alert('Detalles invalidos');</script>";
+    }
 }
 
-}
-
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
 
-        <!-- Title -->
-        <title>Página principal</title>
+<head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <meta charset="UTF-8">
-        <meta name="description" content="Responsive Admin Dashboard Template" />
-        <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
+    <!-- Title -->
+    <title>Página principal</title>
 
-        <!-- Styles -->
-        <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
-       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Responsive Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
 
 
-    
-       
-       
-        <!-- Theme Styles -->
-        <link href="assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
-         <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
-         <link rel="stylesheet" href="assets/plugins/particles/css/style.css">
-<style>
+
+
+
+
+    <!-- Theme Styles -->
+    <link href="assets/css/alpha.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+    <link rel="stylesheet" href="assets/plugins/particles/css/style.css">
+    <style>
         .errorWrap {
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solid #dd3d36;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-.succWrap{
-    padding: 10px;
-    margin: 0 0 20px 0;
-    background: #fff;
-    border-left: 4px solid #5cb85c;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-        </style>
+            padding: 10px;
+            margin: 0 0 20px 0;
+            background: #fff;
+            border-left: 4px solid #dd3d36;
+            -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+        }
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+        .succWrap {
+            padding: 10px;
+            margin: 0 0 20px 0;
+            background: #fff;
+            border-left: 4px solid #5cb85c;
+            -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
         <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    </head>
-    <body>
-        <div class="loader-bg"></div>
-        <div class="loader">
-            <div class="preloader-wrapper big active">
-                <div class="spinner-layer spinner-blue">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
+</head>
+
+<body>
+    <div class="loader-bg"></div>
+    <div class="loader">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
                     <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                    </div>
                 </div>
-                <div class="spinner-layer spinner-spinner-teal lighten-1">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
+                <div class="gap-patch">
                     <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                    </div>
                 </div>
-                <div class="spinner-layer spinner-yellow">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
+                <div class="circle-clipper right">
                     <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                    </div>
                 </div>
-                <div class="spinner-layer spinner-green">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
+            </div>
+            <div class="spinner-layer spinner-spinner-teal lighten-1">
+                <div class="circle-clipper left">
                     <div class="circle"></div>
-                    </div><div class="circle-clipper right">
+                </div>
+                <div class="gap-patch">
                     <div class="circle"></div>
-                    </div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
                 </div>
             </div>
         </div>
-        <div class="mn-content fixed-sidebar">
-            <header class="mn-header navbar-fixed">
-                <nav class="blue-grey darken-1">
-                    <div class="nav-wrapper row">
-                        <section class="material-design-hamburger navigation-toggle">
-                            <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
-                                <span class="material-design-hamburger__layer"></span>
-                            </a>
-                        </section>
-                        <div class="header-title col s3">
+    </div>
+    <div class="mn-content fixed-sidebar">
+        <header class="mn-header navbar-fixed">
+            <nav class="blue-grey darken-1">
+                <div class="nav-wrapper row">
+                    <section class="material-design-hamburger navigation-toggle">
+                        <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
+                            <span class="material-design-hamburger__layer"></span>
+                        </a>
+                    </section>
+                    <div class="header-title col s3">
                         <!--    <span class="chapter-title">sistema</span>-->
-                        </div>
-
-
-                        </form>
-
-
                     </div>
-                </nav>
-            </header>
 
 
-            <aside id="slide-out" class="side-nav white fixed">
-                <div class="side-nav-wrapper">
+                    </form>
 
 
-                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" style="">
-                    
+                </div>
+            </nav>
+        </header>
+
+
+        <aside id="slide-out" class="side-nav white fixed">
+            <div class="side-nav-wrapper">
+
+
+                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
+
                     <!--<li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Logueo de Técnico</a></li>-->
                     <!--<li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i> recuperar contraseña</a></li>-->
-                        <?php 
-					$id=$_GET['id'];
-					//var_dump($id);
-					if($id=='administrator'){?>
-					   <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">admin_panel_settings</i>Acceso Administrador</a></li>
-					
-				<?php	}else{?>
-                    
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">admin_panel_settings</i>Acceso Administrador</a></li>
-					
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="administracion/"><i class="material-icons">login</i>Acceso Administración</a></li>
-                       
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="supervisores/"><i class="material-icons">login</i>Acceso Supervisores</a></li>
-                       
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="recursoshumanos/"><i class="material-icons">login</i>Acceso Recursos Humanos</a></li>
-                       
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="cimo/"><i class="material-icons">login</i>Acceso C.I.M.O.</a></li>
-                    
-                      <li class="no-padding"><a class="waves-effect waves-grey" href="clientes/"><i class="material-icons">login</i>Acceso Clientes</a></li>
-                      
-                      
-                      
- <?php }?>
+                    <?php
+                    $id = $_GET['id'];
+                    //var_dump($id);
+                    if ($id == 'administrator') { ?>
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">admin_panel_settings</i>Acceso Administrador</a></li>
+
+                    <?php    } else { ?>
+
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">admin_panel_settings</i>Acceso Administrador</a></li>
+
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="administracion/"><i class="material-icons">login</i>Acceso Administración</a></li>
+
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="supervisores/"><i class="material-icons">login</i>Acceso Supervisores</a></li>
+
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="recursoshumanos/"><i class="material-icons">login</i>Acceso Recursos Humanos</a></li>
+
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="cimo/"><i class="material-icons">login</i>Acceso C.I.M.O.</a></li>
+
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="clientes/"><i class="material-icons">login</i>Acceso Clientes</a></li>
+
+
+
+                    <?php } ?>
                 </ul>
-          <div class="footer">
+                <div class="footer">
                     <p class="copyright"><a href="">SECII</a>©</p>
 
                 </div>
-                </div>
-            </aside>
-            <main class="mn-inner">
-                <div id="particles-js"></div>
-                <!--<div class="row">
+            </div>
+        </aside>
+        <main class="mn-inner">
+            <div id="particles-js"></div>
+            <!--<div class="row">
                     <div class="col s12">
                         <div class="page-title"><h4>Bienvenido al sistema </h4></div>
 
@@ -205,7 +210,7 @@ else{
 
                                   <div class="card-content ">
                                       <span class="card-title" style="font-size:20px;">Login de Técnico</span>
-                                         <?php if($msg){?><div class="errorWrap"><strong>Error</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
+                                         <?php if ($msg) { ?><div class="errorWrap"><strong>Error</strong> : <?php echo htmlentities($msg); ?> </div><?php } ?>
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">
                                                <div class="input-field col s12">
@@ -228,21 +233,22 @@ else{
                           </div>
                     </div>
                 </div>-->
-            </main>
+        </main>
 
-        </div>
-        <div class="left-sidebar-hover"></div>
+    </div>
+    <div class="left-sidebar-hover"></div>
 
-        <!-- Javascripts -->
-        <script src="assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="assets/js/alpha.min.js"></script>
-         <!--    particulas   -->   
-    <script src="assets/plugins/particles/js/particles.js"></script>   
-    <script src="assets/plugins/particles/js/lib/stats.js"></script>     
+    <!-- Javascripts -->
+    <script src="assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="assets/plugins/materialize/js/materialize.min.js"></script>
+    <script src="assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="assets/js/alpha.min.js"></script>
+    <!--    particulas   -->
+    <script src="assets/plugins/particles/js/particles.js"></script>
+    <script src="assets/plugins/particles/js/lib/stats.js"></script>
     <script src="assets/plugins/particles/js/app.js"></script>
 
-    </body>
+</body>
+
 </html>

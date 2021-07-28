@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -163,7 +163,7 @@ copy($_FILES['foto24']['tmp_name'],$ruta24);
 $nombre24=$ruta24;	
 	
 $creatoruser=$_SESSION['recursos'];
-$action=inserción;     
+$action='inserción';     
 
 $sql="INSERT INTO tbldocument(idemp,name,namedoc,creatoruser,action)VALUES(:eid,'ACTA DE NACIMIENTO',:nombre2,:creatoruser,:action),(:eid,'COMPROBANTE DE DOMICILIO',:nombre3,:creatoruser,:action),(:eid,'CERTIFICADO DE ESTUDIOS',:nombre4,:creatoruser,:action),(:eid,'CARTILLA MILITAR',:nombre5,:creatoruser,:action),(:eid,'INE',:nombre6,:creatoruser,:action),(:eid,'NUMERO DE SEGURIDAD SOCIAL',:nombre7,:creatoruser,:action),(:eid,'RFC',:nombre8,:creatoruser,:action),(:eid,'CURP',:nombre9,:creatoruser,:action),(:eid,'ANTECEDENTES NO PENALES',:nombre10,:creatoruser,:action),(:eid,'CONSTANCIA DE NO ADEUDO INFONAVIT',:nombre11,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre16,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre17,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre18,:creatoruser,:action),(:eid,'HUELLAS DACTILARES',:nombre19,:creatoruser,:action),(:eid,'MEDIO CUERPO',:nombre20,:creatoruser,:action),(:eid,'CUERPO COMPLETO',:nombre21,:creatoruser,:action),(:eid,'TOXICOLOGICO',:nombre22,:creatoruser,:action),(:eid,'PERFIL IZQUIERDO',:nombre23,:creatoruser,:action),(:eid,'PERFIL DERECHO',:nombre24,:creatoruser,:action)";
 $query = $dbh->prepare($sql);  

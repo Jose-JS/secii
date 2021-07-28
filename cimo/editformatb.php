@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 //error_reporting(E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -14,7 +14,7 @@ if(isset($_POST['add']))
 $id=$_GET['i'];
 $nota=$_POST['nota'];	
 $creatoruser=$_SESSION['supervisor'];
-$action=modificación;    
+$action='modificación';    
   
 $sql="UPDATE tbldoubletsb SET nota=:nota,creatoruser=:creatoruser,action=:action WHERE id=:id";   
 $query = $dbh->prepare($sql);	

@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['user'])==0)
     {   
 header('location:index.php');
@@ -42,9 +42,9 @@ $fech=$_POST["fech"];
 $description=$_POST["description"];
 $monto=$_POST["monto"];
 $fechlimit=$_POST["fechlimit"];    
-$movement=cargo;
+$movement='cargo';
 $creatoruser=$_SESSION['user'];
-$action=inserción;
+$action='inserción';
     
 $sql2="INSERT INTO tblmovements(idcliente,cliente,invoicenumber,fech,description,monto,fechlimit,movement,balance,creatoruser,action) VALUES(:idcliente,:cliente,:invoicenumber,:fech,:description,:monto,:fechlimit,:movement,:monto,:creatoruser,:action)";
 

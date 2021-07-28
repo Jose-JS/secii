@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 function getContent(){
 	
-include('includes/config.php');	
+include('../includes/config.php');	
 $company=$_GET['company']; 
 $eid=intval($_GET['empid']);
 var_dump($company);

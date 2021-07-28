@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -62,7 +62,7 @@ opendir($ruta1);
 $contract1=$ruta1;    
 file_put_contents($ruta1, $fileData1);
 $creatoruser=$_SESSION['supervisor'];
-$action=inserción;
+$action='inserción';
  
  
 $sql="INSERT INTO tblformatab(folio,formatos,firm1,firm2,creatoruser,action) VALUES(:folio,:selected,:contract,:contract1,:creatoruser,:action)";

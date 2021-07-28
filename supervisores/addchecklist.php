@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -64,7 +64,7 @@ $credencial=$_POST['credencial'];
 $acuerdo=$_POST['acuerdo'];	
 $creatoruser=$_SESSION['supervisor'];
 $fecha=$_POST['fecha'];	
-$action=inserción;	
+$action='inserción';	
 
 $sql="INSERT INTO tblchecklist(empid,tesi,documentos,introduccion,aviso,reglamento,alta,boleta,huellas,contrato,credencial,acuerdo,fecha,creatoruser,action,foto) VALUES(:empid,:tesi,:documentos,:introduccion,:aviso,:reglamento,:alta,:boleta,:huellas,:contrato,:credencial,:acuerdo,:fecha,:creatoruser,:action,:nombre22)";
 $query = $dbh->prepare($sql);

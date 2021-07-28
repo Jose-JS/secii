@@ -2,7 +2,7 @@
 session_start();
 //error_reporting(0);
 
-include('includes/config.php'); 
+include('../includes/config.php'); 
         $did = intval($_GET['empid']);
         $eid =$_POST['empid'];
         $name = $_POST['name'];

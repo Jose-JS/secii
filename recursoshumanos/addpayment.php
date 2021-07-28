@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['recursos'])==0)
     {   
 header('location:index.php');
@@ -14,7 +14,7 @@ $servicecode=$_POST['servicecode'];
 $serviceaddress=$_POST['serviceaddress'];
 $coordinates=$_POST['coordinates'];
 $creatoruser=$_SESSION['recursos'];
-$action=inserción;     
+$action='inserción';     
 $sql="INSERT INTO tblserviceassigned(servicename,servicecode,serviceaddress,coordinates,creatoruser,action) VALUES(:servicename,:servicecode,:serviceaddress,:coordinates,:creatoruser,:action)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':servicename',$servicename,PDO::PARAM_STR);

@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -39,7 +39,7 @@ if (isset($_POST['add'])) {
 	
 
 $creatoruser=$_SESSION['supervisor'];
-$action=inserción;
+$action='inserción';
 $fecha=$_POST['fecha'];	
  
 $sql="INSERT INTO tblformatab(folio,fecha,formatos,creatoruser,action) VALUES(:folio,:fecha,:selected,:creatoruser,:action)";

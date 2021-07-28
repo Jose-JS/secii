@@ -6,7 +6,7 @@ use Luecano\NumeroALetras\NumeroALetras;
 require_once('../lib/tcpdf/config/lang/spa.php');
 require_once('../lib/tcpdf/tcpdf.php');
 //require_once('conexion2.php');	
-include('includes/config.php');
+include('../includes/config.php');
 setlocale(LC_ALL, "es_ES");
 $eid = intval($_GET['empid']);
 // Extend the TCPDF class to create custom Header and Footer

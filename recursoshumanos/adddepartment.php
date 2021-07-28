@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['recursos'])==0)
     {   
 header('location:index.php');
@@ -13,7 +13,7 @@ $deptname=$_POST['departmentname'];
 $deptshortname=$_POST['departmentshortname'];
 $deptcode=$_POST['deptcode'];   
 $creatoruser=$_SESSION['recursos'];
-$action=inserción;     
+$action='inserción';     
 $sql="INSERT INTO tbldepartments(DepartmentName,DepartmentCode,DepartmentShortName,creatoruser,action) VALUES(:deptname,:deptcode,:deptshortname,:creatoruser,:action)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':deptname',$deptname,PDO::PARAM_STR);

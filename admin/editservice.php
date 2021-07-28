@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -15,7 +15,7 @@ $servicecode=$_POST['servicecode'];
 $serviceaddress=$_POST['serviceaddress'];
 $coordinates=$_POST['coordinates'];  
 $creatoruser=$_SESSION['alogin'];
-$action=modificación;    
+$action='modificación';    
 $sql="update tblserviceassigned set servicename=:servicename,servicecode=:servicecode,serviceaddress=:serviceaddress,coordinates=:coordinates,creatoruser=:creatoruser,action=:action where id=:did";
 $query = $dbh->prepare($sql);
 $query->bindParam(':servicename',$servicename,PDO::PARAM_STR);

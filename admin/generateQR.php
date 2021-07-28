@@ -3,7 +3,7 @@ session_start();
 require ('../phpqrcode/qrlib.php');
 error_reporting(0);
 //error_reporting(E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -21,7 +21,7 @@ $fecha12  = date("dmy");
 $no_aleatorio12  = rand(0,100)* rand(0,100); //Generamos dos Digitos aleatorios        
 //variables 
 $tam =5; //tamaño de la imagen qr
-$niv =L;//nivel de seguridad
+$niv ='L';//nivel de seguridad
 $filename = $dir.$fecha12.$no_aleatorio12.'.png'; //archivo qr donde se guardara
 $frameSize = 3; // marco
 //clase Qr:: funcion png
@@ -29,7 +29,7 @@ $porciones = substr($technical,0,6);
 
 $creationqr=1;    
 $creatoruser=$_SESSION['alogin'];
-$action=modificación;    
+$action='modificación';    
 
 $sql = "SELECT addressqr FROM tblemployees WHERE EmpId=:porciones";
 $query = $dbh -> prepare($sql);

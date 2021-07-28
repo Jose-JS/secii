@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -41,7 +41,7 @@ $status=1;
 $email=$_POST['email'];
 $paymentcondition=$_POST['paymentcondition'];
 $creatoruser=$_SESSION['alogin'];
-$action=modificación;
+$action='modificación';
  
 $sql="UPDATE tblclientsadd SET businessname=:businessname,rfc=:rfc,adress=:adress,state=:state,municipality=:municipality,suburb=:suburb,postalcode=:postalcode,paymenttype=:paymenttype,payment=:payment,companyinvoices=:companyinvoices,service=:service,balance=:balance,creditlimit=:creditlimit,contractfirm=:contractfirm,contractterm=:contractterm,classification=:classification,coordinates=:coordinates,phone=:phone,status=:status,email=:email,paymentcondition=:paymentcondition,creatoruser=:creatoruser,action=:action where id=:eid";
 

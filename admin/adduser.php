@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -23,7 +23,7 @@ $user=$_POST['user'];
 $password=$_POST['password'];
     
 $creatoruser=$_SESSION['alogin'];
-$action=inserción;    
+$action='inserción';    
 
 
 $fecha2  = date("dmy");    

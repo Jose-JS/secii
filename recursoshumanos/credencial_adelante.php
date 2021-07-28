@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
     require_once('../lib/tcpdf/config/lang/spa.php');
 	require_once('../lib/tcpdf/tcpdf.php');
 	//require_once('conexion2.php');	
-include('includes/config.php');
+include('../includes/config.php');
   $ids=$_GET['idemp']; 
 
 if($ids=='ASLO SEGURIDAD PRIVADA S.A. DE C.V.'){

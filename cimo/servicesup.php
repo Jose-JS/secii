@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -131,7 +131,7 @@ $zone2=$_POST['zone2'];
 $zone3=$_POST['zone3']; 
 $zone4=$_POST['zone4'];     
 $creatoruser=$_SESSION['supervisor'];
-$action=inserción;
+$action='inserción';
 $turn=$_POST['turn'];
 $turn2=$_POST['turn2'];    
 $status=1;    

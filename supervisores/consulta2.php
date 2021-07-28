@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
     require_once('../lib/tcpdf/config/lang/spa.php');
 	require_once('../lib/tcpdf/tcpdf.php');
 	require_once('conexion2.php');	
-include('includes/config.php');
+include('../includes/config.php');
     $eid=intval($_GET['i']);
 	$sql = "SELECT * FROM tblactadmin where id='$eid' ";	
 	$query = $dbh -> prepare($sql);

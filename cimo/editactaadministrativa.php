@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -57,7 +57,7 @@ $service=$_POST['service'];
 $description=$_POST['description']; 
 $status=1;
 $creatoruser=$_SESSION['supervisor'];    
-$action=modificación;
+$action='modificación';
  
  
 $sql="UPDATE tblactadmin SET date=:date,invoice=:invoice,reason=:reason,technical=:technical,empid=:empid,turn=:turn,service=:service,description=:description,creatoruser=:creatoruser,action=:action,letter=:letter where id=:id";

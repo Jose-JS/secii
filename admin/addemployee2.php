@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -65,7 +65,7 @@ $cp=$_POST['cp'];
 $password=md5($_POST['password']); 
 $status=1;
 $creatoruser=$_SESSION['alogin'];
-$action=inserción;    
+$action='inserción';    
 
 $fecha  = date("dmy");
 $no_aleatorio  = rand(0,100)* rand(0,100); //Generamos dos Digitos aleatorios        

@@ -2,7 +2,7 @@
 
 function getContent(){
 	
-include('includes/config.php');	
+include('../includes/config.php');	
 $ids=$_GET['idemp']; 
 $eid=intval($_GET['empid']);
 

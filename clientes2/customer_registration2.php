@@ -2,7 +2,7 @@
 session_start();
 //error_reporting(E_ALL);
 error_reporting(0);
-include('includes/config.php');
+include('../includes/config.php');
 if(isset($_POST['signin']))
 {
 $name=$_POST['name'];
@@ -34,7 +34,7 @@ opendir($ruta);
 copy($_FILES['foto']['tmp_name'],$ruta);
 $nombre=$ruta;
 $creatoruser=$_SESSION['user'];    
-$action=inserción;
+$action='inserción';
 
 $sql="INSERT INTO tblclients(name,firstname,lastname,user,password,service,status,image,creatoruser,action) VALUES(:name,:firstname,:lastname,:user,:password,:selected,:status,:nombre,:creatoruser,:action)";
 $query = $dbh->prepare($sql);

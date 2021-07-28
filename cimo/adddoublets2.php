@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 //error_reporting(E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['supervisor'])==0)
     {   
 header('location:index.php');
@@ -33,7 +33,7 @@ $cover=$_POST['cover'];
 $reason=$_POST['reason'];
 $turn=$_POST['turn']; 
 $creatoruser=$_SESSION['supervisor'];
-$action=inserción;    
+$action='inserción';    
 $relaytime=$_POST['relaytime'];
   
     

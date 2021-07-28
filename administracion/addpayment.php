@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 //error_reporting(E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -19,7 +19,7 @@ $monto=$_POST['monto'];
 $cargo=$_POST['cargo'];
 $balance=$cargo-$monto;    
 $namecomp=$_POST['namecomp'];
-$movement=abono;    
+$movement='abono';    
 $fecha  = date("dmy");
 $no_aleatorio  = rand(0,100)* rand(0,100); //Generamos dos Digitos aleatorios        
 $ruta = '../administracion/Comprobantes/'.$fecha.$no_aleatorio.$_FILES['foto']['name'];//foto medio cuerpo
@@ -27,8 +27,8 @@ opendir($ruta);
 copy($_FILES['foto']['tmp_name'],$ruta);
 $nombre=$ruta;
 $creatoruser=$_SESSION['alogin'];
-$action=inserción;    
-$action2=modificación;        
+$action='inserción';    
+$action2='modificación';        
  
 $sql2="INSERT INTO tblmovements(idcliente,cliente,invoicenumber,fech,monto,movement,namecomp,document,balance,creatoruser,action) VALUES(:idcliente,:cliente,:invoicenumber,:fech,:monto,:movement,:namecomp,:nombre,:balance,:creatoruser,:action)";
 

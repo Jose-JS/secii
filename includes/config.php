@@ -1,4 +1,6 @@
 <?php 
+date_default_timezone_set('America/Mexico_City');//ESTAS DOS LIBRERIAS PARA PONER FECHA Y HORA EN LA QUE SE IMPRIME
+setlocale(LC_TIME, 'es_MX.UTF-8');
 // DB credentials.
 define('DB_HOST','localhost');
 define('DB_USER','root');

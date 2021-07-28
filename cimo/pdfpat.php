@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 function getContent(){
 	
-include('includes/config.php');	
+include('../includes/config.php');	
 $folio=$_GET['f']; 
 $id=$_GET['id'];
 //var_dump($folio);

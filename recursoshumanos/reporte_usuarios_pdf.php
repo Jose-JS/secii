@@ -2,7 +2,7 @@
 	require_once('../lib/tcpdf/config/lang/spa.php');
 	require_once('../lib/tcpdf/tcpdf.php');
 	require_once('consulta2.php');
-	include('includes/config.php');
+	include('../includes/config.php');
 	
 	
 	$objConsulta=$dbh;

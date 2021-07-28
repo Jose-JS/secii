@@ -2,7 +2,7 @@
 session_start();
 //error_reporting(0);
 error_reporting(E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['recursos'])==0)
     {   
 header('location:index.php');
@@ -26,7 +26,7 @@ $art=$_POST['art'];
 
 $productivity=$_POST['productivity'];  
 $creatoruser=$_SESSION['recursos'];
-$action=inserción;    
+$action='inserción';    
 
     
 $sql="INSERT INTO tblincidents(date,time,service,technical,issue,reason,art,productivity,creatoruser,action) VALUES(:date,:time,:service,:technical,:issue,:reason,:art,:productivity,:creatoruser,:action)";

@@ -10,7 +10,7 @@ error_reporting(0);
 // Motrar todos los errores de PHP
 //ini_set('error_reporting', E_ALL);
 
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['user'])==0)
     {   
 header('location:index.php');
@@ -47,7 +47,7 @@ $status=1;
 $email=$_POST['email'];
 $paymentcondition=$_POST['paymentcondition'];
 $creatoruser=$_SESSION['user'];
-$action=inserción;
+$action='inserción';
  
  
 $sql="INSERT INTO tblclientsadd(businessname,rfc,adress,state,municipality,suburb,postalcode,paymenttype,payment,companyinvoices,service,balance,creditlimit,contractfirm,contractterm,classification,coordinates,phone,contract,status,email,paymentcondition,creatoruser,action) VALUES(:businessname,:rfc,:adress,:state,:municipality,:suburb,:postalcode,:paymenttype,:payment,:companyinvoices,:service,:balance,:creditlimit,:contractfirm,:contractterm,:classification,:coordinates,:phone,:contract,:status,:email,:paymentcondition,:creatoruser,:action)";

@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -14,7 +14,7 @@ $deptname=$_POST['departmentname'];
 $deptshortname=$_POST['departmentshortname'];
 $deptcode=$_POST['deptcode'];
 $creatoruser=$_SESSION['alogin'];
-$action=inserción;    
+$action='inserción';    
 $sql="update tbldepartments set DepartmentName=:deptname,DepartmentCode=:deptcode,DepartmentShortName=:deptshortname,creatoruser=:creatoruser,action=:action where id=:did";
 $query = $dbh->prepare($sql);
 $query->bindParam(':deptname',$deptname,PDO::PARAM_STR);

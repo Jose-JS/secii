@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 //ini_set('error_reporting', E_ALL);
-include('includes/config.php');
+include('../includes/config.php');
 if(strlen($_SESSION['recursos'])==0)
     {   
 header('location:index.php');
@@ -22,8 +22,8 @@ $tecnico=$_POST['tecnico'];
 $servicioo=$_POST['servicioo'];
 $serviciod=$_POST['serviciod'];    
 $creatoruser=$_SESSION['recursos'];
-$action=modificación;
-$action2=inserción;	
+$action='modificación';
+$action2='inserción';	
 
 
 	
