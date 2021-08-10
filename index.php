@@ -185,6 +185,8 @@ if (isset($_POST['signin'])) {
 
                         <li class="no-padding"><a class="waves-effect waves-grey" href="recursoshumanos/"><i class="material-icons">login</i>Acceso Recursos Humanos</a></li>
 
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="recursosmateriales/"><i class="material-icons">login</i>Acceso Recursos Materiales</a></li>
+
                         <li class="no-padding"><a class="waves-effect waves-grey" href="cimo/"><i class="material-icons">login</i>Acceso C.I.M.O.</a></li>
 
                         <li class="no-padding"><a class="waves-effect waves-grey" href="clientes/"><i class="material-icons">login</i>Acceso Clientes</a></li>
