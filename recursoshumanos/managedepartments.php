@@ -101,7 +101,8 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                 <td><?php echo htmlentities($result->DepartmentShortName); ?></td>
                                                 <td><?php echo htmlentities($result->DepartmentCode); ?></td>
                                                 <td><?php echo htmlentities($result->CreationDate); ?></td>
-                                                <td><a href="editdepartment.php?deptid=<?php echo htmlentities($result->id); ?>"><i class="material-icons">mode_edit</i></a><a href="managedepartments.php?del=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Quieres borrar');"> <i class="material-icons">delete_forever</i></a></td>
+                                                <td><a href="editdepartment.php?deptid=<?php echo htmlentities($result->id); ?>"><i class="material-icons">mode_edit</i></a>
+                                                <a href="managedepartments.php?del=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Quieres borrar');"> <i class="material-icons">delete_forever</i></a></td>
                                             </tr>
                                     <?php $cnt++;
                                         }

@@ -5,18 +5,16 @@ error_reporting(E_ALL);
 include('../includes/config.php');
 $folio=$_POST['folio'];
 $fecha=$_POST['fecha'];
-$tecnico=substr($_POST['technical'],6);   
-$empid = substr($_POST['technical'],0,6);
+$servicio =$_POST['servicio'];
 $creatoruser=$_SESSION['recursos'];
 $action='inserción';
 
         
         //INSERTA REGISTRO DE FOLIO
-        $sql3="INSERT INTO tblinventoryfol(folio,empid,tecnico,fecha,creatoruser,action) VALUES(:folio,:empid,:tecnico,:fecha,:creatoruser,:action)";
+        $sql3="INSERT INTO tblinventoryfol(folio,servicio,fecha,creatoruser,action) VALUES(:folio,:servicio,:fecha,:creatoruser,:action)";
         $query3 = $dbh->prepare($sql3);
         $query3->bindParam(':folio',$folio,PDO::PARAM_STR);
-        $query3->bindParam(':tecnico',$tecnico,PDO::PARAM_STR);
-        $query3->bindParam(':empid',$empid,PDO::PARAM_STR);
+        $query3->bindParam(':servicio',$servicio,PDO::PARAM_STR);
         $query3->bindParam(':fecha',$fecha,PDO::PARAM_STR);  
         $query3->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);    
         $query3->bindParam(':action',$action,PDO::PARAM_STR);      
@@ -36,7 +34,7 @@ $action='inserción';
 
 
 
- $query = null; // obligado para cerrar la conexión
+ $query3 = null; // obligado para cerrar la conexión
 
 
                                            

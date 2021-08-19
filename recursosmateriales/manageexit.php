@@ -6,31 +6,8 @@ include('../includes/config.php');
 if (strlen($_SESSION['recursos']) == 0) {
     header('location:index.php');
 } else {
-    // codigo para inactivar Técnico    
-    if (isset($_GET['inid'])) {
-        $id = $_GET['inid'];
-        $status = 0;
-        $sql = "update tblemployees set Status=:status  WHERE id=:id";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':id', $id, PDO::PARAM_STR);
-        $query->bindParam(':status', $status, PDO::PARAM_STR);
-        $query->execute();
-        header('location:manageemployee.php');
-    }
+    $folio = $_GET["f"];
 
-
-
-    //codigo para activar Técnico
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $status = 1;
-        $sql = "update tblemployees set Status=:status  WHERE id=:id";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':id', $id, PDO::PARAM_STR);
-        $query->bindParam(':status', $status, PDO::PARAM_STR);
-        $query->execute();
-        header('location:manageemployee.php');
-    }
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -62,35 +39,7 @@ if (strlen($_SESSION['recursos']) == 0) {
         <!-- Theme Styles -->
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css" />
-        <style>
-            div.container {
-                max-width: 1200px
-            }
 
-            .errorWrap {
-                padding: 10px;
-                margin: 0 0 20px 0;
-                background: #fff;
-                border-left: 4px solid #dd3d36;
-                -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-            }
-
-            .succWrap {
-                padding: 10px;
-                margin: 0 0 20px 0;
-                background: #fff;
-                border-left: 4px solid #5cb85c;
-                -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-            }
-
-            /*  .material-icons{
-            color:darkcyan;
-            font-size: 20px;
-
-        }*/
-        </style>
 
     </head>
 
@@ -114,17 +63,21 @@ if (strlen($_SESSION['recursos']) == 0) {
                                     <thead>
                                         <tr>
                                             <th>NO.</th>
-                                            <th>MATRICULA</th>
-                                            <th>TECNICO</th>
+                                            <th>FOLIO</th>
                                             <th>DESCRIPCION</th>
+                                            <th>ENTREGA</th>
                                             <th>CANTIDAD</th>
                                             <th>FECHA</th>
+                                            <th>SERIE</th>
+                                            <th>QUIEN SOLICITA</th>
+                                            <th>TESI</th>
+                                            <th>COMENTARIO</th>
                                             <th>ACCIONES</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <?php $sql = "SELECT * from  tblinventoryexit order by fecha desc";
+                                        <?php $sql = "SELECT * from  tblinventoryexit where folio='$folio' order by fecha desc";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -133,12 +86,19 @@ if (strlen($_SESSION['recursos']) == 0) {
                                             foreach ($results as $result) {               ?>
                                                 <tr>
                                                     <td> <?php echo htmlentities($cnt); ?></td>
-                                                    <td><?php echo htmlentities($result->empid); ?></td>
-                                                    <td><?php echo htmlentities($result->tesi); ?>&nbsp;<?php echo htmlentities($result->LastName); ?>&nbsp;<?php echo htmlentities($result->name); ?></td>
+                                                    <td><?php echo htmlentities($result->folio); ?></td>
                                                     <td><?php echo htmlentities($result->descripcion); ?></td>
-                                                    <td><?php echo htmlentities($result->cantidad); ?></td>                                                   
+                                                    <td><?php echo htmlentities($result->respuesta); ?></td>
+                                                    <td><?php echo htmlentities($result->cantidad); ?></td>
                                                     <td><?php echo htmlentities($result->fecha); ?></td>
-                                                    <td></td>
+                                                    <td><?php echo htmlentities($result->serie); ?></td>
+                                                    <td><?php echo htmlentities($result->tecnico); ?></td>
+                                                    <td><?php echo htmlentities($result->tecnicoasig); ?></td>
+                                                    <td><?php echo htmlentities($result->comentario); ?></td>
+                                                    <td> <a name="create_pdf" href="#" onClick="mensaje(<?php echo htmlentities($result->empid); ?>,<?php echo htmlentities($result->id); ?>)" title="PDF RESPONSIVA" class="tooltipped" data-position="bottom" data-tooltip="PDF RESPONSIVA"><i class="material-icons">picture_as_pdf</i></a><a name="Responsiva" href="pdf_responsiva.php?empid=<?php echo htmlentities($result->empid); ?>&id=<?php echo htmlentities($result->id); ?>" target="_blank" title="Responsiva" class="tooltipped" data-position="bottom" data-tooltip="Responsiva"><i class="material-icons">picture_as_pdf</i></a>
+                                                        <a name="eliminar registro" href="#" onClick="eliminar(<?php echo htmlentities($result->id); ?>)" title="eliminar registro" class="tooltipped" data-position="bottom" data-tooltip="eliminar registro"><i class="material-icons">delete_forever</i></a>
+                                                    
+                                                    </td>
 
 
 
@@ -169,50 +129,119 @@ if (strlen($_SESSION['recursos']) == 0) {
         <script src="../assets/js/pages/table-data.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script>
-            function mensaje(result) {
+            function mensaje(result,result2) {
                 const {
                     value: contrato
                 } = Swal.fire({
-                    title: 'Selecciona tipo de contrato',
+                    title: 'Selecciona tipo de responsiva',
                     input: 'select',
                     inputOptions: {
-                        'Contrato': {
-                            Indeterminado: 'Indeterminado',
-                            Determinado: 'Determinado',
+                        'Responsiva': {
+                            'uniforme de gala': 'uniforme de gala',
+                            'uniforme comando': 'uniforme comando',
+                            'uniforme traje': 'uniforme traje',
+                            
                         },
                     },
                     inputPlaceholder: 'Selecciona contrato',
                     showCancelButton: true,
                     inputValidator: (value) => {
                         return new Promise((resolve) => {
-                            if (value === 'Indeterminado') {
-                                window.open('creator_pdf_contrato_indefinido.php?empid='+result, '_blank');
+                            if (value === 'uniforme de gala') {
+                                window.open('pdf_responsiva.php?empid='+result+'&id='+result2+'&responsiva='+value, '_blank');
                                 swal.close()
-                            } else if (value === 'Determinado') {
-                                mensaje2(result);
-                            } else {
-                                resolve('Selecciona una opción')
+                            }
+                            if (value === 'uniforme comando') {
+                                window.open('pdf_responsiva.php?empid='+result+'&id='+result2+'&responsiva='+value, '_blank');
+                                swal.close()
+                            }
+                            if (value === 'uniforme traje') {
+                                window.open('pdf_responsiva.php?empid='+result+'&id='+result2+'&responsiva='+value, '_blank');
+                                swal.close()
                             }
                         })
                     }
                 })
             }
+        </script>
 
-            function mensaje2(result) {
-                Swal.fire({
-                        title: "Vigencia del Contrato",
-                        input: "text",
-                        showCancelButton: true,
-                        confirmButtonText: "Guardar",
-                        cancelButtonText: "Cancelar",
-                    })
-                    .then(resultado => {
-                        if (resultado.value) {
-                            let vigencia = resultado.value;
-                            window.open('creator_pdf_contrato_determinado.php?empid='+result+'&vigencia=' + vigencia, '_blank');
-                            //console.log("Hola, " + nombre);
+        <script>
+            function eliminar(result) {
+
+
+                var url = "ajax/deleteexit.php?del=" + result;
+                var datos = result;
+                //alert(datos);
+                //return false;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: datos,
+                    beforeSend: function(b) {
+                        if (b != 0) {
+                            let timerInterval
+                            Swal.fire({
+                                title: '',
+                                html: 'Se esta borrendo el registro !',
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                    timerInterval = setInterval(() => {
+                                        const content = Swal.getContent()
+                                        if (content) {
+                                            const b = content.querySelector('b')
+                                            if (b) {
+                                                b.textContent = Swal.getTimerLeft()
+                                            }
+                                        }
+                                    }, 100)
+                                },
+                                willClose: () => {
+                                    clearInterval(timerInterval)
+                                }
+                            }).then((result) => {})
+                        } else {
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'OCURRIO UN ERROR! 1',
+                            })
                         }
-                    });
+                    },
+                    success: function(r) {
+                        if (r != 0) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'OCURRIO UN ERROR! 2',
+                            })
+                            location.reload(true);
+                        } else {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'REGISTRO BORRADO',
+                                showConfirmButton: false,
+                                timer: 2500
+                            })
+                            location.reload(true);
+                        }
+                    },
+                    error: function(e) {
+                        if (e != 0) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'No se ha podido borrar el registro',
+                            })
+                        }
+                    },
+                });
+                return false;
+
+
+
             }
         </script>
 

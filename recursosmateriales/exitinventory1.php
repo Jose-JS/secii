@@ -96,21 +96,21 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                             <input id="fecha" name="fecha" tabindex="25" type="date" autocomplete="off" required>
                                                         </div>
 
-                                                        <div class="input-field col s12">
-                                                            <select id="technical" name="technical" autocomplete="off" required>
-                                                                <option value="">Técnico</option>
-                                                                <?php $sql = "SELECT EmpId,name,firstname,lastname from tblemployees order by firstname";
-                                                                $query = $dbh->prepare($sql);
-                                                                $query->execute();
-                                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                                                $cnt = 1;
-                                                                if ($query->rowCount() > 0) {
-                                                                    foreach ($results as $result) {   ?>
-                                                                        <option value="<?php echo htmlentities($result->EmpId); ?>&nbsp;<?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?>"><?php echo htmlentities($result->EmpId); ?>&nbsp;<?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?></option>
-                                                                <?php }
-                                                                } ?>
-                                                            </select>
-                                                        </div>
+                                                        <div class="input-field col m6 s12">
+																<select id="servicio" name="servicio" autocomplete="off" required>
+																	<option value="">Servicio </option>
+																	<?php $sql = "SELECT servicename from tblserviceassigned";
+																	$query = $dbh->prepare($sql);
+																	$query->execute();
+																	$results = $query->fetchAll(PDO::FETCH_OBJ);
+																	$cnt = 1;
+																	if ($query->rowCount() > 0) {
+																		foreach ($results as $result) {   ?>
+																			<option value="<?php echo htmlentities($result->servicename); ?>"><?php echo htmlentities($result->servicename); ?></option>
+																	<?php }
+																	} ?>
+																</select>
+															</div>
 
 
 

@@ -5,7 +5,7 @@ include('../includes/config.php');
 if (strlen($_SESSION['recursos']) == 0) {
     header('location:index.php');
 } else {
-    $folio=$_GET["f"];
+    $folio = $_GET["f"];
 
 ?>
 
@@ -47,10 +47,10 @@ if (strlen($_SESSION['recursos']) == 0) {
                             <div class="row">
                                 <form class="col s12" id="formulario" name="formulario" method="post" enctype="multipart/form-data">
 
-                              <div class="input-field col s12">
-                              <input id="folio" name="folio" type="hidden" value="<?php echo"$folio"?>">
+                                    <div class="input-field col s12">
+                                        <input id="folio" name="folio" type="hidden" value="<?php echo "$folio" ?>">
                                         <select id="descripcion" name="descripcion" autocomplete="off" tabindex="2" required>
-                                            <option value="">Descripción</option>
+                                            <option value="">Equipo</option>
                                             <?php
                                             $sql = "SELECT descripcion,cantidad from tblinventory WHERE cantidad>0";
                                             $query = $dbh->prepare($sql);
@@ -69,49 +69,9 @@ if (strlen($_SESSION['recursos']) == 0) {
                                         </select>
                                     </div>
 
-
-                                    <div class="input-field col s12">
-                                        <select id="talla" name="talla" autocomplete="off" tabindex="2" required>
-                                            <option value="">Talla</option>
-                                            <?php
-                                            $sql = "SELECT talla from tblinventory";
-                                            $query = $dbh->prepare($sql);
-                                            $query->execute();
-                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                            $cnt = 1;
-                                            if ($query->rowCount() > 0) {
-                                                foreach ($results as $result) {   ?>
-                                                    <option value="<?php echo htmlentities($result->talla); ?>"><?php echo htmlentities($result->talla); ?></option>
-                                            <?php }
-                                            }
-                                            $query = null; // obligado para cerrar la conexión
-
-
-                                            ?>
-                                        </select>
-                                    </div>
-
-
-
-                                    <div class="input-field col s12">
-                                        <select id="estado" name="estado" autocomplete="off" tabindex="2" required>
-                                            <option value="">Estado</option>
-                                            <?php
-                                            $sql = "SELECT condicion from tblinventory";
-                                            $query = $dbh->prepare($sql);
-                                            $query->execute();
-                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                            $cnt = 1;
-                                            if ($query->rowCount() > 0) {
-                                                foreach ($results as $result) {   ?>
-                                                    <option value="<?php echo htmlentities($result->condicion); ?>"><?php echo htmlentities($result->condicion); ?></option>
-                                            <?php }
-                                            }
-                                            $query = null; // obligado para cerrar la conexión
-
-
-                                            ?>
-                                        </select>
+                                    <div class="input-field col m6 s12">
+                                        <input type="radio" id="R1" name="respuesta" value="SI" class="check"> <label for="R1">SI</label>
+                                        <input type="radio" id="R2" name="respuesta" value="NO" class="check"> <label for="R2">NO</label>
                                     </div>
 
                                     <div class="input-field col s12">
@@ -122,30 +82,59 @@ if (strlen($_SESSION['recursos']) == 0) {
                                     <div class="input-field col s12">
                                         <label for="fecha">Fecha</label><br>
 
-                                        <input id="fecha" name="fecha" tabindex="25" type="date" autocomplete="off">
+                                        <input id="fecha" name="fecha" tabindex="25" type="date" autocomplete="off" required />
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input type="text" id="serie" name="serie" class="validate" required />
+                                        <label for="serie">Serie</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <select id="technical" name="technical" autocomplete="off" required>
+                                            <option value="">Quien solicita</option>
+                                            <?php $sql = "SELECT name,firstname,lastname,Department from tblemployees where Department='supervisor' order by firstname";
+                                            $query = $dbh->prepare($sql);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            $cnt = 1;
+                                            if ($query->rowCount() > 0) {
+                                                foreach ($results as $result) {   ?>
+                                                    <option value="<?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?>" required><?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?></option>
+                                            <?php }
+                                            } ?>
+                                        </select>
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <input type="submit" class="waves-effect waves-light btn indigo m-b-xs" value="GUARDAR" />
-
+                                        <textarea id="comentario" name="comentario" class="validate" required></textarea>
+                                        <label for="serie">Comentario</label>
                                     </div>
-
+                                    <div class="input-field col s12">
+                                        <select id="tecnicoasig" name="tecnicoasig" autocomplete="off" required>
+                                            <option value="">Técnico</option>
+                                            <?php $sql = "SELECT EmpId,name,firstname,lastname from tblemployees order by firstname";
+                                            $query = $dbh->prepare($sql);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            $cnt = 1;
+                                            if ($query->rowCount() > 0) {
+                                                foreach ($results as $result) {   ?>
+                                                    <option value="<?php echo htmlentities($result->EmpId); ?>&nbsp;<?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?>" required><?php echo htmlentities($result->EmpId); ?>&nbsp;<?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?></option>
+                                            <?php }
+                                            } ?>
+                                        </select>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input type="submit" class="waves-effect waves-light btn indigo m-b-xs" value="GUARDAR" />
+                                    </div>
                             </div>
-
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             </div>
-
-
-
         </main>
-
-
         <div class="left-sidebar-hover"></div>
-
         <!-- Javascripts -->
         <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
         <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
@@ -226,6 +215,30 @@ if (strlen($_SESSION['recursos']) == 0) {
                         },
                     });
                     return false;
+                });
+
+            });
+        </script>
+
+        <!--*** OBTENER LAS EXISTENCIAS SEGUN LA DESCRIPCION SELECCIONADA ***-->
+        <script>
+            $("#descripcion").change(function() {
+                $("#descripcion option:selected").each(function() {
+                    valor = $(this).val();
+                    $.post("ajax/selectcantidad.php", {
+                        valor
+                    }, function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Existencias',
+                            text: '' + data,
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                        //$("#existencia").html(data);
+                        //alert("Status: " + data);
+                        //console.log(data);
+                    });
                 });
 
             });

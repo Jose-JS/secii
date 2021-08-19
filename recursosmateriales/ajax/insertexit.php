@@ -3,12 +3,18 @@ session_start();
 //error_reporting(0);
 error_reporting(E_ALL);
 include('../includes/config.php');
-$folio=$_POST['folio'];
-$talla=$_POST['talla'];
 $descripcion=$_POST['descripcion'];
-$condicion=$_POST['estado'];
+$respuesta = $_POST['respuesta'];
 $cantidad=$_POST['cantidad'];
 $fecha=$_POST['fecha'];
+$serie=$_POST['serie'];
+$tecnico=$_POST['technical'];
+$folio=$_POST['folio'];
+$comentario=$_POST['comentario'];
+$tecnicoasig=substr($_POST['tecnicoasig'],6);   
+$empid = substr($_POST['tecnicoasig'],0,6); 
+
+
 
 //$tesi=substr($_POST['technical'],6);   
 //$empid = substr($_POST['technical'],0,6);
@@ -33,14 +39,18 @@ foreach ($results as $result) {
         $query2->execute();
         
         //INSERTA REGISTRO DE SALIDA DE PRODUCTO
-        $sql3="INSERT INTO tblinventoryexit(folio,descripcion,talla,condicion,cantidad,fecha,creatoruser,action) VALUES(:folio,:descripcion,:talla,:condicion,:cantidad,:fecha,:creatoruser,:action)";
+        $sql3="INSERT INTO tblinventoryexit(folio,descripcion,respuesta,cantidad,fecha,serie,tecnico,comentario,tecnicoasig,empid,creatoruser,action) VALUES(:folio,:descripcion,:respuesta,:cantidad,:fecha,:serie,:tecnico,:comentario,:tecnicoasig,:empid,:creatoruser,:action)";
         $query3 = $dbh->prepare($sql3);
         $query3->bindParam(':folio',$folio,PDO::PARAM_STR);
         $query3->bindParam(':descripcion',$descripcion,PDO::PARAM_STR);
-        $query3->bindParam(':talla',$talla,PDO::PARAM_STR);
-        $query3->bindParam(':condicion',$condicion,PDO::PARAM_STR);    
+        $query3->bindParam(':respuesta',$respuesta,PDO::PARAM_STR);
         $query3->bindParam(':cantidad',$cantidad,PDO::PARAM_STR);  
-        $query3->bindParam(':fecha',$fecha,PDO::PARAM_STR);  
+        $query3->bindParam(':fecha',$fecha,PDO::PARAM_STR);
+        $query3->bindParam(':serie',$serie,PDO::PARAM_STR);  
+        $query3->bindParam(':tecnico',$tecnico,PDO::PARAM_STR);
+        $query3->bindParam(':comentario',$comentario,PDO::PARAM_STR);
+        $query3->bindParam(':tecnicoasig',$tecnicoasig,PDO::PARAM_STR);
+        $query3->bindParam(':empid',$empid,PDO::PARAM_STR);
         $query3->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);    
         $query3->bindParam(':action',$action,PDO::PARAM_STR);      
         $query3->execute();

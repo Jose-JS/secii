@@ -3,12 +3,12 @@ session_start();
 //error_reporting(E_ALL);
 error_reporting(0);
 include('../includes/config.php');
-if(isset($_POST['alogin']))
+if(isset($_POST['consulta']))
 {
 $name=$_POST['name'];
 $firstname=$_POST['firstname'];
     
-if (isset($_POST['signin'])) {
+if (isset($_POST['consulta'])) {
     if (($_POST['service'])) {
         $selected = '';
         $num_countries = count($_POST['service']);
@@ -24,7 +24,7 @@ if (isset($_POST['signin'])) {
 }   
 $lastname=$_POST['lastname'];
 $user=$_POST['user'];
-$password=md5($_POST['password']); 
+$password=$_POST['password']; 
 $status=1;
 //$fotos=$_POST['foto'];
 $fecha  = date("dmy");
@@ -175,7 +175,7 @@ foreach($results as $result)
                                         </div>
                                         <div class="col s12 right-align m-t-sm">
 
-                                            <input type="submit" name="signin" value="Iniciar" class="waves-effect waves-light btn teal">
+                                            <input type="submit" name="consulta" value="Iniciar" class="waves-effect waves-light btn teal">
                                         </div>
                                     </form>
                                 </div>

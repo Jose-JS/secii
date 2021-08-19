@@ -45,7 +45,7 @@ foreach($results as $result)
      						<li><a href="addinventory.php">Entradas</a></li>
 							 <li><a href="manageinventory.php">Lista de Entradas</a></li>
      						<li><a href="exitinventory1.php">Salidas</a></li>
-     						<li><a href="manageexit.php">Lista de Salidas</a></li>
+     						<li><a href="managefolio.php">Lista de Salidas</a></li>
 
      					</ul>
      				</div>

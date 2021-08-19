@@ -25,7 +25,7 @@ $msg="Registro de Incidencia eliminado";
 <head>
 
     <!-- Title -->
-    <title>Admin | Bitácora</title>
+    <title>Clientes | Bitácora</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8">

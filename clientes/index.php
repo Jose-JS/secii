@@ -6,7 +6,7 @@ include('../includes/config.php');
 if(isset($_POST['signin']))
 {
 $user=$_POST['user'];
-$password=md5($_POST['password']);
+$password=$_POST['password'];
     
 $sql ="SELECT id,user,password,service FROM tblclients WHERE user=:user and password=:password";
 $query= $dbh -> prepare($sql);
@@ -41,7 +41,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>S I M | Clientes</title>
+        <title>S E C I I | Clientes </title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
