@@ -147,7 +147,7 @@ if (strlen($_SESSION['recursos']) == 0) {
             $(function() {
                 $("#formulario").on("submit", function(e) {
                     e.preventDefault();
-                    var url = "ajax/insertfolio.php";
+                    var url = "consultas/insertfolio.php";
                     var datos = $("#formulario").serialize();
                     //alert(datos);
                     //return false;

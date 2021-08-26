@@ -39,6 +39,8 @@ if ($query->rowCount() > 0) {
                     // Title
                     $this->Cell(0, 10, 'CARTA RESPONSIVA', 0, 2, 'C', 0, '', 0, false, 'M', 'M');
                     $this->Cell(0, 2, '', 0, 2, 'C', 0, '', 0, false, 'M', 'M');
+
+                
                 }
 
                 // Page footer
@@ -224,43 +226,46 @@ if ($query->rowCount() > 0) {
 
             // ---------------------------------------------------------
 
-            // set font
-            $pdf->SetFont('helvetica', '', 10);
+           
 
-            // add a page
-            $pdf->addPage();
-
-            // set some text to print
-            $content .= '<section >';
-
-            $content .= '<div align="left">';
-            $content .= '<table>';
-            $content .= '<tr>';
-            $fechaEntera = strtotime($fecha);
-            $anio = date("Y", $fechaEntera);
-            $mes = date("m", $fechaEntera);
-            $dia = date("d", $fechaEntera);
-            $content .= '<td colspan="2" align="RIGHT"> <b>FECHA:</b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
-            $content .= '</tr>';
-
-            $content .= '</table>';
-            $content .= '</div>';
-            $content .= '</section>';
-
-            $content .= '<section>
-            <p>Por medio de la presente yo <B>' . $tecnicoasig . '</B> con número de matrícula <b>' . $empid . '</b> confirmo estar enterado que la dotación entregada es y será de la empresa en
-            todo momento y serán utilizados exclusivamente para desempeñar mi trabajo.<br></p>
-
-            <p><b>El trabajador manifiesta que:<br></b></p>
-
-            <p>A) En el caso de <b>robo o extravío</b> de uniforme, se compromete a pagar dicha prenda y mediante este documento autoriza le sea descontado de salario el monto total de la prenda.<br></p>
-
-            <p>B) En caso de <b>daño</b> de la o las prendas, una vez entregada mi nueva dotación me comprometo a realizar la devolución de dichas prendas de manera inmediata en las condiciones en que se encuentren.<br></p>
-
-            <p>C) En caso de <b>termino laboral</b> me comprometo a realizar la devolución de la totalidad de las prendas e instrumentos de trabajo asignados por la empresa al inicio de mi contratación y mediante este documento autorizo descontar de salarios o liquidación, los montos asignados ó bien pagar el monto de la prenda extraviada ó robada en efectivo para proceder con la devolución de mis documentos.<br></p>
-            <p>D)<b>TABULADOR</b></p>';
 
             if ($responsiva == 'uniforme de gala') {
+ // set font
+ $pdf->SetFont('helvetica', '', 10);
+
+ // add a page
+ $pdf->addPage();
+
+ // set some text to print
+
+                $content .= '<section >';
+
+                $content .= '<div align="left">';
+                $content .= '<table>';
+                $content .= '<tr>';
+                $fechaEntera = strtotime($fecha);
+                $anio = date("Y", $fechaEntera);
+                $mes = date("m", $fechaEntera);
+                $dia = date("d", $fechaEntera);
+                $content .= '<td colspan="2" align="RIGHT"> <b>FECHA:</b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
+                $content .= '</tr>';
+
+                $content .= '</table>';
+                $content .= '</div>';
+                $content .= '</section>';
+
+                $content .= '<section>
+                <p>Por medio de la presente yo <B>' . $tecnicoasig . '</B> con número de matrícula <b>' . $empid . '</b> confirmo estar enterado que la dotación entregada es y será de la empresa en
+                todo momento y serán utilizados exclusivamente para desempeñar mi trabajo.<br></p>
+    
+                <p><b>El trabajador manifiesta que:<br></b></p>
+    
+                <p>A) En el caso de <b>robo o extravío</b> de uniforme, se compromete a pagar dicha prenda y mediante este documento autoriza le sea descontado de salario el monto total de la prenda.<br></p>
+    
+                <p>B) En caso de <b>daño</b> de la o las prendas, una vez entregada mi nueva dotación me comprometo a realizar la devolución de dichas prendas de manera inmediata en las condiciones en que se encuentren.<br></p>
+    
+                <p>C) En caso de <b>termino laboral</b> me comprometo a realizar la devolución de la totalidad de las prendas e instrumentos de trabajo asignados por la empresa al inicio de mi contratación y mediante este documento autorizo descontar de salarios o liquidación, los montos asignados ó bien pagar el monto de la prenda extraviada ó robada en efectivo para proceder con la devolución de mis documentos.<br></p>
+                <p>D)<b>TABULADOR</b></p>';
                 $content .= '
             <table WIDTH="45%" align="center">
 
@@ -315,9 +320,51 @@ if ($query->rowCount() > 0) {
 </tr>
 
 </table>';
+
+                $content .= '<br><br><br><br><br><br>
+<p align="center"><b>' . $tecnicoasig . '</b><br>
+NOMBRE Y FRIMA DEL TRABAJADOR</p>
+            
+            </section>';
             }
 
             if ($responsiva == 'uniforme comando') {
+
+                 // set font
+            $pdf->SetFont('helvetica', '', 10);
+
+            // add a page
+            $pdf->addPage();
+
+            // set some text to print
+                $content .= '<section >';
+
+                $content .= '<div align="left">';
+                $content .= '<table>';
+                $content .= '<tr>';
+                $fechaEntera = strtotime($fecha);
+                $anio = date("Y", $fechaEntera);
+                $mes = date("m", $fechaEntera);
+                $dia = date("d", $fechaEntera);
+                $content .= '<td colspan="2" align="RIGHT"> <b>FECHA:</b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
+                $content .= '</tr>';
+
+                $content .= '</table>';
+                $content .= '</div>';
+                $content .= '</section>';
+
+                $content .= '<section>
+                <p>Por medio de la presente yo <B>' . $tecnicoasig . '</B> con número de matrícula <b>' . $empid . '</b> confirmo estar enterado que la dotación entregada es y será de la empresa en
+                todo momento y serán utilizados exclusivamente para desempeñar mi trabajo.<br></p>
+    
+                <p><b>El trabajador manifiesta que:<br></b></p>
+    
+                <p>A) En el caso de <b>robo o extravío</b> de uniforme, se compromete a pagar dicha prenda y mediante este documento autoriza le sea descontado de salario el monto total de la prenda.<br></p>
+    
+                <p>B) En caso de <b>daño</b> de la o las prendas, una vez entregada mi nueva dotación me comprometo a realizar la devolución de dichas prendas de manera inmediata en las condiciones en que se encuentren.<br></p>
+    
+                <p>C) En caso de <b>termino laboral</b> me comprometo a realizar la devolución de la totalidad de las prendas e instrumentos de trabajo asignados por la empresa al inicio de mi contratación y mediante este documento autorizo descontar de salarios o liquidación, los montos asignados ó bien pagar el monto de la prenda extraviada ó robada en efectivo para proceder con la devolución de mis documentos.<br></p>
+                <p>D)<b>TABULADOR</b></p>';
                 $content .= '
     <table WIDTH="45%" align="center">
     
@@ -374,9 +421,50 @@ if ($query->rowCount() > 0) {
     
     
     </table>';
+                $content .= '<br><br><br><br><br><br>
+    <p align="center"><b>' . $tecnicoasig . '</b><br>
+    NOMBRE Y FRIMA DEL TRABAJADOR</p>
+                
+                </section>';
             }
 
             if ($responsiva == 'uniforme traje') {
+
+                 // set font
+            $pdf->SetFont('helvetica', '', 10);
+
+            // add a page
+            $pdf->addPage();
+
+            // set some text to print
+                $content .= '<section >';
+
+                $content .= '<div align="left">';
+                $content .= '<table>';
+                $content .= '<tr>';
+                $fechaEntera = strtotime($fecha);
+                $anio = date("Y", $fechaEntera);
+                $mes = date("m", $fechaEntera);
+                $dia = date("d", $fechaEntera);
+                $content .= '<td colspan="2" align="RIGHT"> <b>FECHA:</b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
+                $content .= '</tr>';
+
+                $content .= '</table>';
+                $content .= '</div>';
+                $content .= '</section>';
+
+                $content .= '<section>
+                <p>Por medio de la presente yo <B>' . $tecnicoasig . '</B> con número de matrícula <b>' . $empid . '</b> confirmo estar enterado que la dotación entregada es y será de la empresa en
+                todo momento y serán utilizados exclusivamente para desempeñar mi trabajo.<br></p>
+    
+                <p><b>El trabajador manifiesta que:<br></b></p>
+    
+                <p>A) En el caso de <b>robo o extravío</b> de uniforme, se compromete a pagar dicha prenda y mediante este documento autoriza le sea descontado de salario el monto total de la prenda.<br></p>
+    
+                <p>B) En caso de <b>daño</b> de la o las prendas, una vez entregada mi nueva dotación me comprometo a realizar la devolución de dichas prendas de manera inmediata en las condiciones en que se encuentren.<br></p>
+    
+                <p>C) En caso de <b>termino laboral</b> me comprometo a realizar la devolución de la totalidad de las prendas e instrumentos de trabajo asignados por la empresa al inicio de mi contratación y mediante este documento autorizo descontar de salarios o liquidación, los montos asignados ó bien pagar el monto de la prenda extraviada ó robada en efectivo para proceder con la devolución de mis documentos.<br></p>
+                <p>D)<b>TABULADOR</b></p>';
                 $content .= '
         <table WIDTH="45%" align="center">
         
@@ -423,14 +511,139 @@ if ($query->rowCount() > 0) {
         
         
         </table>';
+                $content .= '<br><br><br><br><br><br>
+        <p align="center"><b>' . $tecnicoasig . '</b><br>
+        NOMBRE Y FRIMA DEL TRABAJADOR</p>
+                    
+                    </section>';
             }
 
+            if ($responsiva == 'resguardo de equipo') {
 
-            $content .= '
-<p align="right"><b>' . $tecnicoasig . '</b><br>
-NOMBRE Y FRIMA DEL TRABAJADOR</p>
-            
-            </section>';
+                 // set font
+            $pdf->SetFont('helvetica', '', 10.5);
+
+            // add a page
+            $pdf->addPage();
+
+            // set some text to print
+                $content .= '<section >';
+
+                $content .= '<div align="left">';
+                $content .= '<table>';
+                $content .= '<tr>';
+                $fechaEntera = strtotime($fecha);
+                $anio = date("Y", $fechaEntera);
+                $mes = date("m", $fechaEntera);
+                $dia = date("d", $fechaEntera);
+                $content .= '<td colspan="2" align="RIGHT"> <b>Tepotzotlán Estado de México a: </b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
+                $content .= '</tr>';
+
+                $content .= '</table>';
+                $content .= '</div>';
+                $content .= '</section>';
+
+                $content .= '<section >
+                <div align="left">
+                <p><b>
+                CAP.1°/ ART. LIC.LUIS GUTIERREZ ZAMORA<br>
+
+                REPRESENTANTE LEGAL DE SEGURIDAD PRIVADA OISME S.A. DE C.V.<br>
+                
+                P R E S E N T E:</b><br></div></p>
+                
+                ';
+
+                $content .= '</section>';
+
+                $content .= '<section>
+                <div align="left">
+                <p>Por medio de la presente se hace de su conocimiento al TSI identificado 
+                como <b>' . $tecnicoasig . '</b> , con matrícula <b>' . $empid . '</b>, que a partir 
+                de este momento se hace responsable en su totalidad del uniforme proporcionado por la Empresa 
+                <b>' . $empresa . '</b>, el cual a partir de este momento quedará registrado a su 
+                nombre ante la Secretaría de Gobernación, por tal motivo se compromete a entregarlo en las 
+                condiciones en que se encuentre al finalizar la relación laboral en un lapso no mayor a 5 días
+                naturales contados a partir del último día laborado.<br></p>
+              
+                <p>En caso de que esto no ocurra en el tiempo especificado se procederá a levantar el Acta
+                 correspondiente de Robo por parte de la Empresa antes citada ente el Ministerio Publico y se 
+                 solicitara que Seguridad Publica intervenga para la recuperación.<br></p>
+                
+                 <p>Cabe mencionar que esto puede perjudicar en su persona, ya que genera un antecedente laboral a
+                 nivel Federal negando su ingreso a otra empresa.</p></section>';
+
+
+                $content .= '<section><div><br><br><br><br><br><br><br><br><br>
+                 <p align="center"><b>' . $tecnicoasig . '</b><br>
+                 NOMBRE Y FRIMA DEL TRABAJADOR</p>
+                 </div></section>        
+                             ';
+            }
+          
+            if ($responsiva == 'uniforme') {
+
+                // set font
+           $pdf->SetFont('helvetica', '', 10.5);
+
+           // add a page
+           $pdf->addPage();
+
+           // set some text to print
+               $content .= '<section >';
+
+               $content .= '<div align="left">';
+               $content .= '<table>';
+               $content .= '<tr>';
+               $fechaEntera = strtotime($fecha);
+               $anio = date("Y", $fechaEntera);
+               $mes = date("m", $fechaEntera);
+               $dia = date("d", $fechaEntera);
+               $content .= '<td colspan="2" align="RIGHT"> <b>Tepotzotlán Estado de México a: </b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
+               $content .= '</tr>';
+
+               $content .= '</table>';
+               $content .= '</div>';
+               $content .= '</section>';
+
+               $content .= '<section >
+               <div align="left">
+               <p><b>
+               CAP.1°/ ART. LIC.LUIS GUTIERREZ ZAMORA<br>
+
+               REPRESENTANTE LEGAL DE SEGURIDAD PRIVADA OISME S.A. DE C.V.<br>
+               
+               P R E S E N T E:</b><br></div></p>
+               
+               ';
+
+               $content .= '</section>';
+
+               $content .= '<section>
+               <div align="left">
+               <p>Por medio de la presente se hace de su conocimiento al TSI identificado 
+               como <b>' . $tecnicoasig . '</b> , con matrícula <b>' . $empid . '</b>, que a partir 
+               de este momento se hace responsable en su totalidad del uniforme proporcionado por la Empresa 
+               <b>' . $empresa . '</b>, el cual a partir de este momento quedará registrado a su 
+               nombre ante la Secretaría de Gobernación, por tal motivo se compromete a entregarlo en las 
+               condiciones en que se encuentre al finalizar la relación laboral en un lapso no mayor a 5 días
+               naturales contados a partir del último día laborado.<br></p>
+             
+               <p>En caso de que esto no ocurra en el tiempo especificado se procederá a levantar el Acta
+                correspondiente de Robo por parte de la Empresa antes citada ente el Ministerio Publico y se 
+                solicitara que Seguridad Publica intervenga para la recuperación.<br></p>
+               
+                <p>Cabe mencionar que esto puede perjudicar en su persona, ya que genera un antecedente laboral a
+                nivel Federal negando su ingreso a otra empresa.</p></section>';
+
+
+               $content .= '<section><div><br><br><br><br><br><br><br><br><br>
+                <p align="center"><b>' . $tecnicoasig . '</b><br>
+                NOMBRE Y FRIMA DEL TRABAJADOR</p>
+                </div></section>        
+                            ';
+           }
+
 
 
             //$content .= '

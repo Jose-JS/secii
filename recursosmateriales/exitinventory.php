@@ -146,7 +146,7 @@ if (strlen($_SESSION['recursos']) == 0) {
             $(function() {
                 $("#formulario").on("submit", function(e) {
                     e.preventDefault();
-                    var url = "ajax/insertexit.php";
+                    var url = "consultas/insertexit.php";
                     var datos = $("#formulario").serialize();
                     //alert(datos);
                     //return false;
@@ -225,7 +225,7 @@ if (strlen($_SESSION['recursos']) == 0) {
             $("#descripcion").change(function() {
                 $("#descripcion option:selected").each(function() {
                     valor = $(this).val();
-                    $.post("ajax/selectcantidad.php", {
+                    $.post("consultas/selectcantidad.php", {
                         valor
                     }, function(data) {
                         Swal.fire({

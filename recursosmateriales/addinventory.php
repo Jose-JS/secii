@@ -111,7 +111,7 @@ else{
     $(function() {
             $("#formulario").on("submit", function(e) {
                 e.preventDefault();
-                var url = "ajax/inserttblinventory.php";
+                var url = "consultas/inserttblinventory.php";
                 var datos = $("#formulario").serialize();
                 //alert(datos);
                 //return false;

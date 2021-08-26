@@ -95,7 +95,8 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                     <td><?php echo htmlentities($result->tecnico); ?></td>
                                                     <td><?php echo htmlentities($result->tecnicoasig); ?></td>
                                                     <td><?php echo htmlentities($result->comentario); ?></td>
-                                                    <td> <a name="create_pdf" href="#" onClick="mensaje(<?php echo htmlentities($result->empid); ?>,<?php echo htmlentities($result->id); ?>)" title="PDF RESPONSIVA" class="tooltipped" data-position="bottom" data-tooltip="PDF RESPONSIVA"><i class="material-icons">picture_as_pdf</i></a><a name="Responsiva" href="pdf_responsiva.php?empid=<?php echo htmlentities($result->empid); ?>&id=<?php echo htmlentities($result->id); ?>" target="_blank" title="Responsiva" class="tooltipped" data-position="bottom" data-tooltip="Responsiva"><i class="material-icons">picture_as_pdf</i></a>
+                                                    <td> <a name="create_pdf" href="#" onClick="mensaje(<?php echo htmlentities($result->empid); ?>,<?php echo htmlentities($result->id); ?>)" title="PDF RESPONSIVA" class="tooltipped" data-position="bottom" data-tooltip="PDF RESPONSIVA"><i class="material-icons">picture_as_pdf</i></a>
+                                                    <a name="Resguardo" href="pdf_resguardo.php?empid=<?php echo htmlentities($result->empid); ?>&id=<?php echo htmlentities($result->id); ?>" target="_blank" title="Responsiva" class="tooltipped" data-position="bottom" data-tooltip="Responsiva"><i class="material-icons">picture_as_pdf</i></a>
                                                         <a name="eliminar registro" href="#" onClick="eliminar(<?php echo htmlentities($result->id); ?>)" title="eliminar registro" class="tooltipped" data-position="bottom" data-tooltip="eliminar registro"><i class="material-icons">delete_forever</i></a>
                                                     
                                                     </td>
@@ -140,10 +141,11 @@ if (strlen($_SESSION['recursos']) == 0) {
                             'uniforme de gala': 'uniforme de gala',
                             'uniforme comando': 'uniforme comando',
                             'uniforme traje': 'uniforme traje',
+                            'uniforme': 'uniforme',
                             
                         },
                     },
-                    inputPlaceholder: 'Selecciona contrato',
+                    inputPlaceholder: 'Selecciona Responsiva',
                     showCancelButton: true,
                     inputValidator: (value) => {
                         return new Promise((resolve) => {
@@ -159,6 +161,11 @@ if (strlen($_SESSION['recursos']) == 0) {
                                 window.open('pdf_responsiva.php?empid='+result+'&id='+result2+'&responsiva='+value, '_blank');
                                 swal.close()
                             }
+                            if (value === 'uniforme') {
+                                window.open('pdf_responsiva.php?empid='+result+'&id='+result2+'&responsiva='+value, '_blank');
+                                swal.close()
+                            }
+                                                     
                         })
                     }
                 })
@@ -169,7 +176,7 @@ if (strlen($_SESSION['recursos']) == 0) {
             function eliminar(result) {
 
 
-                var url = "ajax/deleteexit.php?del=" + result;
+                var url = "consultas/deleteexit.php?del=" + result;
                 var datos = result;
                 //alert(datos);
                 //return false;

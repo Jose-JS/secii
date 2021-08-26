@@ -119,6 +119,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                             <th>TALLA</th>
                                             <th>CANTIDAD</th>
                                             <th>FECHA</th>
+                                            <th>ACCION</th>
                                         </tr>
                                     </thead>
 
@@ -137,6 +138,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                     <td><?php echo htmlentities($result->talla); ?></td>
                                                     <td><?php echo htmlentities($result->cantidad); ?></td>                                                   
                                                     <td><?php echo htmlentities($result->fecha); ?></td>
+                                                    <td><a href="editinventory.php?id=<?php echo htmlentities($result->id); ?>" title="Modificar datos" class="tooltipped" data-position="bottom" data-tooltip="Modificar datos"><i class="material-icons">edit</i></a></td>
                                                 </tr>
                                         <?php $cnt++;
                                             }
