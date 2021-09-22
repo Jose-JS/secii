@@ -42,8 +42,9 @@ foreach($results as $result)
      				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">account_box</i>Inventario<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
      				<div class="collapsible-body">
      					<ul>
-     						<li><a href="addinventory.php">Entradas</a></li>
+     						<li><a href="addinventoryentry.php">Entradas</a></li>
 							 <li><a href="manageinventory.php">Lista de Entradas</a></li>
+							 <li><a href="manageinventory2.php">Inventario</a></li>
      						<li><a href="exitinventory1.php">Salidas</a></li>
      						<li><a href="managefolio.php">Lista de Salidas</a></li>
 

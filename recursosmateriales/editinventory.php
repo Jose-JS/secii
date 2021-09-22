@@ -53,28 +53,33 @@ if (strlen($_SESSION['recursos']) == 0) {
                             <div class="row">
                                 <form class="col s12" id="formulario" name="formulario" method="post" enctype="multipart/form-data">
 
+                                    <div class="input-field col s12">
+                                        <label for="descripcion">Empresa</label><br>
+                                        <input id="empresa" type="text" name="empresa" autocomplete="off" required />
+                                    </div>
+
                                     <div class="row">
                                         <input id="id" name="id" type="hidden">
                                         <div class="input-field col s12">
+                                            <label for="talla">talla</label><br>
                                             <input id="descripcion" type="text" name="descripcion" autocomplete="off" required />
-                                            <label for="descripcion">Descripción</label>
                                         </div>
 
 
                                         <div class="input-field col s12">
+                                            <label for="talla">talla</label><br>
                                             <input id="talla" type="text" autocomplete="off" name="talla" required />
-                                            <label for="talla">talla</label>
                                         </div>
 
                                         <div class="input-field col s12">
+                                            <label for="estado">Estado</label><br>
                                             <input id="estado" type="text" name="estado" autocomplete="off" required />
-                                            <label for="estado">Estado</label>
                                         </div>
 
 
                                         <div class="input-field col s12">
+                                            <label for="cantidad">Cantidad</label><br>
                                             <input type="text" id="cantidad" name="cantidad" required />
-                                            <label for="cantidad">Cantidad</label>
                                         </div>
 
                                         <div class="input-field col s12">
@@ -115,8 +120,9 @@ if (strlen($_SESSION['recursos']) == 0) {
                 //data:{id:id},
                 success: function(data1) {
                     var data1 = JSON.parse(data1);
-                    // console.log(data1[0].descripcion);
+                    //console.log(data1[0].empresa);
                     $("#id").val(data1[0].id);
+                    $("#empresa").val(data1[0].empresa);
                     $("#descripcion").val(data1[0].descripcion);
                     $("#talla").val(data1[0].talla);
                     $("#estado").val(data1[0].condicion);

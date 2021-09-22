@@ -247,8 +247,7 @@ foreach($results22 as $result22)
 											</div>
 											<input type="hidden" name="pacient_id" value="">
 											<input type="hidden" name="base64" value="" id="base64">
-		<?php}
-	                                else{?>
+		<?php} else{?>
                                     
                                     <?php } ?>
                                     <?php $cnt22++;} }?>

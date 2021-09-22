@@ -107,11 +107,7 @@ if ($query->rowCount() > 0) {
         // set some text to print
 
         $content .= '<section >';
-
         $content .= '<div align="left">';
-
-
-
         $content .= '<table border="1" CELLPADDING="2">';
 
         $content .= '<tr>';
@@ -138,7 +134,19 @@ if ($query->rowCount() > 0) {
         $content .= '</div>';
         $content .= '</section>';
 
+        $content .= '<section >';
+        $content .= '<div align="left">';
+        $content .= '<table  border="1" CELLPADDING="2">';
 
+        $content .= '<tr>';
+        $content .= '<td colspan="3"align="center"><b>EQUIPO</b></td>';
+        $content .= '<td colspan="2"align="center"><b>TALLA</b></td>';
+        $content .= '<td colspan="2"align="center"><b>CANTIDAD</b></td>';
+        $content .= '<td colspan="3"align="center"><b>FECHA</b></td>';
+        $content .= '<td colspan="3"align="center"><b>SERIE</b></td>';
+        $content .= '<td colspan="3"align="center"><b>QUIEN SOLICITA</b></td>';
+        $content .= '<td colspan="3"align="center"><b>COMENTARIO</b></td>';
+        $content .= '</tr>';
 
         $sql2 = "SELECT * FROM tblinventoryexit where folio='$folio' ";
         $query2 = $dbh->prepare($sql2);
@@ -148,33 +156,16 @@ if ($query->rowCount() > 0) {
         if ($query2->rowCount() > 0) {
             foreach ($query2 as $result2) {
                 $descripcion = $result2['descripcion'];
-                $respuesta = $result2['respuesta'];
+                $talla = $result2['talla'];
                 $cantidad = $result2['cantidad'];
                 $fecha = $result2['fecha'];
                 $serie = $result2['serie'];
                 $tecnico = $result2['tecnico'];
                 $comentario = $result2['comentario'];
 
-
-                $content .= '<section >';
-                $content .= '<div align="left">';
-                $content .= '<table  border="1" CELLPADDING="2">';
-
-
-
-                $content .= '<tr>';
-                $content .= '<td colspan="3"align="center"><b>EQUIPO</b></td>';
-                $content .= '<td colspan="2"align="center"><b>ENTREGA</b></td>';
-                $content .= '<td colspan="2"align="center"><b>CANTIDAD</b></td>';
-                $content .= '<td colspan="3"align="center"><b>FECHA</b></td>';
-                $content .= '<td colspan="3"align="center"><b>SERIE</b></td>';
-                $content .= '<td colspan="3"align="center"><b>QUIEN SOLICITA</b></td>';
-                $content .= '<td colspan="3"align="center"><b>COMENTARIO</b></td>';
-                $content .= '</tr>';
-
                 $content .= '<tr>';
                 $content .= '<td colspan="3"align="center">' . $descripcion . ' </td>';
-                $content .= '<td colspan="2"align="center">' . $respuesta . ' </td>';
+                $content .= '<td colspan="2"align="center">' . $talla . ' </td>';
                 $content .= '<td colspan="2"align="center">' . $cantidad . '</td>';
                 $content .= '<td colspan="3"align="center">' . $fecha . '</td>';
                 $content .= '<td colspan="3"align="center">' . $serie . '</td>';
@@ -182,18 +173,14 @@ if ($query->rowCount() > 0) {
                 $content .= '<td colspan="3"align="center">' . $comentario . '</td>';
                 $content .= '</tr>';
 
-
-
-
-                $content .= '</table>';
-                $content .= '</div>';
-                $content .= '</section>';
-
-
                 $query2 = null;
             }
             $cnt2++;
         }
+        $content .= '</table>';
+        $content .= '</div>';
+        $content .= '</section>';
+
         $query = null;
     }
     $cnt++;

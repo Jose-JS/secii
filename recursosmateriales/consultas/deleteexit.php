@@ -7,6 +7,12 @@ include('../includes/config.php');
         $sql = "delete from  tblinventoryexit  WHERE id=:id";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id', $id, PDO::PARAM_STR);
-        $query->execute();
+        if ($query->execute() == true) {
+                $response_array['status'] = 'success';
+            } else {
+                $response_array['status'] = 'error';
+            
+            }
+            echo json_encode($response_array);
         $msg = "Registro de departamento eliminado";
 ?>

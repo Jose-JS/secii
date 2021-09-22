@@ -25,12 +25,13 @@ if (strlen($_SESSION['recursos']) == 0) {
         <!-- Styles -->
 
         <link type="text/css" rel="stylesheet" href="../assets/css/responsive.dataTables.min.css" />
-        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css" />
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
-        <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-        <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
+    <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+    <!--  <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">-->
+    
+    <link href="../assets/plugins/datatables/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
 
@@ -58,7 +59,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 
                             <?php if ($msg) { ?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php } ?>
                             <div class="table-responsive">
-                                <table id="example" class="cell-border display compact responsive nowrap" width="100%">
+                                <table id="example5" class="display responsive nowrap" width="100%">
                                     <thead>
                                         <tr>
                                             <th>NO.</th>
@@ -82,8 +83,15 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                     <td><?php echo htmlentities($result->folio); ?></td>
                                                     <td><?php echo htmlentities($result->fecha); ?></td>
                                                     <td><?php echo htmlentities($result->servicio); ?></td>
+                                                    
                                                     <td><a name="look_documents" href="manageexit.php?f=<?php echo htmlentities($result->folio); ?>" title="Visualizar salidas" class="tooltipped" data-position="bottom" data-tooltip="Visualizar salidas"><i class="material-icons">visibility</i></a>
                                                     <a href="creator_pdf_exit.php?folio=<?php echo htmlentities($result->folio); ?>" class="tooltipped" target="_blank" title="PDF Salidas" data-position="bottom" data-tooltip="PDF Salidas"><i class="material-icons">picture_as_pdf</i></a>
+                                                    <?php if($result->firm1==null){?>                                                    
+                                                    <a  href="addfirm.php?folio=<?php echo htmlentities($result->folio); ?>" class="tooltipped" target="_blank" title="FIRMA DE RECIBO" data-position="bottom" data-tooltip="FIRMA DE RECIBO"><i class="material-icons">verified</i></a>
+                                                    <?php } else{}?>
+                                                    <?php if($result->firm2==null){?>                                                    
+                                                    <a  href="addfirm2.php?folio=<?php echo htmlentities($result->folio); ?>" class="tooltipped" target="_blank" title="FIRMA QUIEN ENTREGA" data-position="bottom" data-tooltip="FIRMA QUIEN ENTREGA"><i class="material-icons">done_all</i></a>
+                                                    <?php } else{}?>
                                                 </td>
 
 
@@ -106,14 +114,25 @@ if (strlen($_SESSION['recursos']) == 0) {
 
         <!-- Javascripts -->
         <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="../assets/js/alpha.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
-        <script src="../assets/js/pages/table-data.js"></script>
+    <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
+    <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/plugins/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/plugins/datatables/js/buttons.print.js"></script>
+    <script src="../assets/plugins/datatables/js/buttons.print.min.js"></script>
+    <script src="../assets/plugins/datatables/js/jszip.min.js"></script>
+    <script src="../assets/plugins/datatables/js/pdfmake.min.js"></script>
+    <script src="../assets/plugins/datatables/js/pdfmake.js"></script>
+    <script src="../assets/plugins/datatables/js/vfs_fonts.js"></script>
+    <script src="../assets/plugins/datatables/js/buttons.colVis.min.js"></script>
+    <script src="../assets/plugins/datatables/js/buttons.html5.min.js"></script>
+    <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+    <script src="../assets/js/alpha.min.js"></script>
+    <script src="../assets/js/pages/table-data2.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        
+    
        </body>
 
     </html>

@@ -118,13 +118,12 @@ if (strlen($_SESSION['recursos']) == 0) {
                                             <th>CONDICION</th>
                                             <th>TALLA</th>
                                             <th>CANTIDAD</th>
-                                            <th>FECHA</th>
-                                            <th>ACCION</th>
+                                            <th>EMPRESA</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <?php $sql = "SELECT * from  tblinventory order by fecha desc";
+                                        <?php $sql = "SELECT * from  tblinventoryentry order by fecha desc";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -137,8 +136,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                     <td><?php echo htmlentities($result->condicion); ?></td>
                                                     <td><?php echo htmlentities($result->talla); ?></td>
                                                     <td><?php echo htmlentities($result->cantidad); ?></td>                                                   
-                                                    <td><?php echo htmlentities($result->fecha); ?></td>
-                                                    <td><a href="editinventory.php?id=<?php echo htmlentities($result->id); ?>" title="Modificar datos" class="tooltipped" data-position="bottom" data-tooltip="Modificar datos"><i class="material-icons">edit</i></a></td>
+                                                    <td><?php echo htmlentities($result->empresa); ?></td>
                                                 </tr>
                                         <?php $cnt++;
                                             }

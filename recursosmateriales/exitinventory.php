@@ -15,7 +15,7 @@ if (strlen($_SESSION['recursos']) == 0) {
     <head>
 
         <!-- Title -->
-        <title>Recursos Materiales | Salidad de inventario</title>
+        <title>Recursos Materiales | Salidas de inventario</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta charset="UTF-8">
@@ -52,13 +52,15 @@ if (strlen($_SESSION['recursos']) == 0) {
                                         <select id="descripcion" name="descripcion" autocomplete="off" tabindex="2" required>
                                             <option value="">Equipo</option>
                                             <?php
-                                            $sql = "SELECT descripcion,cantidad from tblinventory WHERE cantidad>0";
+                                            $sql = "SELECT DISTINCT descripcion from tblinventory order by descripcion asc";
                                             $query = $dbh->prepare($sql);
                                             $query->execute();
                                             $results = $query->fetchAll(PDO::FETCH_OBJ);
                                             $cnt = 1;
                                             if ($query->rowCount() > 0) {
-                                                foreach ($results as $result) {   ?>
+                                                foreach ($results as $result) {
+                                            ?>
+
                                                     <option value="<?php echo htmlentities($result->descripcion); ?>"><?php echo htmlentities($result->descripcion); ?></option>
                                             <?php }
                                             }
@@ -69,13 +71,50 @@ if (strlen($_SESSION['recursos']) == 0) {
                                         </select>
                                     </div>
 
-                                    <div class="input-field col m6 s12">
-                                        <input type="radio" id="R1" name="respuesta" value="SI" class="check"> <label for="R1">SI</label>
-                                        <input type="radio" id="R2" name="respuesta" value="NO" class="check"> <label for="R2">NO</label>
+                                    <div class="input-field col s12">
+                                        <select id="talla" name="talla" autocomplete="off" tabindex="2" required>
+                                            <option value="">Talla</option>
+                                            <?php
+                                            $sql = "SELECT DISTINCT talla from tblinventory order by talla asc";
+                                            $query = $dbh->prepare($sql);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            $cnt = 1;
+                                            if ($query->rowCount() > 0) {
+                                                foreach ($results as $result) {   ?>
+                                                    <option value="<?php echo htmlentities($result->talla); ?>"><?php echo htmlentities($result->talla); ?></option>
+                                            <?php }
+                                            }
+                                            $query = null; // obligado para cerrar la conexión
+
+
+                                            ?>
+                                        </select>
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <input type="text" id="cantidad" name="cantidad" class="validate" required />
+                                        <select id="condicion" name="condicion" autocomplete="off" tabindex="2" required>
+                                            <option value="">Condición</option>
+                                            <?php
+                                            $sql = "SELECT DISTINCT condicion from tblinventory order by condicion asc";
+                                            $query = $dbh->prepare($sql);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            $cnt = 1;
+                                            if ($query->rowCount() > 0) {
+                                                foreach ($results as $result) {   ?>
+                                                    <option value="<?php echo htmlentities($result->condicion); ?>"><?php echo htmlentities($result->condicion); ?></option>
+                                            <?php }
+                                            }
+                                            $query = null; // obligado para cerrar la conexión
+
+
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <input type="text" id="cantidad" name="cantidad" required />
                                         <label for="cantidad">Cantidad</label>
                                     </div>
 
@@ -85,7 +124,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                         <input id="fecha" name="fecha" tabindex="25" type="date" autocomplete="off" required />
                                     </div>
                                     <div class="input-field col s12">
-                                        <input type="text" id="serie" name="serie" class="validate" required />
+                                        <input type="text" id="serie" name="serie" required />
                                         <label for="serie">Serie</label>
                                     </div>
                                     <div class="input-field col s12">
@@ -154,40 +193,9 @@ if (strlen($_SESSION['recursos']) == 0) {
                         type: "POST",
                         url: url,
                         data: datos,
-                        beforeSend: function(b) {
-                            if (b != 0) {
-                                let timerInterval
-                                Swal.fire({
-                                    title: '',
-                                    html: 'Se estan guardando los datos !',
-                                    timerProgressBar: true,
-                                    didOpen: () => {
-                                        Swal.showLoading()
-                                        timerInterval = setInterval(() => {
-                                            const content = Swal.getContent()
-                                            if (content) {
-                                                const b = content.querySelector('b')
-                                                if (b) {
-                                                    b.textContent = Swal.getTimerLeft()
-                                                }
-                                            }
-                                        }, 100)
-                                    },
-                                    willClose: () => {
-                                        clearInterval(timerInterval)
-                                    }
-                                }).then((result) => {})
-                            } else {
-
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'OCURRIO UN ERROR! 1',
-                                })
-                            }
-                        },
-                        success: function(r) {
-                            if (r != 0) {
+                        dataType: "json",
+                        success: function(data) {
+                            if (data.status == 'success') {
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',
@@ -196,7 +204,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                     timer: 2500
                                 })
                                 document.getElementById("formulario").reset();
-                            } else {
+                            } else if (data.status == 'error') {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
@@ -220,11 +228,12 @@ if (strlen($_SESSION['recursos']) == 0) {
             });
         </script>
 
-        <!--*** OBTENER LAS EXISTENCIAS SEGUN LA DESCRIPCION SELECCIONADA ***-->
+        <!--*** OBTENER LAS EXISTENCIAS SEGUN LA DESCRIPCION SELECCIONADA *** 
         <script>
             $("#descripcion").change(function() {
                 $("#descripcion option:selected").each(function() {
                     valor = $(this).val();
+                    console.log(valor);
                     $.post("consultas/selectcantidad.php", {
                         valor
                     }, function(data) {
@@ -242,7 +251,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                 });
 
             });
-        </script>
+        </script>-->
 
         <script type="text/javascript">
             $(document).ready(function() {

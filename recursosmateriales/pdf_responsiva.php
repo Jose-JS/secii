@@ -6,6 +6,7 @@ require_once('../lib/tcpdf/tcpdf.php');
 //require_once('conexion2.php');	
 include('../includes/config.php');
 $ids = $_GET['empid'];
+$f = $_GET['f'];
 $id = $_GET['id'];
 $responsiva = $_GET['responsiva'];
 $sql = "SELECT EmpId,company from  tblemployees where EmpId='$ids'";
@@ -39,8 +40,6 @@ if ($query->rowCount() > 0) {
                     // Title
                     $this->Cell(0, 10, 'CARTA RESPONSIVA', 0, 2, 'C', 0, '', 0, false, 'M', 'M');
                     $this->Cell(0, 2, '', 0, 2, 'C', 0, '', 0, false, 'M', 'M');
-
-                
                 }
 
                 // Page footer
@@ -226,17 +225,17 @@ if ($query->rowCount() > 0) {
 
             // ---------------------------------------------------------
 
-           
+
 
 
             if ($responsiva == 'uniforme de gala') {
- // set font
- $pdf->SetFont('helvetica', '', 10);
+                // set font
+                $pdf->SetFont('helvetica', '', 10);
 
- // add a page
- $pdf->addPage();
+                // add a page
+                $pdf->addPage();
 
- // set some text to print
+                // set some text to print
 
                 $content .= '<section >';
 
@@ -320,23 +319,32 @@ if ($query->rowCount() > 0) {
 </tr>
 
 </table>';
-
-                $content .= '<br><br><br><br><br><br>
+                $sql23 = "SELECT * from  tblinventoryfol where folio='$f'";
+                $query23 = $dbh->prepare($sql23);
+                $dbh->exec('SET CHARACTER SET utf8');
+                $query23->execute();
+                if ($query23->rowCount() > 0) {
+                    foreach ($query23 as $result23) {
+                        $firm1 = $result23['firm1'];
+                        $content .= '<br><br><br><br>
+                <div align="center"><img width="110" height="70" src="' . $firm1 . '" /></div>
 <p align="center"><b>' . $tecnicoasig . '</b><br>
 NOMBRE Y FRIMA DEL TRABAJADOR</p>
             
             </section>';
+                    }
+                }
             }
 
             if ($responsiva == 'uniforme comando') {
 
-                 // set font
-            $pdf->SetFont('helvetica', '', 10);
+                // set font
+                $pdf->SetFont('helvetica', '', 10);
 
-            // add a page
-            $pdf->addPage();
+                // add a page
+                $pdf->addPage();
 
-            // set some text to print
+                // set some text to print
                 $content .= '<section >';
 
                 $content .= '<div align="left">';
@@ -421,22 +429,32 @@ NOMBRE Y FRIMA DEL TRABAJADOR</p>
     
     
     </table>';
-                $content .= '<br><br><br><br><br><br>
+                $sql23 = "SELECT * from  tblinventoryfol where folio='$f'";
+                $query23 = $dbh->prepare($sql23);
+                $dbh->exec('SET CHARACTER SET utf8');
+                $query23->execute();
+                if ($query23->rowCount() > 0) {
+                    foreach ($query23 as $result23) {
+                        $firm1 = $result23['firm1'];
+                        $content .= '<br><br><br><br>
+                <div align="center"><img width="110" height="70" src="' . $firm1 . '" /></div>
     <p align="center"><b>' . $tecnicoasig . '</b><br>
     NOMBRE Y FRIMA DEL TRABAJADOR</p>
                 
                 </section>';
+                    }
+                }
             }
 
             if ($responsiva == 'uniforme traje') {
 
-                 // set font
-            $pdf->SetFont('helvetica', '', 10);
+                // set font
+                $pdf->SetFont('helvetica', '', 10);
 
-            // add a page
-            $pdf->addPage();
+                // add a page
+                $pdf->addPage();
 
-            // set some text to print
+                // set some text to print
                 $content .= '<section >';
 
                 $content .= '<div align="left">';
@@ -511,22 +529,32 @@ NOMBRE Y FRIMA DEL TRABAJADOR</p>
         
         
         </table>';
-                $content .= '<br><br><br><br><br><br>
+                $sql23 = "SELECT * from  tblinventoryfol where folio='$f'";
+                $query23 = $dbh->prepare($sql23);
+                $dbh->exec('SET CHARACTER SET utf8');
+                $query23->execute();
+                if ($query23->rowCount() > 0) {
+                    foreach ($query23 as $result23) {
+                        $firm1 = $result23['firm1'];
+                        $content .= '<br><br><br><br><br><br>
+                <div align="center"><img width="110" height="70" src="' . $firm1 . '" /></div>
         <p align="center"><b>' . $tecnicoasig . '</b><br>
         NOMBRE Y FRIMA DEL TRABAJADOR</p>
                     
                     </section>';
+                    }
+                }
             }
 
             if ($responsiva == 'resguardo de equipo') {
 
-                 // set font
-            $pdf->SetFont('helvetica', '', 10.5);
+                // set font
+                $pdf->SetFont('helvetica', '', 10.5);
 
-            // add a page
-            $pdf->addPage();
+                // add a page
+                $pdf->addPage();
 
-            // set some text to print
+                // set some text to print
                 $content .= '<section >';
 
                 $content .= '<div align="left">';
@@ -573,40 +601,49 @@ NOMBRE Y FRIMA DEL TRABAJADOR</p>
                  <p>Cabe mencionar que esto puede perjudicar en su persona, ya que genera un antecedente laboral a
                  nivel Federal negando su ingreso a otra empresa.</p></section>';
 
-
-                $content .= '<section><div><br><br><br><br><br><br><br><br><br>
+                $sql23 = "SELECT * from  tblinventoryfol where folio='$f'";
+                $query23 = $dbh->prepare($sql23);
+                $dbh->exec('SET CHARACTER SET utf8');
+                $query23->execute();
+                if ($query23->rowCount() > 0) {
+                    foreach ($query23 as $result23) {
+                        $firm1 = $result23['firm1'];
+                        $content .= '<section><div><br><br><br><br><br><br><br><br><br>
+                <div align="center"><img width="110" height="70" src="' . $firm1 . '" /></div>
                  <p align="center"><b>' . $tecnicoasig . '</b><br>
                  NOMBRE Y FRIMA DEL TRABAJADOR</p>
                  </div></section>        
                              ';
+                    }
+                }
             }
-          
+
             if ($responsiva == 'uniforme') {
 
                 // set font
-           $pdf->SetFont('helvetica', '', 10.5);
+                $pdf->SetFont('helvetica', '', 10.5);
 
-           // add a page
-           $pdf->addPage();
+                // add a page
+                $pdf->addPage();
 
-           // set some text to print
-               $content .= '<section >';
+                // set some text to print
+                $content .= '<section >';
 
-               $content .= '<div align="left">';
-               $content .= '<table>';
-               $content .= '<tr>';
-               $fechaEntera = strtotime($fecha);
-               $anio = date("Y", $fechaEntera);
-               $mes = date("m", $fechaEntera);
-               $dia = date("d", $fechaEntera);
-               $content .= '<td colspan="2" align="RIGHT"> <b>Tepotzotlán Estado de México a: </b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
-               $content .= '</tr>';
+                $content .= '<div align="left">';
+                $content .= '<table>';
+                $content .= '<tr>';
+                $fechaEntera = strtotime($fecha);
+                $anio = date("Y", $fechaEntera);
+                $mes = date("m", $fechaEntera);
+                $dia = date("d", $fechaEntera);
+                $content .= '<td colspan="2" align="RIGHT"> <b>Tepotzotlán Estado de México a: </b>' . $dia . '-' . $mes . '-' . $anio . '</td>';
+                $content .= '</tr>';
 
-               $content .= '</table>';
-               $content .= '</div>';
-               $content .= '</section>';
+                $content .= '</table>';
+                $content .= '</div>';
+                $content .= '</section>';
 
-               $content .= '<section >
+                $content .= '<section >
                <div align="left">
                <p><b>
                CAP.1°/ ART. LIC.LUIS GUTIERREZ ZAMORA<br>
@@ -617,9 +654,9 @@ NOMBRE Y FRIMA DEL TRABAJADOR</p>
                
                ';
 
-               $content .= '</section>';
+                $content .= '</section>';
 
-               $content .= '<section>
+                $content .= '<section>
                <div align="left">
                <p>Por medio de la presente se hace de su conocimiento al TSI identificado 
                como <b>' . $tecnicoasig . '</b> , con matrícula <b>' . $empid . '</b>, que a partir 
@@ -636,13 +673,23 @@ NOMBRE Y FRIMA DEL TRABAJADOR</p>
                 <p>Cabe mencionar que esto puede perjudicar en su persona, ya que genera un antecedente laboral a
                 nivel Federal negando su ingreso a otra empresa.</p></section>';
 
+                $sql23 = "SELECT * from  tblinventoryfol where folio='$f'";
+                $query23 = $dbh->prepare($sql23);
+                $dbh->exec('SET CHARACTER SET utf8');
+                $query23->execute();
+                if ($query23->rowCount() > 0) {
+                    foreach ($query23 as $result23) {
+                        $firm1 = $result23['firm1'];
 
-               $content .= '<section><div><br><br><br><br><br><br><br><br><br>
+                        $content .= '<section align="center"><div><br><br><br><br><br><br><br><br><br>
+                <div align="center"><img width="110" height="70" src="' . $firm1 . '" /></div>
                 <p align="center"><b>' . $tecnicoasig . '</b><br>
                 NOMBRE Y FRIMA DEL TRABAJADOR</p>
                 </div></section>        
                             ';
-           }
+                    }
+                }
+            }
 
 
 

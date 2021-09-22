@@ -5,6 +5,7 @@ require_once('../lib/tcpdf/config/lang/spa.php');
 require_once('../lib/tcpdf/tcpdf.php');
 //require_once('conexion2.php');	
 include('../includes/config.php');
+$f = $_GET['f'];
 $ids = $_GET['empid'];
 $id = $_GET['id'];
 $sql = "SELECT EmpId,company from  tblemployees where EmpId='$ids'";
@@ -284,7 +285,18 @@ if ($query->rowCount() > 0) {
                 <p>NOMBRE DE PERSONA QUE ENTREGA:</p><BR>
                 <p>SEDE DE ASIGNACION:</p><BR>
                 </section>';
-
+                $sql23 = "SELECT * from  tblinventoryfol where folio='$f'";
+                $query23 = $dbh->prepare($sql23);
+                $dbh->exec('SET CHARACTER SET utf8');
+                $query23->execute();
+            
+            
+            
+                if ($query23->rowCount() > 0) {
+                    foreach ($query23 as $result23) {
+                        $firm1 = $result23['firm1'];
+                        $firm2 = $result23['firm2'];
+                        
                 
             $content .= '<section>
             <div align="left">
@@ -293,14 +305,18 @@ if ($query->rowCount() > 0) {
             <th></th>
             <th></th>
             </tr>
-            <tr><br>
+            <tr>
+            <td style="text-align: center; "><img width="100" height="60" src="'.$firm1.'" /></td>
+            <td style="text-align: center; "><img width="100" height="60" src="'.$firm2.'" /></td>
+            </tr>
+            <tr>
             <td>NOMBRE Y FIRMA DE QUIEN RECIBE</td>
             <td>FIRMA DEL RESPONSABLE DE AREA</td>
             </tr>
-            
+                    
             </table>
             </section>';
-
+                    }}
             $content .= '<section>
                 <div align="left">
                 <p>Queda prohibido, el bloqueo del celular con contraseñas, huella dactilar, instalación de aplicaciones y uso personal.<BR></p>
