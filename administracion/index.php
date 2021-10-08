@@ -56,7 +56,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php?i=$resu
 <head>
 
     <!-- Title -->
-    <title>A D O P | Administración</title>
+    <title>S E C I I | Administración</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8">

@@ -111,12 +111,20 @@
      					</ul>
      				</div>
      			</li>
-     			<li class="no-padding">
+     			<!--<li class="no-padding">
      				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Patrullaje<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
      				<div class="collapsible-body">
      					<ul>
      						<li><a href="addformatpat.php">Crear Formato</a></li>
      						<li><a href="manageformatpat.php">Administrar Patrullaje</a></li>
+     					</ul>
+     				</div>
+     			</li>-->
+				 <li class="no-padding">
+     				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Entrega de Material<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+     				<div class="collapsible-body">
+     					<ul>
+     						<li><a href="managefolio.php">Firmas de entrega</a></li>
      					</ul>
      				</div>
      			</li>
