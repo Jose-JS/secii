@@ -1,6 +1,11 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ ob_start();
+ error_reporting(E_ALL & ~E_NOTICE);
+ ini_set('display_errors', 0);
+ ini_set('log_errors', 1);
+
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 require_once('../lib/tcpdf/config/lang/spa.php');
 require_once('../lib/tcpdf/tcpdf.php');
 //require_once('conexion2.php');	
@@ -1217,9 +1222,10 @@ if ($ids == 'OIFSI S.A. DE C.V.') {
 
                     $content .= '<td rowspan="2" align="RIGHT"><img src="' . $namedoc . '" align="left" width="100" height="120"></td>';
 
-                    $content .= '</tr>';
+                    
                 }
             }
+            $content .= '</tr>';
             $content .= '<tr>';
             $content .= '<td colspan="2" align="LEFT"> <b>MATRICULA:</b> ' . $matricula . '</td>';
             $content .= '<td colspan="2" align="LEFT"> <b>FECHA:</b>' . $fechini . '</td>';
@@ -2698,11 +2704,11 @@ if ($ids == 'APROSEMEX S.A. DE C.V.') {
         public function Header()
         {
             //background
-            $img_file2 = K_PATH_IMAGES . 'LOGO APROSEMEX2.JPG';
+            $img_file2 = K_PATH_IMAGES . 'LOGO APROSEMEX2.PNG';
             $this->Image($img_file2, 60, 80, 100, 148.5, '', '', '', false, 200, '', false, false, 0);
 
             // Logo
-            $image_file = K_PATH_IMAGES . 'LOGO APROSEMEX .JPG';
+            $image_file = K_PATH_IMAGES . 'LOGO APROSEMEX .PNG';
             $this->Image($image_file, 10, 2, 20, '', '', '', 'T', false, 300, '', false, false, 0, false, false, false);
             // Set font
             $this->SetFont('helvetica', 'b', 18);

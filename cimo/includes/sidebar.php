@@ -69,12 +69,14 @@
      				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Formato FAR y FBR<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
      				<div class="collapsible-body">
      					<ul>
+						    <li><a href="adddoublets3.php">Crear formato FAR Y FBR</a></li>
      						<li><a href="manageformata.php">Nota formato FAR</a></li>
      						<li><a href="manageformatb.php">Nota formato FBR</a></li>
      						<li><a href="managedoublets3.php">Administrar PDF</a></li>
      					</ul>
      				</div>
      			</li>
+				 
 
      			<li class="no-padding">
      				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">assignment</i>Patrullaje<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>

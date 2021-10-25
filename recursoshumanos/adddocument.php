@@ -125,7 +125,9 @@ if (strlen($_SESSION['recursos']) == 0) {
 											<h3> ARCHIVOS</h3>
 											<hr style="border-color:black;">
 											<h4> DOCUMENTOS</h4>
-											<input type="hidden" name="name" id="name" value="<?php echo"$name";?>">
+											<input type="hidden" name="name" id="name" value="<?php 
+											$name2=ltrim(rtrim(preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $name)));
+											echo"$name2";?>">
                                         <input type="hidden" name="empid" id="empid" value="<?php echo"$empid";?>">
 
 
