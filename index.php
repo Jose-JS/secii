@@ -41,9 +41,9 @@ if (isset($_POST['signin'])) {
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8">
-    <meta name="description" content="Responsive Admin Dashboard Template" />
-    <meta name="keywords" content="admin,dashboard" />
-    <meta name="author" content="Steelcoders" />
+    <meta name="description" content="SECII" />
+    <meta name="keywords" content="ERP SYSTEM" />
+    <meta name="author" content="JJSH" />
 
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css" />
@@ -188,6 +188,8 @@ if (isset($_POST['signin'])) {
                         <li class="no-padding"><a class="waves-effect waves-grey" href="recursosmateriales/"><i class="material-icons">login</i>Acceso Recursos Materiales</a></li>
 
                         <li class="no-padding"><a class="waves-effect waves-grey" href="cimo/"><i class="material-icons">login</i>Acceso C.I.M.O.</a></li>
+
+                        <li class="no-padding"><a class="waves-effect waves-grey" href="tecnicos/"><i class="material-icons">login</i>Acceso TESI</a></li>
 
                         <li class="no-padding"><a class="waves-effect waves-grey" href="clientes/"><i class="material-icons">login</i>Acceso Clientes</a></li>
 

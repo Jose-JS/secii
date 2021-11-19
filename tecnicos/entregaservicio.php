@@ -164,7 +164,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col s12">
-                                                            <select id="tesientrega" name="tesientrega" autocomplete="off">
+                                                            <select id="tesientrega" name="tesientrega" autocomplete="off" required="required">
                                                                 <option value="">Tesi que entrega</option>
 
                                                                 <?php
@@ -184,7 +184,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col s12">
-                                                            <select id="tesirecibe" name="tesirecibe" autocomplete="off">
+                                                            <select id="tesirecibe" name="tesirecibe" autocomplete="off" required="required">
                                                                 <option value="">Tesi que recibe</option>
                                                                 <?php $sqll = "SELECT EmpId,Name,FirstName,LastName from tblemployees where Status='1' order by FirstName asc";
                                                                 $queryl = $dbh->prepare($sqll);
@@ -200,7 +200,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col m6 s12">
-                                                            <select id="lampara" name="lampara" autocomplete="off">
+                                                            <select id="lampara" name="lampara" autocomplete="off" required="required">
                                                                 <option value="">Lampara</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -208,7 +208,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                             </select>
                                                         </div>
                                                         <div class="input-field col m6 s12">
-                                                            <select id="fornitura" name="fornitura" autocomplete="off">
+                                                            <select id="fornitura" name="fornitura" autocomplete="off" required="required">
                                                                 <option value="">Fornitura</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -217,7 +217,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col m6 s12">
-                                                            <select id="pr24" name="pr24" autocomplete="off">
+                                                            <select id="pr24" name="pr24" autocomplete="off" required="required">
                                                                 <option value="">Pr-24</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -226,7 +226,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col m6 s12">
-                                                            <select id="baston" name="baston" autocomplete="off">
+                                                            <select id="baston" name="baston" autocomplete="off" required="required">
                                                                 <option value="">Baston retractil</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -235,7 +235,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col m6 s12">
-                                                            <select id="gas" name="gas" autocomplete="off">
+                                                            <select id="gas" name="gas" autocomplete="off" required="required">
                                                                 <option value="">Gas pimienta</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -244,7 +244,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col m6 s12">
-                                                            <select id="taser" name="taser" autocomplete="off">
+                                                            <select id="taser" name="taser" autocomplete="off" required="required">
                                                                 <option value="">Taser</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -253,7 +253,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col m6 s12">
-                                                            <select id="chamarra" name="chamarra" autocomplete="off">
+                                                            <select id="chamarra" name="chamarra" autocomplete="off" required="required">
                                                                 <option value="">Chamarra</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -261,7 +261,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                             </select>
                                                         </div>
                                                         <div class="input-field col m6 s12">
-                                                            <select id="abrigo" name="abrigo" autocomplete="off">
+                                                            <select id="abrigo" name="abrigo" autocomplete="off" required="required">
                                                                 <option value="">Abrigo</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -269,7 +269,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                             </select>
                                                         </div>
                                                         <div class="input-field col m6 s12">
-                                                            <select id="botas" name="botas" autocomplete="off">
+                                                            <select id="botas" name="botas" autocomplete="off" required="required">
                                                                 <option value="">Botas Hule</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -278,7 +278,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         </div>
 
                                                         <div class="input-field col m6 s12">
-                                                            <select id="sombrilla" name="sombrilla" autocomplete="off">
+                                                            <select id="sombrilla" name="sombrilla" autocomplete="off" required="required">
                                                                 <option value="">Sombrilla</option>
                                                                 <option value="SI">SI</option>
                                                                 <option value="NO">NO</option>
@@ -293,7 +293,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
 
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="chaleco" name="chaleco" autocomplete="off">
+                                                    <select id="chaleco" name="chaleco" autocomplete="off" required="required">
                                                         <option value="">Chaleco</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -302,7 +302,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="impermeable" name="impermeable" autocomplete="off">
+                                                    <select id="impermeable" name="impermeable" autocomplete="off" required="required">
                                                         <option value="">Impermeable</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -311,7 +311,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="armacorta" name="armacorta" autocomplete="off">
+                                                    <select id="armacorta" name="armacorta" autocomplete="off" required="required">
                                                         <option value="">Arma corta D.C/Cargador</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -320,7 +320,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="armalarga" name="armalarga" autocomplete="off">
+                                                    <select id="armalarga" name="armalarga" autocomplete="off" required="required">
                                                         <option value="">Arma larga D.C/Cargador</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -329,7 +329,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="celular" name="celular" autocomplete="off">
+                                                    <select id="celular" name="celular" autocomplete="off" required="required">
                                                         <option value="">Celular</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -338,7 +338,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="cargador1" name="cargador1" autocomplete="off">
+                                                    <select id="cargador1" name="cargador1" autocomplete="off" required="required">
                                                         <option value="">Cargador</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -347,7 +347,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="garrafones" name="garrafones" autocomplete="off">
+                                                    <select id="garrafones" name="garrafones" autocomplete="off" required="required">
                                                         <option value="">Garrafones</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -356,7 +356,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="trastes" name="trastes" autocomplete="off">
+                                                    <select id="trastes" name="trastes" autocomplete="off" required="required">
                                                         <option value="">Trastes cocina</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -365,7 +365,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="servibar" name="servibar" autocomplete="off">
+                                                    <select id="servibar" name="servibar" autocomplete="off" required="required">
                                                         <option value="">Servibar</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -374,7 +374,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="parrilla" name="parrilla" autocomplete="off">
+                                                    <select id="parrilla" name="parrilla" autocomplete="off" required="required">
                                                         <option value="">Parrilla</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -383,7 +383,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="microondas" name="microondas" autocomplete="off">
+                                                    <select id="microondas" name="microondas" autocomplete="off" required="required">
                                                         <option value="">Horno de microondas</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -392,7 +392,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="radio" name="radio" autocomplete="off">
+                                                    <select id="radio" name="radio" autocomplete="off" required="required">
                                                         <option value="">Radio troncal</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -401,7 +401,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="cargador2" name="cargador2" autocomplete="off">
+                                                    <select id="cargador2" name="cargador2" autocomplete="off" required="required">
                                                         <option value="">Cargador</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -410,7 +410,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="focos" name="focos" autocomplete="off">
+                                                    <select id="focos" name="focos" autocomplete="off" required="required">
                                                         <option value="">Focos</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -419,7 +419,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="extintores" name="extintores" autocomplete="off">
+                                                    <select id="extintores" name="extintores" autocomplete="off" required="required">
                                                         <option value="">Extintores</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -428,7 +428,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="camaras" name="camaras" autocomplete="off">
+                                                    <select id="camaras" name="camaras" autocomplete="off" required="required">
                                                         <option value="">Camaras</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -437,7 +437,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="vidrios" name="vidrios" autocomplete="off">
+                                                    <select id="vidrios" name="vidrios" autocomplete="off" required="required">
                                                         <option value="">vidrios</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -446,7 +446,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="puertas" name="puertas" autocomplete="off">
+                                                    <select id="puertas" name="puertas" autocomplete="off" required="required">
                                                         <option value="">Puertas</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -455,7 +455,7 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                 </div>
 
                                                 <div class="input-field col m6 s12">
-                                                    <select id="agua" name="agua" autocomplete="off">
+                                                    <select id="agua" name="agua" autocomplete="off" required="required">
                                                         <option value="">Agua</option>
                                                         <option value="SI">SI</option>
                                                         <option value="NO">NO</option>
@@ -471,6 +471,41 @@ if (strlen($_SESSION['tecnico']) == 0) {
                                                         <option value="NO APLICA">NO APLICA</option>
                                                     </select>
                                                 </div>
+
+                                                <div class="input-field col m6 s12">
+                                                    <div id="signature-pad" class="signature-pad">
+                                                        <div class="description">Firma de técnico que entrega</div>
+                                                        <div class="signature-pad">
+                                                            <canvas style="width: 200px; height: 100px; border: 1px black solid; " id="canvas" required></canvas>
+                                                            <a class="btn btn-primary " id="clear">Limpiar Firma</a>
+                                                            <!--<label name="clear"id="clear" for="coords">Limpiar</label>        -->
+                                                            <!--<button name="clear"id="clear"type="submit">Limpiar</button>-->
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <input type="hidden" name="pacient_id" value="">
+                                                <input type="hidden" name="base64" value="" id="base64">
+
+                                                <div class="input-field col m6 s12">
+												<div id="signature-pad1" class="signature-pad1">
+													<div class="description">Firma del técnico que recibe</div>
+													<div class="signature-pad1">
+														<canvas style="width: 200px; height: 100px; border: 1px black solid; " id="canvas1"></canvas>
+														<a class="btn btn-primary " id="clear1">Limpiar Firma</a>
+														<!--<label name="clear"id="clear" for="coords">Limpiar</label>        -->
+														<!--<button name="clear"id="clear"type="submit">Limpiar</button>-->
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<input type="hidden" name="pacient_id1" value="">
+											<input type="hidden" name="base641" value="" id="base641">
 
 
 
@@ -517,6 +552,8 @@ if (strlen($_SESSION['tecnico']) == 0) {
         <script src="../assets/js/alpha.min.js"></script>
         <script src="../assets/js/pages/form_elements.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="../assets/js/signature_pad.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
 
     </body>
 
@@ -533,9 +570,13 @@ if (strlen($_SESSION['tecnico']) == 0) {
                 $.ajax({
                     type: "POST",
                     url: url,
-                    data: datos,
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
                     dataType: "json",
                     success: function(data) {
+                        console.log(data);
                         if (data.status == 'success') {
                             Swal.fire({
                                 position: 'top-end',
@@ -555,21 +596,98 @@ if (strlen($_SESSION['tecnico']) == 0) {
                         }
                     },
                     error: function(e) {
-                        if (e != 0) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'No se ha podido guardar la información',
-                            })
-                        }
+
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'DATOS GUARDADOS',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                        //document.getElementById("AUTO").reset();
+                        window.location.reload();
+
                     },
                 });
                 return false;
             });
 
         });
-    </script>
+</script>
+<script>
+var wrapper = document.getElementById("signature-pad");
+	var canvas = wrapper.querySelector("canvas");
+	var signaturePad = new SignaturePad(canvas, {
+		backgroundColor: 'rgb(255, 255, 255)'
+	});
 
+	function resizeCanvas() {
+
+		var ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+		canvas.width = canvas.offsetWidth * ratio;
+		canvas.height = canvas.offsetHeight * ratio;
+		canvas.getContext("2d").scale(ratio, ratio);
+		document.getElementById('clear').addEventListener('click', function() {
+			signaturePad.clear();
+		});
+		//  $('#clear').on('click', function(){
+		//         signaturePad.clear();
+		//   }); 
+
+		canvas.addEventListener('touchstart', onTouchStart, false);
+		// signaturePad.clear();
+	}
+
+	window.onresize = resizeCanvas;
+	resizeCanvas();
+</script>
+<script>
+	document.getElementById('AUTO').addEventListener("submit", function(e) {
+
+		var ctx = document.getElementById("canvas");
+		var image = ctx.toDataURL(); // data:image/png....
+		document.getElementById('base64').value = image;
+	}, false);
+</script>
+<script type="text/javascript">
+	var wrapper1 = document.getElementById("signature-pad1");
+
+	var canvas1 = wrapper1.querySelector("canvas");
+
+	var signaturePad1 = new SignaturePad(canvas1, {
+		backgroundColor: 'rgb(255, 255, 255)'
+	});
+
+	function resizeCanvas1() {
+
+		var ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+		canvas1.width = canvas1.offsetWidth * ratio;
+		canvas1.height = canvas1.offsetHeight * ratio;
+		canvas1.getContext("2d").scale(ratio, ratio);
+		document.getElementById('clear1').addEventListener('click', function() {
+			signaturePad1.clear();
+		});
+		//  $('#clear').on('click', function(){
+		//         signaturePad.clear();
+		//   }); 
+
+		canvas1.addEventListener('touchstart', onTouchStart, false);
+		// signaturePad.clear();
+	}
+
+	window.onresize = resizeCanvas1;
+	resizeCanvas1();
+</script>
+<script>
+	document.getElementById('AUTO').addEventListener("submit", function(e) {
+
+		var ctx1 = document.getElementById("canvas1");
+		var image1 = ctx1.toDataURL(); // data:image/png....
+		document.getElementById('base641').value = image1;
+	}, false);
+</script>
 
 
 <?php } ?>
