@@ -873,6 +873,137 @@ if ($ids == 'OISME S.A. DE C.V.') {
         $cnt++;
     }
 
+    $content .= '<br pagebreak="true"/>';
+    $content .= '<section>';
+    $content .= '<div align="center">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL DERECHO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="center" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL IZQUIERDO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='CUERPO COMPLETO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='TOXICOLOGICO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='HUELLAS DACTILARES'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+
+
     //$content .= '
     //<div class="row padding">
     //	<div class="col-md-12" style="text-align:center;">
@@ -1769,6 +1900,114 @@ if ($ids == 'OIFSI S.A. DE C.V.') {
         $cnt++;
     }
 
+    
+    $content .= '<br pagebreak="true"/>';
+    $content .= '<section>';
+    $content .= '<div align="center">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL DERECHO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="center" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL IZQUIERDO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='CUERPO COMPLETO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='TOXICOLOGICO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+
     //$content .= '
     //<div class="row padding">
     //	<div class="col-md-12" style="text-align:center;">
@@ -2661,6 +2900,115 @@ if ($ids == 'ASLO SEGURIDAD PRIVADA S.A. DE C.V.') {
         $cnt++;
     }
 
+    
+    $content .= '<br pagebreak="true"/>';
+    $content .= '<section>';
+    $content .= '<div align="center">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL DERECHO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="center" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL IZQUIERDO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='CUERPO COMPLETO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='TOXICOLOGICO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+
+    
     //$content .= '
     //<div class="row padding">
     //	<div class="col-md-12" style="text-align:center;">
@@ -3554,7 +3902,117 @@ if ($ids == 'APROSEMEX S.A. DE C.V.') {
             $content .= '</section>';
         }
         $cnt++;
+    }  
+
+   
+    $content .= '<br pagebreak="true"/>';
+    $content .= '<section>';
+    $content .= '<div align="center">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL DERECHO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="center" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
     }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+    $content .= '<td>';
+    $content .= '</td>';
+    $content .= '</tr>';
+    $content .= '<tr>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='PERFIL IZQUIERDO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='CUERPO COMPLETO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    $content .= '<br pagebreak="true"/>';
+    
+    $content .= '<section>';
+    $content .= '<div align="CENTER">';
+    $content .= '<table>';
+    $content .= '<tr>';
+
+    $sql33 = "SELECT * from  tbldocument where idemp='$eid' and name='TOXICOLOGICO'";
+    $query33 = $dbh->prepare($sql33);
+    $dbh->exec('SET CHARACTER SET utf8');
+    $query33->execute();
+    if ($query33->rowCount() > 0) {
+        foreach ($query33 as $result33) {
+            $namedoc = $result33['namedoc'];
+
+            $content .= '<td align="center"><img src="' . $namedoc . '" align="CENTER" width="300" height="450"></td>';
+
+            $content .= '</tr>';
+        }
+    }
+
+    $content .= '</table>';
+    $content .= '</div>';
+    $content .= '</section>';
+
+    
+    
 
     //$content .= '
     //<div class="row padding">
