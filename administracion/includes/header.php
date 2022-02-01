@@ -158,13 +158,13 @@
 				dataType: "json",
 				success: function(data) {
 					if (data.status == 'success') {
-						Swal.fire({
-							position: 'top-end',
-							icon: 'success',
-							title: 'REGISTRO BORRADO',
-							showConfirmButton: false,
-							timer: 2500
-						})
+					//	Swal.fire({
+					//		position: 'top-end',
+					//		icon: 'success',
+					//		title: 'REGISTRO BORRADO',
+					//		showConfirmButton: false,
+					//		timer: 2500
+					//	})
 						location.href = "manageexit.php?f=" + datos;
 					} else if (data.status == 'error') {
 						Swal.fire({

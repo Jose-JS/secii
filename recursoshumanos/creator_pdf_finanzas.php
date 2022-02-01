@@ -81,6 +81,7 @@ if ($query->rowCount() > 0) {
 		$clabeint = $result['clabeint'];
 		$sueldonet = $result['sueldonet'];
 		$services = $result['assignedservice'];
+		$bono = $result['bono'];
 		$content = '';
 
 		$content .= '<body>';
@@ -275,6 +276,10 @@ if ($query->rowCount() > 0) {
 		$content .= '<tr>';
 		$content .= '<td colspan="3"align="left"><b>SUELDO NETO MENSUAL:</b></td>';
 		$content .= '<td colspan="3"align="left">' . $sueldonet . '</td>';
+		$content .= '</tr>';
+		$content .= '<tr>';
+		$content .= '<td colspan="3"align="left"><b>BONO:</b></td>';
+		$content .= '<td colspan="3"align="left">' . $bono . '</td>';
 		$content .= '</tr>';
 
 		$content .= '</table>';

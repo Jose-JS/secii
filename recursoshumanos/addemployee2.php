@@ -122,7 +122,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 
 
 
-				if (txtDepartament == null) {
+				if (txtDepartament == null || txtDepartament == 0) {
 					Swal.fire({
 						title: 'Campo Obligatorio',
 						text: 'Por favor seleccione un puesto',
@@ -447,7 +447,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 																<span id="empid-availability" style="font-size:12px;"></span>
 															</div>
 															<div class="input-field col m6 s12">
-																<select id="departament" name="department" autocomplete="off" tabindex="2" required>
+																<select id="departament" name="departament" autocomplete="off" tabindex="2" required>
 																	<option value="">Puesto</option>
 																	<?php $sql = "SELECT DepartmentName from tbldepartments";
 																	$query = $dbh->prepare($sql);
@@ -1662,6 +1662,10 @@ if (strlen($_SESSION['recursos']) == 0) {
 														<div class="input-field col  m6 s12">
 															<label for="sueldodiario">Sueldo diario integrado</label>
 															<input id="sueldodiario" name="sueldodiario" type="text">
+														</div>
+														<div class="input-field col  m6 s12">
+															<label for="bono">Bono</label>
+															<input id="bono" name="bono" type="text">
 														</div>
 													</div>
 												</div>
