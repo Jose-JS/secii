@@ -95,7 +95,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 					document.addemp.confirmpassword.focus();
 					return false;
 				}
-				var txtDepartament = document.getElementById('departament').selectedIndex;
+				var txtDepartament = document.getElementById('department').selectedIndex;
 				var txtAssignedservice = document.getElementById('assignedservice').selectedIndex;
 				var txtFechini = document.getElementById('fechini').value;
 				var txtName = document.getElementById('name').value;
@@ -447,7 +447,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 																<span id="empid-availability" style="font-size:12px;"></span>
 															</div>
 															<div class="input-field col m6 s12">
-																<select id="departament" name="departament" autocomplete="off" tabindex="2" required>
+																<select id="department" name="department" autocomplete="off" tabindex="2" required>
 																	<option value="">Puesto</option>
 																	<?php $sql = "SELECT DepartmentName from tbldepartments";
 																	$query = $dbh->prepare($sql);

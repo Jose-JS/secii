@@ -124,77 +124,74 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <th>INFONAVIT</th>
                                             <th>FONACOT</th>
                                             <th>TOTAL</th>
-                                            
+
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <?php $sql = "SELECT * from  tblemployees where company='ASLO SEGURIDAD PRIVADA S.A. DE C.V.' and status=1 order by Firstname";
+                                        <?php $sql = "SELECT company,status,FirstName,LastName,sueldodiario,dias,infonavitmon,fonacotmon,name from  tblemployees where company='ASLO SEGURIDAD PRIVADA S.A. DE C.V.' and status=1 order by Firstname";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                        $a=json_encode($results, JSON_FORCE_OBJECT);
-                                
+                                        $a = json_encode($results, JSON_FORCE_OBJECT);
+
 
                                         $cnt = 1;
                                         if ($query->rowCount() > 0) {
-                                            foreach ($results as $result) {   
-                                            
-                                               //var_dump($a);
-                                       //var_dump($result->name);
-	
-                                                ?>
+                                            foreach ($results as $result) {
+
+                                                //var_dump($a);
+                                                //var_dump($result->name);
+
+                                        ?>
                                                 <tr>
                                                     <td> <?php echo htmlentities($cnt); ?></td>
                                                     <td><?php echo htmlentities($result->FirstName); ?>&nbsp;<?php echo htmlentities($result->LastName); ?>&nbsp;<?php echo htmlentities($result->name); ?></td>
                                                     <td><?php echo htmlentities($result->sueldodiario); ?></td>
                                                     <td><?php echo htmlentities($result->dias); ?> <a name="dias" href="#" onClick="mensaje2(<?php echo htmlentities($result->id); ?>)" title="Cambio de dias" class="tooltipped" data-position="bottom" data-tooltip="Cambio de dias"><i class="material-icons">update</i></a>
                                                     </td>
-                                                    <td><?php 
-                                                    if($result->dias !=15){
-                                                        $bono1=0;
-                                                         echo"$bono1";
-                                                    }
-                                                    else{
-                                                    $bono2=$result->bono;
-                                                    echo htmlentities($bono2); 
-                                                    }
-                                                    ?> 
-                                                    
-                                                </td>
-                                                    <td>
-                                                        <?php 
-                                                    if($result->dias !=15){
-                                                        $sueldo=$result->sueldodiario*$result->dias;
-                                                    echo htmlentities($sueldo);
-                                                    } else{
-                                                    $sueldo=$result->sueldodiario*$result->dias;
-                                                    $resultado=$sueldo+$result->bono;
-                                                    echo htmlentities($resultado);
+                                                    <td><?php
+                                                        if ($result->dias != 15) {
+                                                            $bono1 = 0;
+                                                            echo "$bono1";
+                                                        } else {
+                                                            $bono2 = $result->bono;
+                                                            echo htmlentities($bono2);
+                                                        }
+                                                        ?>
 
-                                                    }
-                                                    
-                                                    ?></td>
-                                                    <td >              </td>
-                                                    <td>               </td>
-                                                    <td><?php echo htmlentities($result->infonavitmon); ?><a name="infonavit" href="#" onClick="mensaje3(<?php echo htmlentities($result->id); ?>)" title="Cambio de monto infonavit" class="tooltipped" data-position="bottom" data-tooltip="Cambio de monto infonavit"><i class="material-icons">update</i></a>              </td>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        if ($result->dias != 15) {
+                                                            $sueldo = $result->sueldodiario * $result->dias;
+                                                            echo htmlentities($sueldo);
+                                                        } else {
+                                                            $sueldo = $result->sueldodiario * $result->dias;
+                                                            $resultado = $sueldo + $result->bono;
+                                                            echo htmlentities($resultado);
+                                                        }
+
+                                                        ?></td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td><?php echo htmlentities($result->infonavitmon); ?><a name="infonavit" href="#" onClick="mensaje3(<?php echo htmlentities($result->id); ?>)" title="Cambio de monto infonavit" class="tooltipped" data-position="bottom" data-tooltip="Cambio de monto infonavit"><i class="material-icons">update</i></a> </td>
                                                     <td><?php echo htmlentities($result->fonacotmon); ?> <a name="fonacot" href="#" onClick="mensaje4(<?php echo htmlentities($result->id); ?>)" title="Cambio de monto fonacot" class="tooltipped" data-position="bottom" data-tooltip="Cambio de monto fonacot"><i class="material-icons">update</i></a></td>
-                                                    <td><?php echo htmlentities($resultado);?></td>
+                                                    <td><?php echo htmlentities($resultado); ?></td>
 
 
                                                 </tr>
-                                                
-                                        <?php $cnt++;
-                                       
+
+                                            <?php $cnt++;
                                             } ?>
                                             <a href="#" onClick="arr(<?php echo htmlentities($a); ?>)" title="Cambio de servicio" class="tooltipped" data-position="bottom" data-tooltip="Cambio de servicio"><i class="material-icons">edit</i>GENERAR NOMINA</a>
-                                            
-                                            <?php
-                                            
+
+                                        <?php
+
                                         } ?>
                                     </tbody>
                                 </table>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -216,336 +213,333 @@ if (strlen($_SESSION['alogin']) == 0) {
         <script src="../assets/js/pages/table-data.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script>
-function arr(results) {
-    var datoss = results;
-   console.log(datoss);
-   // alert(datoss);
-   //                        return false;
-                           $.ajax({
-   type: "POST",
-   dataType: "json",
-   url: "consultas/generate_nomina.php",
-   data:datoss,
+            function arr(results) {
+                var datoss = results;
+                console.log(datoss);
+                // alert(datoss);
+                //                        return false;
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "consultas/generate_nomina.php",
+                    data: {
+                        datoss: datoss
+                    },
 
-   success: function(data){
-     console.log(data);
-   },
-   error: function(e){
-     console.log(e.message);
-   }
+                    success: function(data) {
+                        console.log(data);
 
-});
-        }
+                    },
+                    error: function(e) {
+                        console.log(e.message);
+                    }
+
+                });
+            }
         </script>
         <script>
             function mensaje(result) {
-               
-Swal
-    .fire({
-        title: "Cantidad:",
-        input: "text",
-        showCancelButton: true,
-        confirmButtonText: "Guardar",
-        cancelButtonText: "Cancelar",
-        inputValidator: nombre => {
-            // Si el valor es válido, debes regresar undefined. Si no, una cadena
-            if (!nombre) {
-                return "Por favor escribe una cantidad";
-            } else {
-                return undefined;
-            }
-        }
-    })
-    .then(resultado => {
-        if (resultado.value) {
-            var datos = result;
-            let cantidad = resultado.value;
-           // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
-           var url = "consultas/nom_bono_update.php?empid="+result+"&cantidad=" + cantidad;
-			
-			//console.log(datos);
-			//console.log(cantidad);
-			//alert(datos);
-			//alert(cantidad);
-			//return false;
 
-			$.ajax({
-				type: "POST",
-				url: url,
-				data: {
-					datos: datos,
-					cantidad: cantidad
-				},
-				dataType: "json",
-				success: function(data) {
-					if (data.status == 'success') {
-						Swal.fire({
-							position: 'top-end',
-							icon: 'success',
-							title: 'REGISTRO MODIFICADO',
-							showConfirmButton: false,
-						timer: 2500
-						})
-						location.reload(true);
-					} else if (data.status == 'error') {
-						Swal.fire({
-							icon: 'error',
-							title: 'Oops...',
-							text: 'OCURRIO UN ERROR! 2',
-						})
-						//location.reload(true);
+                Swal
+                    .fire({
+                        title: "Cantidad:",
+                        input: "text",
+                        showCancelButton: true,
+                        confirmButtonText: "Guardar",
+                        cancelButtonText: "Cancelar",
+                        inputValidator: nombre => {
+                            // Si el valor es válido, debes regresar undefined. Si no, una cadena
+                            if (!nombre) {
+                                return "Por favor escribe una cantidad";
+                            } else {
+                                return undefined;
+                            }
+                        }
+                    })
+                    .then(resultado => {
+                        if (resultado.value) {
+                            var datos = result;
+                            let cantidad = resultado.value;
+                            // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
+                            var url = "consultas/nom_bono_update.php?empid=" + result + "&cantidad=" + cantidad;
 
-					}
-				},
-				error: function(e) {
-					if (e != 0) {
-						Swal.fire({
-							icon: 'error',
-							title: 'Oops...',
-							text: 'No se ha podido borrar el registro',
-						})
-					}
-				},
-			});
-			return false;
+                            //console.log(datos);
+                            //console.log(cantidad);
+                            //alert(datos);
+                            //alert(cantidad);
+                            //return false;
 
-        }
-    });
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: {
+                                    datos: datos,
+                                    cantidad: cantidad
+                                },
+                                dataType: "json",
+                                success: function(data) {
+                                    if (data.status == 'success') {
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'REGISTRO MODIFICADO',
+                                            showConfirmButton: false,
+                                            timer: 2500
+                                        })
+                                        location.reload(true);
+                                    } else if (data.status == 'error') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'OCURRIO UN ERROR! 2',
+                                        })
+                                        //location.reload(true);
+
+                                    }
+                                },
+                                error: function(e) {
+                                    if (e != 0) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'No se ha podido borrar el registro',
+                                        })
+                                    }
+                                },
+                            });
+                            return false;
+
+                        }
+                    });
             }
 
             function mensaje2(result) {
-               
-               Swal
-                   .fire({
-                       title: "Cantidad dias laborados:",
-                       input: "text",
-                       showCancelButton: true,
-                       confirmButtonText: "Guardar",
-                       cancelButtonText: "Cancelar",
-                       inputValidator: nombre => {
-                           // Si el valor es válido, debes regresar undefined. Si no, una cadena
-                           if (!nombre) {
-                               return "Por favor escribe una cantidad";
-                           } else {
-                               return undefined;
-                           }
-                       }
-                   })
-                   .then(resultado => {
-                       if (resultado.value) {
-                           var datos = result;
-                           let cantidad = resultado.value;
-                          // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
-                          var url = "consultas/nom_dias_update.php?empid="+result+"&cantidad=" + cantidad;
-                           
-                           //console.log(datos);
-                           //console.log(cantidad);
-                           //alert(datos);
-                           //alert(cantidad);
-                           //return false;
-               
-                           $.ajax({
-                               type: "POST",
-                               url: url,
-                               data: {
-                                   datos: datos,
-                                   cantidad: cantidad
-                               },
-                               dataType: "json",
-                               success: function(data) {
-                                   if (data.status == 'success') {
-                                       Swal.fire({
-                                           position: 'top-end',
-                                           icon: 'success',
-                                           title: 'REGISTRO MODIFICADO',
-                                           showConfirmButton: false,
-                                       timer: 2500
-                                       })
-                                       location.reload(true);
-                                   } else if (data.status == 'error') {
-                                       Swal.fire({
-                                           icon: 'error',
-                                           title: 'Oops...',
-                                           text: 'OCURRIO UN ERROR! 2',
-                                       })
-                                       //location.reload(true);
-               
-                                   }
-                               },
-                               error: function(e) {
-                                   if (e != 0) {
-                                       Swal.fire({
-                                           icon: 'error',
-                                           title: 'Oops...',
-                                           text: 'No se ha podido borrar el registro',
-                                       })
-                                   }
-                               },
-                           });
-                           return false;
-               
-                       }
-                   });
-                           }
 
-          
+                Swal
+                    .fire({
+                        title: "Cantidad dias laborados:",
+                        input: "text",
+                        showCancelButton: true,
+                        confirmButtonText: "Guardar",
+                        cancelButtonText: "Cancelar",
+                        inputValidator: nombre => {
+                            // Si el valor es válido, debes regresar undefined. Si no, una cadena
+                            if (!nombre) {
+                                return "Por favor escribe una cantidad";
+                            } else {
+                                return undefined;
+                            }
+                        }
+                    })
+                    .then(resultado => {
+                        if (resultado.value) {
+                            var datos = result;
+                            let cantidad = resultado.value;
+                            // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
+                            var url = "consultas/nom_dias_update.php?empid=" + result + "&cantidad=" + cantidad;
+
+                            //console.log(datos);
+                            //console.log(cantidad);
+                            //alert(datos);
+                            //alert(cantidad);
+                            //return false;
+
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: {
+                                    datos: datos,
+                                    cantidad: cantidad
+                                },
+                                dataType: "json",
+                                success: function(data) {
+                                    if (data.status == 'success') {
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'REGISTRO MODIFICADO',
+                                            showConfirmButton: false,
+                                            timer: 2500
+                                        })
+                                        location.reload(true);
+                                    } else if (data.status == 'error') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'OCURRIO UN ERROR! 2',
+                                        })
+                                        //location.reload(true);
+
+                                    }
+                                },
+                                error: function(e) {
+                                    if (e != 0) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'No se ha podido borrar el registro',
+                                        })
+                                    }
+                                },
+                            });
+                            return false;
+
+                        }
+                    });
+            }
         </script>
 
         <script>
-function mensaje3(result) {
-               
-               Swal
-                   .fire({
-                       title: "Monto Infonavit:",
-                       input: "text",
-                       showCancelButton: true,
-                       confirmButtonText: "Guardar",
-                       cancelButtonText: "Cancelar",
-                       inputValidator: nombre => {
-                           // Si el valor es válido, debes regresar undefined. Si no, una cadena
-                           if (!nombre) {
-                               return "Por favor escribe una cantidad";
-                           } else {
-                               return undefined;
-                           }
-                       }
-                   })
-                   .then(resultado => {
-                       if (resultado.value) {
-                           var datos = result;
-                           let cantidad = resultado.value;
-                          // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
-                          var url = "consultas/nom_montinfonavit_update.php?empid="+result+"&cantidad=" + cantidad;
-                           
-                           //console.log(datos);
-                           //console.log(cantidad);
-                           //alert(datos);
-                           //alert(cantidad);
-                           //return false;
-               
-                           $.ajax({
-                               type: "POST",
-                               url: url,
-                               data: {
-                                   datos: datos,
-                                   cantidad: cantidad
-                               },
-                               dataType: "json",
-                               success: function(data) {
-                                   if (data.status == 'success') {
-                                       Swal.fire({
-                                           position: 'top-end',
-                                           icon: 'success',
-                                           title: 'REGISTRO MODIFICADO',
-                                           showConfirmButton: false,
-                                       timer: 2500
-                                       })
-                                       location.reload(true);
-                                   } else if (data.status == 'error') {
-                                       Swal.fire({
-                                           icon: 'error',
-                                           title: 'Oops...',
-                                           text: 'OCURRIO UN ERROR! 2',
-                                       })
-                                       //location.reload(true);
-               
-                                   }
-                               },
-                               error: function(e) {
-                                   if (e != 0) {
-                                       Swal.fire({
-                                           icon: 'error',
-                                           title: 'Oops...',
-                                           text: 'No se ha podido borrar el registro',
-                                       })
-                                   }
-                               },
-                           });
-                           return false;
-               
-                       }
-                   });
-                           }
+            function mensaje3(result) {
 
-          
+                Swal
+                    .fire({
+                        title: "Monto Infonavit:",
+                        input: "text",
+                        showCancelButton: true,
+                        confirmButtonText: "Guardar",
+                        cancelButtonText: "Cancelar",
+                        inputValidator: nombre => {
+                            // Si el valor es válido, debes regresar undefined. Si no, una cadena
+                            if (!nombre) {
+                                return "Por favor escribe una cantidad";
+                            } else {
+                                return undefined;
+                            }
+                        }
+                    })
+                    .then(resultado => {
+                        if (resultado.value) {
+                            var datos = result;
+                            let cantidad = resultado.value;
+                            // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
+                            var url = "consultas/nom_montinfonavit_update.php?empid=" + result + "&cantidad=" + cantidad;
+
+                            //console.log(datos);
+                            //console.log(cantidad);
+                            //alert(datos);
+                            //alert(cantidad);
+                            //return false;
+
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: {
+                                    datos: datos,
+                                    cantidad: cantidad
+                                },
+                                dataType: "json",
+                                success: function(data) {
+                                    if (data.status == 'success') {
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'REGISTRO MODIFICADO',
+                                            showConfirmButton: false,
+                                            timer: 2500
+                                        })
+                                        location.reload(true);
+                                    } else if (data.status == 'error') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'OCURRIO UN ERROR! 2',
+                                        })
+                                        //location.reload(true);
+
+                                    }
+                                },
+                                error: function(e) {
+                                    if (e != 0) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'No se ha podido borrar el registro',
+                                        })
+                                    }
+                                },
+                            });
+                            return false;
+
+                        }
+                    });
+            }
         </script>
-<script>
-function mensaje4(result) {
-               
-               Swal
-                   .fire({
-                       title: "Monto Fonacot:",
-                       input: "text",
-                       showCancelButton: true,
-                       confirmButtonText: "Guardar",
-                       cancelButtonText: "Cancelar",
-                       inputValidator: nombre => {
-                           // Si el valor es válido, debes regresar undefined. Si no, una cadena
-                           if (!nombre) {
-                               return "Por favor escribe una cantidad";
-                           } else {
-                               return undefined;
-                           }
-                       }
-                   })
-                   .then(resultado => {
-                       if (resultado.value) {
-                           var datos = result;
-                           let cantidad = resultado.value;
-                          // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
-                          var url = "consultas/nom_montinfonacot_update.php?empid="+result+"&cantidad=" + cantidad;
-                           
-                           //console.log(datos);
-                           //console.log(cantidad);
-                           //alert(datos);
-                           //alert(cantidad);
-                           //return false;
-               
-                           $.ajax({
-                               type: "POST",
-                               url: url,
-                               data: {
-                                   datos: datos,
-                                   cantidad: cantidad
-                               },
-                               dataType: "json",
-                               success: function(data) {
-                                   if (data.status == 'success') {
-                                       Swal.fire({
-                                           position: 'top-end',
-                                           icon: 'success',
-                                           title: 'REGISTRO MODIFICADO',
-                                           showConfirmButton: false,
-                                       timer: 2500
-                                       })
-                                       location.reload(true);
-                                   } else if (data.status == 'error') {
-                                       Swal.fire({
-                                           icon: 'error',
-                                           title: 'Oops...',
-                                           text: 'OCURRIO UN ERROR! 2',
-                                       })
-                                       //location.reload(true);
-               
-                                   }
-                               },
-                               error: function(e) {
-                                   if (e != 0) {
-                                       Swal.fire({
-                                           icon: 'error',
-                                           title: 'Oops...',
-                                           text: 'No se ha podido borrar el registro',
-                                       })
-                                   }
-                               },
-                           });
-                           return false;
-               
-                       }
-                   });
-                           }
+        <script>
+            function mensaje4(result) {
 
-          
+                Swal
+                    .fire({
+                        title: "Monto Fonacot:",
+                        input: "text",
+                        showCancelButton: true,
+                        confirmButtonText: "Guardar",
+                        cancelButtonText: "Cancelar",
+                        inputValidator: nombre => {
+                            // Si el valor es válido, debes regresar undefined. Si no, una cadena
+                            if (!nombre) {
+                                return "Por favor escribe una cantidad";
+                            } else {
+                                return undefined;
+                            }
+                        }
+                    })
+                    .then(resultado => {
+                        if (resultado.value) {
+                            var datos = result;
+                            let cantidad = resultado.value;
+                            // window.open('consultas/nom_bono_update.php?empid='+result+'&cantidad=' + cantidad, '_blank');
+                            var url = "consultas/nom_montinfonacot_update.php?empid=" + result + "&cantidad=" + cantidad;
+
+                            //console.log(datos);
+                            //console.log(cantidad);
+                            //alert(datos);
+                            //alert(cantidad);
+                            //return false;
+
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: {
+                                    datos: datos,
+                                    cantidad: cantidad
+                                },
+                                dataType: "json",
+                                success: function(data) {
+                                    if (data.status == 'success') {
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'REGISTRO MODIFICADO',
+                                            showConfirmButton: false,
+                                            timer: 2500
+                                        })
+                                        location.reload(true);
+                                    } else if (data.status == 'error') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'OCURRIO UN ERROR! 2',
+                                        })
+                                        //location.reload(true);
+
+                                    }
+                                },
+                                error: function(e) {
+                                    if (e != 0) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'No se ha podido borrar el registro',
+                                        })
+                                    }
+                                },
+                            });
+                            return false;
+
+                        }
+                    });
+            }
         </script>
 
     </body>
