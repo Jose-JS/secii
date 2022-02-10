@@ -9,7 +9,7 @@ $obj = json_encode($_POST['datoss'], true);
 $obj2=json_decode($obj, true);
 var_dump($obj2);
 foreach ($obj2 as $data) {
-    $name=$data['name'];
+    $name=$data['FirstName'].' '.$data['LastName'].' '.$data['name'];
     var_dump($name);
     $sql = "INSERT INTO tblgeneratenomina(nombre) VALUES(:name)";        
     $query = $dbh->prepare($sql);

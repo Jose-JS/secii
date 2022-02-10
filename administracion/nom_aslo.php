@@ -129,7 +129,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     </thead>
 
                                     <tbody>
-                                        <?php $sql = "SELECT company,status,FirstName,LastName,sueldodiario,dias,infonavitmon,fonacotmon,name from  tblemployees where company='ASLO SEGURIDAD PRIVADA S.A. DE C.V.' and status=1 order by Firstname";
+                                        <?php $sql = "SELECT company,status,FirstName,LastName,sueldodiario,dias,infonavitmon,fonacotmon,name,bono from  tblemployees where company='ASLO SEGURIDAD PRIVADA S.A. DE C.V.' and status=1 order by Firstname";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
