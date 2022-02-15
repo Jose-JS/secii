@@ -129,7 +129,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     </thead>
 
                                     <tbody>
-                                        <?php $sql = "SELECT company,status,FirstName,LastName,sueldodiario,dias,infonavitmon,fonacotmon,name,bono from  tblemployees where company='ASLO SEGURIDAD PRIVADA S.A. DE C.V.' and status=1 order by Firstname";
+                                        <?php $sql = "SELECT id,company,status,FirstName,LastName,sueldodiario,dias,infonavitmon,fonacotmon,name,bono from  tblemployees where company='ASLO SEGURIDAD PRIVADA S.A. DE C.V.' and status=1 order by Firstname";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -165,6 +165,12 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         <?php
                                                         if ($result->dias != 15) {
                                                             $sueldo = $result->sueldodiario * $result->dias;
+                                                            $id=$result->id;
+                                                            $sql = "update tblemployees set percepciones=:sueldo  WHERE id='15'";
+                                                            $query = $dbh->prepare($sql);
+                                                            //$query->bindParam(':id', $id, PDO::PARAM_STR);
+                                                            $query->bindParam(':sueldo', $sueldo, PDO::PARAM_STR);
+                                                            $query->execute();
                                                             echo htmlentities($sueldo);
                                                         } else {
                                                             $sueldo = $result->sueldodiario * $result->dias;
