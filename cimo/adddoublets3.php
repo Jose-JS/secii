@@ -63,12 +63,13 @@ $contract1=$ruta1;
 file_put_contents($ruta1, $fileData1);
 $creatoruser=$_SESSION['supervisor'];
 $action='inserción';
+$fecha=$_POST['fecha'];
  
- 
-$sql="INSERT INTO tblformatab(folio,formatos,firm1,firm2,creatoruser,action) VALUES(:folio,:selected,:contract,:contract1,:creatoruser,:action)";
+$sql="INSERT INTO tblformatab(folio,fecha,formatos,firm1,firm2,creatoruser,action) VALUES(:folio,:fecha,:selected,:contract,:contract1,:creatoruser,:action)";
 
     $query = $dbh->prepare($sql);
     $query->bindParam(':folio',$folio,PDO::PARAM_STR);
+	$query->bindParam(':fecha',$fecha,PDO::PARAM_STR);
     $query->bindParam(':selected',$selected,PDO::PARAM_STR);    
     $query->bindParam(':contract',$contract,PDO::PARAM_STR);
     $query->bindParam(':contract1',$contract1,PDO::PARAM_STR);
@@ -331,6 +332,10 @@ foreach($results as $resul)
 													print"
 												<input type='checkbox' id='annexedb' name='formatos[]' value='FORMATO FBR' class='check'onclick='myFunction3()'><label for='annexedb'>Formato FBR</label>";
 }?>
+											</div>
+											<div class="input-field col s12">
+											<label for="fecha">Fecha</label><br>
+									<input id="fecha" name="fecha" type="date" autocomplete="off" required>
 											</div>
 											<div class="input-field col m6 s12">
 												<div id="signature-pad" class="signature-pad">

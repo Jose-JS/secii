@@ -52,6 +52,7 @@ if (strlen($_SESSION['recursos']) == 0) {
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css" />
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
         <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
@@ -255,11 +256,12 @@ if (strlen($_SESSION['recursos']) == 0) {
         <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
         <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
         <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
         <script src="../assets/js/alpha.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
         <script src="../assets/js/pages/table-data.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        
         <script>
             function mensaje(result) {
                 const {

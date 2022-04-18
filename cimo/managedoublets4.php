@@ -7,14 +7,9 @@ if(strlen($_SESSION['supervisor'])==0)
 header('location:index.php');
 }
 else{ 
-if(isset($_GET['del']))
+if(isset($_GET['d']))
 {
-$id=$_GET['del'];
-$sql = "delete from  tblincidents  WHERE id=:id";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':id',$id, PDO::PARAM_STR);
-$query -> execute();
-$msg="Registro de Incidencia eliminado";
+
 
 }
 
@@ -74,12 +69,46 @@ $msg="Registro de Incidencia eliminado";
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Información de Formato FAR</span>
-                                 <?php if($msg){?><div class="succWrap content"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                													<script>
-												function myFunction() {
-													window.open("../cimo/adddoublets4.php?f=<?php echo $folio=$_GET['i'];?>", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1000,height=800");
+								<script>
+			function Function2() {
+							
+      <?php  $id=$_GET['d'];
+$sql = "delete from  tbldoubletsa  WHERE id=:id";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':id',$id, PDO::PARAM_STR);
+$query -> execute();
+
+$sql44 = "delete from  tbldoublets  WHERE idrf=:id";
+$query44 = $dbh->prepare($sql44);
+$query44 -> bindParam(':id',$id, PDO::PARAM_STR);
+$query44 -> execute();	
+?>
+	
+
 												}
+								</script>
+                                <span class="card-title">Información de Formato FAR</span>
+                                 <?php if($msg){?><div class="succWrap content"><strong>EXITO</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
+                                			<script>
+												function myFunction() {
+													window.open("../supervisores/adddoublets4.php?f=<?php echo $folio=$_GET['i'];?>", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1000,height=800");
+												}
+
+												
+									function Function3() {
+
+    <?php   $id1=$_GET['d'];
+$sql1 = "delete from  tbldoubletsb  WHERE id=:id1";
+$query1 = $dbh->prepare($sql1);
+$query1 -> bindParam(':id1',$id1, PDO::PARAM_STR);
+$query1 -> execute();
+$sql33 = "delete from  tbldoublets  WHERE idfr=:id1";
+$query33 = $dbh->prepare($sql33);
+$query33 -> bindParam(':id1',$id1, PDO::PARAM_STR);
+$query33 -> execute();	
+?>
+												}
+
 
 
 											</script>
@@ -128,6 +157,9 @@ $dia = date("d", $fechaEntera);
                                             
                                             <a href="editdoublets4.php?i=<?php echo htmlentities($result->folio);?>&d=<?php echo htmlentities($result->id);?>"><i class="material-icons">create</i></a>
                                             
+                                            <a href="managedoublets4.php?i=<?php echo htmlentities($result->folio);?>&d=<?php echo htmlentities($result->id);?>" onclick="return confirm('Quieres borrar');Function2()">
+ <i class="material-icons">delete_forever</i></a>
+                                            
                                             
                                             </td>
                                         </tr>
@@ -142,10 +174,10 @@ $dia = date("d", $fechaEntera);
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Información de Formato FBR</span>
-                                 <?php if($msg){?><div class="succWrap content"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
+                                 <?php if($msgg){?><div class="succWrap content"><strong>EXITO</strong> : <?php echo htmlentities($msgg); ?> </div><?php }?>
                                  <script>
 												function myFunction2() {
-													window.open("../cimo/adddoublets5.php?f=<?php echo $folio=$_GET['i'];?>", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1000,height=800");
+													window.open("../supervisores/adddoublets5.php?f=<?php echo $folio=$_GET['i'];?>", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1000,height=800");
 												}
 
 
@@ -194,6 +226,8 @@ $dia = date("d", $fechaEntera);
                                             
                                             <a href="editdoublets5.php?i=<?php echo htmlentities($result->folio);?>&d=<?php echo htmlentities($result->id);?>"><i class="material-icons">create</i></a>
                                             
+                                            <a href="managedoublets4.php?i=<?php echo htmlentities($result->folio);?>&d=<?php echo htmlentities($result->id);?>" onclick="return confirm('Quieres borrar'); Function3()">
+ <i class="material-icons">delete_forever</i></a>
                                             
                                             </td>
                                         </tr>

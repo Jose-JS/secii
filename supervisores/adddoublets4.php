@@ -261,7 +261,9 @@ foreach($results as $result)
 									<input type="radio" id="homex1r" name="motivo" value="VACANTE" class="check"> <label for="homex1r">Vacante</label><br>
 									<input type="radio" id="homex1o" name="motivo" value="VACACIONES" class="check"> <label for="homex1o">Vacaciones</label><br>
 									<input type="radio" id="homex1t" name="motivo" value="INCAPACIDAD" class="check"> <label for="homex1t">Incapacidad</label><br>
-									<input type="radio" id="homex1q" name="motivo" value="APOYO" class="check"> <label for="homex1q">Apoyo</label>
+									<input type="radio" id="homex1q" name="motivo" value="APOYO" class="check"> <label for="homex1q">Apoyo</label><br>
+									<input type="radio" id="homex1z" name="motivo" value="DESCANSO" class="check"> <label for="homex1z">Descanso</label>
+									
 
 								</div>
 

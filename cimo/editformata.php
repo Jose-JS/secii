@@ -165,7 +165,7 @@ foreach($results as $result)
 								</div>
 								
 								<div class="input-field col s12">
-									<label for="tesi">Técnico cubre</label>
+									<label for="tesi">Motivo</label>
 									<input id="tesi" type="text" value="<?php echo htmlentities($result->motivo);?>"class="validate" autocomplete="off" name="tesi"  >
 								</div>
 								
