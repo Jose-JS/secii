@@ -443,7 +443,40 @@ de la capacitación o adiestramiento; deberá atender las indicaciones del perso
 imparta la capacitación y cumplir con los programas respectivos; el <b>TRABAJADOR</b> deberá
 presentar los exámenes de conocimientos y aptitud que sean requeridos.</p>
 
-<p><b>DÉCIMA SEGUNDA. MATERIALES E INSTRUMENTOS DE TRABAJO</b>.</p>
+<p><b>DÉCIMA SEGUNDA. - CONTROL DE CONFIANZA Y BUENA SALUD.</b></p>
+
+<p>Debido a la naturaleza del trabajo que desempeñará el <b>TRABAJADOR</b> como elemento de
+seguridad privada intramuros o a través de monitoreo electrónico en la cual, por sus
+funciones, se le confía el cuidado, vigilancia y protección de bienes Inmuebles, protección
+de las personas que se encuentren en los mismos y evitar la comisión de actos delictivos
+en relación con el objeto de su protección; el PATRÓN podrá adoptar las medidas y
+procedimientos de evaluaciones permanentes de control de confianza, de desempeño,
+poligrafía, entorno social y psicológico, así como exámenes toxicológicos y los demás que
+determine la Ley, de conformidad con lo que disponen los artículos 44, fracción XX y 48,
+fracción IX de la Ley de Seguridad Privada del Estado de México y sus correlativos Federal
+y de las demás Entidades Federativas.</p>
+
+<p>Para que el <b>TRABAJADOR</b> durante el desempeño de sus funciones acredite que cuenta y
+sigue contando con el perfil físico, médico, de confianza y buena salud, el <B>PATRÓN</B> puede
+adoptar las medidas de vigilancia y control que considere oportunas, respetando la dignidad
+del <B>TRABAJADOR</B> y sus derechos fundamentales, de conformidad con el procedimiento
+siguiente:</p>
+
+<p>a) De manera aleatoria y en cualquier momento, se practicarán exámenes de confianza,
+toxicológicos, poligráficos y de desempeño, para lo cual el <B>TRABAJADOR</B> está
+consciente de ello y otorga su consentimiento informado para someterse a dichas
+evaluaciones de manera voluntaria.</p>
+
+<p>b) La práctica de los exámenes a algún <b>TRABAJADOR</b> en particular, deberá estar
+justificada cuando exista algún indicio que, derivado de alguna conducta de omisión o
+comisión se presuma pongan en riesgo la integridad o vida de las personas y/o bienes
+que se encuentran bajo su vigilancia, custodia y protección.</p>
+
+<p>c) Los resultados de las evaluaciones practicadas estarán resguardados por el <b>PATRON</b>,
+y éste deberá guardar Confidencialidad de dicha información.</p>
+
+
+<p><b>DÉCIMA TERCERA. MATERIALES E INSTRUMENTOS DE TRABAJO</b>.</p>
 
 <p>Durante el tiempo que subsista la relación laboral, el <b>PATRÓN</b> pondrá a disposición del
 <b>TRABAJADOR</b> los materiales, herramientas, uniformes e instrumentos necesarios para la
@@ -451,9 +484,8 @@ ejecución del trabajo, los cuales se entregarán en buen estado y serán de bue
 <b>El TRABAJADOR</b> estará obligado a cuidar dichos materiales, uniformes, instrumentos, y
 en su caso, aparato de comunicación (radio o celular asignado al servicio) y deberá
 devolverlos cuando el <b>PATRÓN</b> se lo requiera, y en todo caso al término del Contrato o de
-la relación de trabajo.</p>
-
-<p>Para el caso de que el <b>TRABAJADOR</b> extravíe, venda, empeñe, dañe o deteriore
+la relación de trabajo.<BR>
+Para el caso de que el <b>TRABAJADOR</b> extravíe, venda, empeñe, dañe o deteriore
 intencionalmente, por descuido o negligencia los instrumentos de trabajo, en este acto
 otorga su consentimiento expreso y solicita al <b>PATRÓN</b>, sean descontados de su sueldo,
 liquidación o finiquito; la cantidad que resulte para la restitución del material, uniforme o
@@ -468,7 +500,7 @@ maquinaría, artículos, listas de clientes, manuales de operación, y en genera
 instrumentos de trabajo, datos, diseños e información verbal que se le proporcione con
 motivo de la relación de trabajo.</p>
 
-<p><b>DÉCIMA TERCERA. RESCISIÓN DEL CONTRATO</b>.</p>
+<p><b>DÉCIMA CUARTA. RESCISIÓN DEL CONTRATO</b>.</p>
 
 <p>Serán causas de rescisión sin responsabilidad para el <b>PATRÓN</b>, sin perjuicio de las que al
 efecto señala el artículo 47, 135 y 185 de la Ley Federal del Trabajo; quedando a criterio
@@ -486,9 +518,6 @@ actos enumerados en la fracción anterior, si como consecuencia de ellos se alte
 la disciplina del lugar en que se desempeña el trabajo;
 </p>
 
-<br pagebreak="true"/>
-
-<br><br><br><br><br><br>
 <p>c) Ocasionar el <b>TRABAJADOR</b>, intencionalmente, perjuicios materiales durante el
 desempeño de las labores o con motivo de ellas, en los edificios, obras, maquinaria,
 instrumentos, materias primas y demás objetos relacionados con el trabajo;</p>
@@ -503,11 +532,11 @@ contra cualquier persona en el establecimiento o lugar de trabajo;</p>
 <p>f) Tener el <b>TRABAJADOR</b> más de tres faltas de asistencia en un período de treinta
 días, sin permiso del patrón o sin causa justificada;</p>
 
-<p>g) Concurrir el <b>TRABAJADOR</b> a sus labores en estado de embriaguez o bajo la
-influencia de algún narcótico o droga enervante, salvo que, en este último caso,
-exista prescripción médica. Antes de iniciar su servicio, el trabajador deberá poner
-el hecho en conocimiento del patrón y presentar la prescripción suscrita por el
-médico;</p>
+<p>g) Concurrir el TRABAJADOR a sus labores en estado de embriaguez o bajo la
+influencia de algún narcótico o droga enervante y/o consumirlo durante su servicio
+y/o jornada laboral en su centro de trabajo; salvo que, en este último caso, exista
+prescripción médica. Antes de iniciar su servicio, el trabajador deberá poner el hecho
+en conocimiento del patrón y presentar la prescripción suscrita por el médico;</p>
 
 <p>h) La falta de veracidad de la información proporcionada por el <b>TRABAJADOR</b> al
 <b>PATRÓN</b>, previa a la celebración de este contrato y/o durante la vigencia del
@@ -521,7 +550,14 @@ encomendadas por el <b>PATRÓN</b> o a los Clientes de éste según se le indiqu
 relacionado de forma comercial, técnica, financiera, operativamente o de cualquier
 otra manera con el <b>PATRÓN</b>.</p>
 
-<p><b>DÉCIMA CUARTA. EXCLUSIVIDAD Y CONFIDENCIALIDAD</b>.</p>
+<br pagebreak="true"/>
+
+
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><b>DÉCIMA QUINTA. EXCLUSIVIDAD Y CONFIDENCIALIDAD</b>.</p>
 
 <p><b>El TRABAJADOR</b> se obliga a prestar sus servicios exclusivamente al <b>PATRÓN</b>,
 quedándole estrictamente prohibido dedicarse a otras actividades por su propia cuenta o
@@ -548,7 +584,6 @@ comerciales, industriales, contables, financieros, operativos, etc., que se encu
 protegidos por la Ley, incluso después de concluida la relación de trabajo. el
 <b>TRABAJADOR</b> deberá guardar absoluta confidencialidad sobre los asuntos que le sean </p>
 
-<br pagebreak="true"/>
 
 <p>encomendados o cualquier información que, debido a sus funciones, llegase a tener en su
 poder y a usarla exclusivamente en beneficio del <b>PATRÓN</b> debiendo guardar expresa
@@ -562,14 +597,19 @@ sin responsabilidad para el <b>PATRÓN</b>, y el <b>TRABAJADOR</b> estará oblig
 tanto civil como penalmente por los daños que se deriven como consecuencia del
 incumplimiento doloso o culposo de su obligación de Confidencialidad.</p>
 
-<p><b>DÉCIMA QUINTA. SEGURIDAD SOCIAL</b>.<br>
+<br pagebreak="true"/>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><b>DÉCIMA SEXTA. SEGURIDAD SOCIAL</b>.<br>
 <b>El PATRÓN</b> se obliga a inscribir al <b>TRABAJADOR</b> ante el Instituto Mexicano del Seguro
 Social, en los términos de la Ley del Seguro Social. El TRABAJADOR queda obligado a
 sujetarse a los reconocimientos médicos que ordene el PATRÒN, de acuerdo con lo
 establecido por la Ley Federal del Trabajo, ya sea a través del Instituto Mexicano del Seguro
 Social o del médico que le señale el <b>PATRÓN</b>.</p>
 
-<p><b>DÉCIMA SEXTA. OBLIGACIONES Y PROHIBICIONES DEL TRABAJADOR</b>.<br>
+<p><b>DÉCIMA SEPTIMA. OBLIGACIONES Y PROHIBICIONES DEL TRABAJADOR</b>.<br>
 
 1. <b>El TRABAJADOR</b> tendrá las obligaciones siguientes:</p>
 
@@ -602,12 +642,14 @@ elaborada; y cualquier objeto ajeno a sus herramientas de trabajo dentro de las
 instalaciones del lugar donde preste el servicio, incluyendo el de los Clientes del
 <b>PATRÓN</b>.</p>
 
-<p>d) Presentarse al trabajo en estado de embriaguez o con aliento alcohólico;</p>
+<p>d) Presentarse al trabajo en estado de embriaguez o con aliento alcohólico y/o
+consumirlo durante su servicio y/o jornada laboral en su centro de trabajo;</p>
 
-<p>e) Presentarse al trabajo bajo la influencia de algún narcótico o droga enervante, salvo
-que exista prescripción médica. Antes de iniciar su servicio, el trabajador deberá
-poner el hecho en conocimiento del patrón y presentarle la prescripción suscrita por
-el médico;</p>
+<p>e) Presentarse al trabajo bajo la influencia de algún narcótico o droga enervante y/o
+consumirlo durante su servicio y/o jornada laboral en su centro de trabajo, salvo que
+exista prescripción médica. Antes de iniciar su servicio, el trabajador deberá poner
+el hecho en conocimiento del patrón y presentarle la prescripción suscrita por el
+médico;</p>
 
 <br pagebreak="break"/>
 
@@ -618,8 +660,12 @@ aquél a que están destinados;</p>
 
 <p>h) Acosar sexualmente a cualquier persona o realizar actos inmorales en los lugares
 de trabajo.</p>
+<P>El no cumplir con sus obligaciones y/o ejecutar cualesquiera de las prohibiciones descritas
+en el presente apartado, es causa justificativa para dar por rescindido el contrato laboral,
+sin responsabilidad para el PATRON, con las consecuencias jurídicas que la Ley Laboral
+establece.</P>
 
-<p><b>DÉCIMA SÈPTIMA. INTERPRETACIÒN Y JURISDICCION</b>.</p>
+<p><b>DÉCIMA OCTAVA. INTERPRETACIÒN Y JURISDICCION</b>.</p>
 
 <p>Ambas partes convienen en que lo no estipulado en el presente Contrato se regirá por lo
 dispuesto en la Ley Federal de Trabajo. En caso de controversia entre las partes respecto

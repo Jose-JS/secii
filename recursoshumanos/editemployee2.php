@@ -481,6 +481,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 					})
 					//alert('[ERROR] Por favor seleccione un puesto');
 					return false;
+					
 				} else if (!isNaN(txtFechini)) {
 					Swal.fire({
 						title: 'Campo Obligatorio',
@@ -816,7 +817,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 																	</div>
 
 																	<div class="input-field col m6 s12">
-																		<label for="fechini">Departamento</label><br>
+																		<label for="departament">Departamento</label><br>
 																		<select id="departament" name="department" autocomplete="off" required>
 																			<option value="<?php echo htmlentities($resul->Department); ?>"><?php echo htmlentities($resul->Department); ?></option>
 																			<?php $sql = "SELECT DepartmentName from tbldepartments";
@@ -926,7 +927,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                         </select>
                                                     </div> -->
 																<div class="input-field col s12">
-																	<label for="fechini">Empresa</label><br>
+																	<label for="company">Empresa</label><br>
 																	<select id="company" name="company" autocomplete="off">
 																		<option value="<?php echo htmlentities($resul->company); ?>"><?php echo htmlentities($resul->company); ?></option>
 																		<option value="APROSEMEX S.A. DE C.V.">APROSEMEX S.A. DE C.V.</option>
@@ -937,7 +938,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 																	</select>
 																</div>
 																<div class="input-field col m6 s12">
-																	<label for="fechini">Situación sentimental</label><br>
+																	<label for="marital">Situación sentimental</label><br>
 																	<select id="marital" name="marital" autocomplete="off">
 																		<option value="<?php echo htmlentities($resul->marital); ?>"><?php echo htmlentities($resul->marital); ?></option>
 																		<option value="soltero/a">soltero/a</option>
@@ -953,7 +954,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 
 
 																<div class="input-field col m6 s12">
-																	<label for="fechini">Genero</label><br>
+																	<label for="gender">Genero</label><br>
 																	<select id="gender" name="gender" autocomplete="off">
 																		<option value="<?php echo htmlentities($resul->Gender); ?>"><?php echo htmlentities($resul->Gender); ?></option>
 																		<option value="Masculino">Masculino</option>

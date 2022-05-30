@@ -255,6 +255,7 @@ foreach($results as $result)
 									<input type="radio" id="homex1t" name="motivo" value="INCAPACIDAD" class="check"> <label for="homex1t">Incapacidad</label><br>
 									<input type="radio" id="homex1q" name="motivo" value="APOYO" class="check"> <label for="homex1q">Apoyo</label><br>
 									<input type="radio" id="homex1z" name="motivo" value="DESCANSO" class="check"> <label for="homex1z">Descanso</label>
+									<input type="radio" id="homex1AA" name="motivo" value="SERVICIO EXTRAORDINARIO" class="check"> <label for="homex1AA">Servicio Extraordinario</label>
 								</div>
                                								<div class="input-field col s12">
 						        <label for="homex2">Gen. doblete</label><br><br>

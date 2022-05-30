@@ -52,6 +52,17 @@ foreach($results as $result)
      				</div>
      			</li>
 
+				 <li class="no-padding">
+     				<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">account_box</i>Entrega TESI<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+     				<div class="collapsible-body">
+     					<ul>
+     						<li><a href="exitinventorytfirm.php">Salidas</a></li>
+     						<li><a href="manageinventorytesi.php">Lista de Salidas</a></li>
+
+     					</ul>
+     				</div>
+     			</li>
+
      			<li class="no-padding">
 
      			</li>

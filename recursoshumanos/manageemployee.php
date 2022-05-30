@@ -52,8 +52,6 @@ if (strlen($_SESSION['recursos']) == 0) {
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css" />
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
-        <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css ">
 
@@ -126,11 +124,12 @@ if (strlen($_SESSION['recursos']) == 0) {
                                     </thead>
 
                                     <tbody>
-                                        <?php $sql = "SELECT * from  tblemployees where Status=1 order by Firstname";
+                                        <?php $sql = "SELECT id,EmpId,FirstName,LastName,LastName,name,company,assignedservice,Status,visibility from  tblemployees where Status=1 order by Firstname";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
                                         $cnt = 1;
+                                        //print "    <p class=\"aviso\">Error en la consulta. SQLSTATE[{$pdo->errorCode()}]: {$pdo->errorInfo()[2]}</p>\n";
                                         if ($query->rowCount() > 0) {
                                             foreach ($results as $result) {               ?>
                                                 <tr>
@@ -162,7 +161,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                     <td >
                                                         <?php
                                                         $ejemplo = $result->id;
-                                                        $sql22 = "SELECT * from  tbldocument where idemp='$ejemplo' and name='MEDIO CUERPO'";
+                                                        $sql22 = "SELECT name,namedoc,idemp from  tbldocument where idemp='$ejemplo' and name='MEDIO CUERPO'";
                                                         $query22 = $dbh->prepare($sql22);
                                                         $query22->execute();
                                                         $results22 = $query22->fetchAll(PDO::FETCH_OBJ);
@@ -174,17 +173,19 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                         ?>
                                                                 <?php if ($result22->namedoc == null) {
                                                                 } else { ?>
-                                                                    <img loading="lazy" id="foto" name="foto" class="materialboxed" autocomplete="off" src="<?php echo htmlentities($result22->namedoc); ?>" width="100" height="120" required>
+                                                                    <img loading="lazy" id="foto" name="foto" class="materialboxed" autocomplete="off" src="<?php echo htmlentities($result22->namedoc); ?>" width="100" height="100" required>
                                                                 <?php } ?>
                                                         <?php $cnt22++;
                                                             }
-                                                        } ?>
+                                                        } 
+                                                        $sql22=null;
+                                                         ?>
                                                     </td>
 
                                                     <td>
                                                         <?php
                                                         $ejemplo = $result->id;
-                                                        $sql22 = "SELECT * from  tbldocument where idemp='$ejemplo' and name='ACTA DE NACIMIENTO'";
+                                                        $sql22 = "SELECT name,namedoc,idemp from  tbldocument where idemp='$ejemplo' and name='ACTA DE NACIMIENTO'";
                                                         $query22 = $dbh->prepare($sql22);
                                                         $query22->execute();
                                                         $results22 = $query22->fetchAll(PDO::FETCH_OBJ);
@@ -197,7 +198,9 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                             }
                                                         } else { ?>
                                                             <a name="add_document" class="tooltipped" data-position="bottom" data-tooltip="Agregar documentos" href="adddocument.php?empid=<?php echo htmlentities($result->id); ?>&name=<?php echo htmlentities($result->FirstName); ?>&nbsp;<?php echo htmlentities($result->LastName); ?>&nbsp;<?php echo htmlentities($result->name); ?>" title="Agregar documentos"><i class="material-icons">note_add</i></a>
-                                                        <?php } ?>
+                                                        <?php }
+                                                        $sql22=null;
+                                                        ?>
 
                                                         <a href="editemployee2.php?empid=<?php echo htmlentities($result->id); ?>" title="Modificar datos" class="tooltipped" data-position="bottom" data-tooltip="Modificar datos"><i class="material-icons">edit</i></a>
                                                         <!--<a href="editemployee.php?empid=<?php echo htmlentities($result->id); ?>"><i class="material-icons">how_to_reg</i></a>-->
@@ -238,7 +241,8 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                 </tr>
                                         <?php $cnt++;
                                             }
-                                        } ?>
+                                        }
+                                        $sql=null;?>
                                     </tbody>
                                 </table>
                             </div>
@@ -256,11 +260,11 @@ if (strlen($_SESSION['recursos']) == 0) {
         <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
         <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
         <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
         <script src="../assets/js/alpha.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
         <script src="../assets/js/pages/table-data.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         
         <script>
             function mensaje(result) {

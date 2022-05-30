@@ -389,6 +389,7 @@ foreach($results as $result)
 									<input type="radio" id="homex1o" name="motivo" value="VACACIONES" <?php if(($resultt->motivo) =='VACACIONES') print "checked=true"?> readonly> <label for="homex1o">Vacaciones</label><br>
 									<input type="radio" id="homex1t" name="motivo" value="INCAPACIDAD" <?php if(($resultt->motivo) =='INCAPACIDAD') print "checked=true"?> readonly> <label for="homex1t">Incapacidad</label><br>
 									<input type="radio" id="homex1q" name="motivo" value="APOYO" <?php if(($resultt->motivo) =='APOYO') print "checked=true"?> readonly> <label for="homex1q">Apoyo</label>
+									<input type="radio" id="homex1AA" name="motivo" value="SERVICIO ESTRAORDINARIO" <?php if(($resultt->motivo) =='SERVICIO EXTRAORDINARIO') print "checked=true"?> readonly> <label for="homex1AA">Servicio Extraordinario</label>
 
 								</div>
 

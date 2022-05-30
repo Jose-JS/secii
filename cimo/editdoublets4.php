@@ -22,7 +22,7 @@ $turnocubre=$_POST['turnocubre'];
 $tesi=$_POST['tesi']; 		
 $motivo=$_POST['motivo'];
 $gen=$_POST['gen'];
-//$notasup=$_POST['notasup'];	
+$notasup=$_POST['notasup'];	
 $creatoruser=$_SESSION['supervisor'];
 $action='modificación';
 	
@@ -55,7 +55,7 @@ $query2->bindParam(':action',$action,PDO::PARAM_STR);
 $query2->bindParam(':tesi',$tesi,PDO::PARAM_STR);	
 $query2->execute();
 //$lastInsertId = $dbh->lastInsertId();
-$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen where id=:eid";
+$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen,notasup=:notasup where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fecha',$fecha,PDO::PARAM_STR);	
 $query->bindParam(':sedeorig',$sedeorig,PDO::PARAM_STR);
@@ -68,7 +68,8 @@ $query->bindParam(':tesi',$tesi,PDO::PARAM_STR);
 $query->bindParam(':motivo',$motivo,PDO::PARAM_STR);	
 $query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);        
 $query->bindParam(':action',$action,PDO::PARAM_STR);        
-$query->bindParam(':gen',$gen,PDO::PARAM_STR);	
+$query->bindParam(':gen',$gen,PDO::PARAM_STR);
+$query->bindParam(':notasup',$notasup,PDO::PARAM_STR);	
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);	
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();	
@@ -90,7 +91,7 @@ $query2->execute();
 $lastInsertId = $dbh->lastInsertId();	
 
 	
-$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen where id=:eid";
+$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen,notasup=:notasup where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fecha',$fecha,PDO::PARAM_STR);	
 $query->bindParam(':sedeorig',$sedeorig,PDO::PARAM_STR);
@@ -104,6 +105,7 @@ $query->bindParam(':motivo',$motivo,PDO::PARAM_STR);
 $query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);        
 $query->bindParam(':action',$action,PDO::PARAM_STR);        
 $query->bindParam(':gen',$gen,PDO::PARAM_STR);
+$query->bindParam(':notasup',$notasup,PDO::PARAM_STR);	
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);	
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -139,7 +141,7 @@ $query2->execute();
 	
 	
 	
-$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen where id=:eid";
+$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen,notasup=:notasup where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fecha',$fecha,PDO::PARAM_STR);	
 $query->bindParam(':sedeorig',$sedeorig,PDO::PARAM_STR);
@@ -152,7 +154,8 @@ $query->bindParam(':tesi',$tesi,PDO::PARAM_STR);
 $query->bindParam(':motivo',$motivo,PDO::PARAM_STR);	
 $query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);        
 $query->bindParam(':action',$action,PDO::PARAM_STR);        
-$query->bindParam(':gen',$gen,PDO::PARAM_STR);	
+$query->bindParam(':gen',$gen,PDO::PARAM_STR);
+$query->bindParam(':notasup',$notasup,PDO::PARAM_STR);	
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);	
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -168,7 +171,7 @@ $lastInsertId = $dbh->lastInsertId();
 	
 }//if general
 else if($gen=='NO'){
-$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen where id=:eid";
+$sql="UPDATE tbldoubletsa SET fecha=:fecha,sedeorig=:sedeorig,empid=:empid,tesireac=:tesireac,turnoreac=:turnoreac,sedecubre=:sedecubre,turnocubre=:turnocubre,tesi=:tesi,motivo=:motivo,creatoruser=:creatoruser,action=:action,gen=:gen,notasup=:notasup where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fecha',$fecha,PDO::PARAM_STR);	
 $query->bindParam(':sedeorig',$sedeorig,PDO::PARAM_STR);
@@ -182,6 +185,7 @@ $query->bindParam(':motivo',$motivo,PDO::PARAM_STR);
 $query->bindParam(':creatoruser',$creatoruser,PDO::PARAM_STR);        
 $query->bindParam(':action',$action,PDO::PARAM_STR);        
 $query->bindParam(':gen',$gen,PDO::PARAM_STR);
+$query->bindParam(':notasup',$notasup,PDO::PARAM_STR);	
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);	
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();	
@@ -201,15 +205,13 @@ else
 	//echo "ERROR";
 }
 
-}		
-	
-	
+}	
 
 $msg="Registro de Formato FAR, modificado con éxito";
 echo "<script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
+  if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+}
 </script>";    
 
 
@@ -289,7 +291,8 @@ $cnt=1;
 if($query->rowCount() > 0)
 {
 foreach($results as $resultt)
-{               ?>
+{              
+			?>
 
 			<div class="col s12 m12 l6">
 				<div class="card">
@@ -323,7 +326,7 @@ foreach($results as $result)
 
 								<div class="input-field col s12">
 									<select id="tesireac" name="tesireac" autocomplete="off" required>
-										<option value="<?php echo htmlentities($resultt->empid);?>&nbsp;<?php echo htmlentities($resultt->tesireac);?>"><?php echo htmlentities($resultt->empid);?>&nbsp;<?php echo htmlentities($resultt->tesireac);?></option>
+										<option value="<?php echo htmlentities($resultt->empid);?> <?php echo htmlentities($resultt->tesireac);?>"><?php echo htmlentities($resultt->empid);?> <?php echo htmlentities($resultt->tesireac);?></option>
 										<?php $sql = "SELECT EmpId,name,firstname,lastname from tblemployees order by firstname";
 $query = $dbh -> prepare($sql);
 $query->execute();
@@ -385,9 +388,8 @@ foreach($results as $result)
 									<input type="radio" id="homex1r" name="motivo" value="VACANTE" <?php if(($resultt->motivo) =='VACANTE') print "checked=true"?>  readonly> <label for="homex1r">Vacante</label><br>
 									<input type="radio" id="homex1o" name="motivo" value="VACACIONES" <?php if(($resultt->motivo) =='VACACIONES') print "checked=true"?> readonly> <label for="homex1o">Vacaciones</label><br>
 									<input type="radio" id="homex1t" name="motivo" value="INCAPACIDAD" <?php if(($resultt->motivo) =='INCAPACIDAD') print "checked=true"?> readonly> <label for="homex1t">Incapacidad</label><br>
-									<input type="radio" id="homex1q" name="motivo" value="APOYO" <?php if(($resultt->motivo) =='APOYO') print "checked=true"?> readonly> <label for="homex1q">Apoyo</label><br>
-									<input type="radio" id="homex1z" name="motivo" value="DESCANSO" <?php if(($resultt->motivo) =='DESCANSO') print "checked=true"?> readonly> <label for="homex1z">Descanso</label>
-
+									<input type="radio" id="homex1q" name="motivo" value="APOYO" <?php if(($resultt->motivo) =='APOYO') print "checked=true"?> readonly> <label for="homex1q">Apoyo</label>
+									<input type="radio" id="homex1AA" name="motivo" value="SERVICIO ESTRAORDINARIO" <?php if(($resultt->motivo) =='SERVICIO EXTRAORDINARIO') print "checked=true"?> readonly> <label for="homex1AA">Servicio Extraordinario</label>
 
 								</div>
 
@@ -395,6 +397,10 @@ foreach($results as $result)
 									<label for="homex3">Gen. doblete</label><br><br>
 									<input type="radio" id="homex2q" name="gen" value="SI" <?php if(($resultt->gen)=='SI') print "checked=true"?> readonly> <label for="homex2q">SI</label>
 									<input type="radio" id="homex2qq" name="gen" value="NO" <?php if(($resultt->gen)=='NO') print "checked=true"?> readonly> <label for="homex2qq">NO</label>
+								</div>
+								  	<div class="input-field col s12">
+									<label for="notasup">Nota</label>
+									<input id="notasup" type="text"class="validate" value="<?php echo htmlentities($resultt->notasup);?>"autocomplete="off" name="notasup"  >
 								</div>
 								<div class="input-field col s12">
 								     <?php } }?>

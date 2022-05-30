@@ -42,7 +42,7 @@ $(document).ready(function () {
                 pageSize: 'A4',
                 download: 'open',
                 className: 'responsive-table btn',
-                title:'Filtro de salidas por sede',
+                title:'Entrega de material a TESI',
                 exportOptions: {
                     stripHtml: true
                 },
@@ -76,30 +76,30 @@ $(document).ready(function () {
                     //opacity: 0.1
                     //};
 
-                    //var cols = [];
+                    var cols = [];
 
-                    //cols[0] = {
+                    cols[0] = {
 
 
-                        //text: 'MONITORISTA RESPONSABLE ',
-                        //alignment: 'left',
-                      //  margin: [5, 20]
-                    //};
+                        text: 'MONITORISTA RESPONSABLE ',
+                        alignment: 'left',
+                        margin: [5, 20]
+                    };
 
-                    //cols[1] = {
-                      //  text: 'DIRECTOR(A) DE RECURSOS HUMANOS',
-                    //    alignment: 'center',
-                  //      margin: [5, 20]
-                //    };
-                    //cols[2] = {
-                      //  text: 'DIRECTOR(A) DE TESORERIA Y FINANZAS',
-                    //    alignment: 'right',
-                  //      margin: [0, 20, 20]
-                //    };
-                    //var objFooter = {};
-                    //objFooter['alignment'] = 'center';
-                    //objFooter['columns'] = cols;
-                  //  doc["footer"] = objFooter;
+                cols[1] = {
+                  text: 'DIRECTOR(A) DE RECURSOS HUMANOS',
+                    alignment: 'center',
+                      margin: [5, 20]
+                  };
+                cols[2] = {
+                  text: 'DIRECTOR(A) DE TESORERIA Y FINANZAS',
+                   alignment: 'right',
+                     margin: [0, 20, 20]
+                   };
+                    var objFooter = {};
+                    objFooter['alignment'] = 'center';
+                    objFooter['columns'] = cols;
+                    doc["footer"] = objFooter;
                     //Cambiar color de la celda de encabezado//doc.content[1].table.body[0].forEach(function(h) {
                     //          h.fillColor = 'green';
                     //     });    

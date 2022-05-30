@@ -71,7 +71,7 @@
 							<li class="notification-drop-title">Notificaciones</li>
 							<?php
 							$isread = 0;
-							$sql = "SELECT * from tblincidents where isread=:isread ORDER BY datetime DESC";
+							$sql = "SELECT id,isread,datetime,technical from tblincidents where isread=:isread ORDER BY datetime DESC";
 							$query = $dbh->prepare($sql);
 							$query->bindParam(':isread', $isread, PDO::PARAM_STR);
 							$query->execute();
@@ -96,6 +96,7 @@
 																				$query->bindParam(':id', $id, PDO::PARAM_STR);
 																				$query->bindParam(':isread', $isread, PDO::PARAM_STR);
 																				$query->execute();
+																				$sql=null;
 																				?>">
 
 											<div class="notification">
@@ -109,11 +110,13 @@
 
 									</li>
 							<?php }
-							} ?>
+							} 
+							$sql=null;
+							?>
 
 							<?php //error_reporting(E_ALL);
 							$isread = 0;
-							$sql = "SELECT * from tbldoublets where isread=:isread ORDER BY datetime DESC";
+							$sql = "SELECT id,isread,datetime,technical from tbldoublets where isread=:isread ORDER BY datetime DESC";
 							$query = $dbh->prepare($sql);
 							$query->bindParam(':isread', $isread, PDO::PARAM_STR);
 							$query->execute();
@@ -136,7 +139,9 @@
 																				$query = $dbh->prepare($sql);
 																				$query->bindParam(':id', $id, PDO::PARAM_STR);
 																				$query->bindParam(':isread', $isread, PDO::PARAM_STR);
-																				$query->execute(); ?>">
+																				$query->execute(); 
+																				$sql=null;
+																				?>">
 											<div class="notification">
 												<div class="notification-icon circle green"><i class="material-icons">assignment_turned_in</i></div>
 												<div class="notification-text">
@@ -147,7 +152,9 @@
 
 									</li>
 							<?php }
-							} ?>
+							} 
+							$sql=null;
+							?>
 
 
 
@@ -157,7 +164,7 @@
 							<?php
 
 							$isread = 0;
-							$sql = "SELECT * from tblactadmin where isread=:isread ORDER BY date DESC";
+							$sql = "SELECT id,isread,date,technical,invoice from tblactadmin where isread=:isread ORDER BY date DESC";
 							$query = $dbh->prepare($sql);
 							$query->bindParam(':isread', $isread, PDO::PARAM_STR);
 							$query->execute();
@@ -180,7 +187,8 @@
 																			$query = $dbh->prepare($sql);
 																			$query->bindParam(':id', $id, PDO::PARAM_STR);
 																			$query->bindParam(':isread', $isread, PDO::PARAM_STR);
-																			$query->execute(); ?>">
+																			$query->execute(); 
+																			$sql=null; ?>">
 											<div class="notification">
 												<div class="notification-icon circle red"><i class="material-icons">assignment_late</i></div>
 												<div class="notification-text">
@@ -190,7 +198,9 @@
 										</a>
 									</li>
 							<?php }
-							} ?>
+							} 
+							$sql=null;
+							?>
 
 
 						</ul>
@@ -231,7 +241,9 @@ SELECT id from tblactadmin where isread=0
 								<span class="badge"><?php echo htmlentities($unreadcount); ?></span>
 							</a></li>
 
-					<?php } ?>
+					<?php } 
+					$sql=null;
+					?>
 
 
 				</ul>
