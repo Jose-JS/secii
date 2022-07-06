@@ -124,7 +124,7 @@ if (strlen($_SESSION['recursos']) == 0) {
                                     </thead>
 
                                     <tbody>
-                                        <?php $sql = "SELECT id,EmpId,FirstName,LastName,LastName,name,company,assignedservice,Status,visibility from  tblemployees where Status=1 order by Firstname";
+                                        <?php $sql = "SELECT id,EmpId,FirstName,LastName,name,company,assignedservice,Status,visibility from  tblemployees where Status=1 order by Firstname";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -173,7 +173,8 @@ if (strlen($_SESSION['recursos']) == 0) {
                                                         ?>
                                                                 <?php if ($result22->namedoc == null) {
                                                                 } else { ?>
-                                                                    <img loading="lazy" id="foto" name="foto" class="materialboxed" autocomplete="off" src="<?php echo htmlentities($result22->namedoc); ?>" width="100" height="100" required>
+                                                                    <!-- <img loading="lazy" id="foto" name="foto" class="materialboxed" autocomplete="off" src="<?php echo htmlentities($result22->namedoc); ?>" width="100" height="100" required> con zoom --> 
+                                                                    <img loading="lazy" id="foto" name="foto"  autocomplete="off" src="<?php echo htmlentities($result22->namedoc); ?>" width="100" height="100" required>
                                                                 <?php } ?>
                                                         <?php $cnt22++;
                                                             }

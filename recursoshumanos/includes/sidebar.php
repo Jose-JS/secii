@@ -43,7 +43,7 @@ foreach($results as $result)
      				<div class="collapsible-body">
      					<ul>
      						<li><a href="addemployee2.php">Agregar Técnico</a></li>
-     						<li><a href="manageemployee.php">Administrar Técnico</a></li>
+     						<li><a href="manageemployee2.php">Administrar Técnico</a></li>
      						<li><a href="listemployees.php">Lista de Técnicos</a></li>
 							 <li><a href="managebajas.php">Bajas de Técnicos</a></li>
 

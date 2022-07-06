@@ -442,13 +442,13 @@ if (strlen($_SESSION['recursos']) == 0) {
 													<div class="col m6">
 														<div class="row">
 															<div class="input-field col m6 s12">
-																<label for="empcode">Matrícula (debe ser única)</label>
+																<label for="empcode">Matrícula (debe ser única) <b><FONT COLOR="red">*</FONT></b></label>
 																<input name="empcode" id="empcode" onBlur="checkAvailabilityEmpid()" maxlength="6" type="text" autocomplete="off" tabindex="1" required>
 																<span id="empid-availability" style="font-size:12px;"></span>
 															</div>
 															<div class="input-field col m6 s12">
-																<select id="department" name="department" autocomplete="off" tabindex="2" required>
-																	<option value="">Puesto</option>
+																<select id="depatment" name="department" autocomplete="off" tabindex="2" required>
+																	<option value="">Puesto <b><FONT COLOR="red">*</FONT></b></option>
 																	<?php $sql = "SELECT DepartmentName from tbldepartments";
 																	$query = $dbh->prepare($sql);
 																	$query->execute();
@@ -463,66 +463,66 @@ if (strlen($_SESSION['recursos']) == 0) {
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="name">Nombre</label>
+																<label for="name">Nombre <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="name" name="name" type="text" tabindex="3" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="firstName">Apellido Paterno</label>
+																<label for="firstName">Apellido Paterno <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="firstname" name="firstName" tabindex="4" type="text" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="lastName">Apellido Materno</label>
+																<label for="lastName">Apellido Materno <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="lastname" tabindex="5" name="lastName" type="text" autocomplete="off" required>
 															</div>
 
 
 															<div class="input-field col m6 s12">
-																<label for="placebirth">Lugar de Nacimiento</label>
+																<label for="placebirth">Lugar de Nacimiento <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="placebirth" tabindex="6" name="placebirth" type="text" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="nationality">Nacionalidad</label><br>
+																<label for="nationality">Nacionalidad <b><FONT COLOR="red">*</FONT></b></label><br>
 																<input id="nationality" tabindex="7" name="nationality" type="text" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="nationality">Fecha de nacimiento</label><br>
+																<label for="nationality">Fecha de nacimiento <b><FONT COLOR="red">*</FONT></b></label> <br>
 																<input id="dob" name="dob" tabindex="8" type="date" autocomplete="off">
 															</div>
 
 
 															<div class="input-field col m6 s12">
-																<label for="age">Edad</label>
+																<label for="age">Edad <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="age" name="age" tabindex="9" type="text" onclick="javascript:calcular_edad();" maxlength="2" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="phonelocal">Telefono Local</label>
+																<label for="phonelocal">Telefono Local <b><FONT COLOR="red">*</FONT></b></label>
 																<input name="phonelocal" id="phonelocal" type="tel" maxlength="10" tabindex="10" autocomplete="off">
 															</div>
 
 
 															<div class="input-field col m6 s12">
-																<label for="phonerecado">Telefono de Recados</label>
+																<label for="phonerecado">Telefono de Recados <b><FONT COLOR="red">*</FONT></b></label>
 																<input name="phonerecado" id="phonerecado" type="tel" maxlength="10" tabindex="11" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="phone">Número de teléfono móvil</label>
+																<label for="phone">Número de teléfono móvil <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="mobileno" name="mobileno" type="tel" maxlength="10" tabindex="12" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col s12">
-																<label for="address">Dirección</label>
+																<label for="address">Dirección <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="address" tabindex="13" name="address" type="text" autocomplete="off" placeholder="Calle, No. exterior e interior" required>
 															</div>
 
 
 															<div class="input-field col  s12">
-																<label for="email">Correo</label>
+																<label for="email">Correo <b><FONT COLOR="red">*</FONT></b></label>
 																<input name="email" tabindex="18" type="email" id="email" onBlur="checkAvailabilityEmailid()" autocomplete="off" required>
 																<span id="emailid-availability" style="font-size:12px;"></span>
 															</div>
@@ -530,11 +530,11 @@ if (strlen($_SESSION['recursos']) == 0) {
 
 
 															<div class="input-field col m6 s12">
-																<label for="password">Contraseña</label>
+																<label for="password">Contraseña <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="password" tabindex="19" name="password" type="password" autocomplete="off" required>
 															</div>
 															<div class="input-field col m6 s12">
-																<label for="confirm">Confirmar Contraseña</label>
+																<label for="confirm">Confirmar Contraseña <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="confirmpassword" tabindex="20" name="confirmpassword" type="password" autocomplete="off" required>
 															</div>
 
@@ -546,7 +546,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 
 															<div class="input-field col m6 s12">
 																<select id="assignedservice" name="assignedservice" tabindex="21" autocomplete="off">
-																	<option value="">Servicio Asignado</option>
+																	<option value="">Servicio Asignado <b><FONT COLOR="red">*</FONT></b></option>
 																	<?php $sql = "SELECT servicename from tblserviceassigned";
 																	$query = $dbh->prepare($sql);
 																	$query->execute();
@@ -562,7 +562,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 
 															<div class="input-field col m6 s12">
 																<select id="company" tabindex="22" name="company" autocomplete="off">
-																	<option value="">Empresa</option>
+																	<option value="">Empresa <b><FONT COLOR="red">*</FONT></b></option>
 																	<option value="APROSEMEX S.A. DE C.V.">APROSEMEX S.A. DE C.V.</option>
 																	<option value="ASLO SEGURIDAD PRIVADA S.A. DE C.V.">ASLO SEGURIDAD PRIVADA S.A. DE C.V.
 																	</option>
@@ -572,7 +572,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 															</div>
 															<div class="input-field col m6 s12">
 																<select id="marital" tabindex="23" name="marital" autocomplete="off">
-																	<option value="">Estado Civil</option>
+																	<option value="">Estado Civil <b><FONT COLOR="red">*</FONT></b></option>
 																	<option value="soltero/a">soltero/a</option>
 																	<option value="casado/a">casado/a</option>
 																	<option value="union libre">union libre</option>
@@ -583,7 +583,7 @@ if (strlen($_SESSION['recursos']) == 0) {
 															</div>
 															<div class="input-field col m6 s12">
 																<select id="gender" tabindex="24" name="gender" autocomplete="off">
-																	<option value="">Género</option>
+																	<option value="">Género <b><FONT COLOR="red">*</FONT></b></option>
 																	<option value="Masculino">Masculino</option>
 																	<option value="Femenino">Femenino</option>
 																	<option value="Otro">Otro</option>
@@ -591,87 +591,87 @@ if (strlen($_SESSION['recursos']) == 0) {
 															</div>
 
 															<div class="input-field col s12">
-																<label for="nationality">Fecha</label><br>
+																<label for="nationality">Fecha <b><FONT COLOR="red">*</FONT></b></label><br>
 
 																<input id="fechini" name="fechini" tabindex="25" type="date" autocomplete="off">
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="ife">No. de IFE</label>
+																<label for="ife">No. de IFE <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="ife" name="ife" type="text" autocomplete="off" tabindex="26" maxlength="13" required>
 															</div>
 
 
 															<div class="input-field col m6 s12">
-																<label for="curp">Curp</label>
+																<label for="curp">Curp <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="curp" name="curp" type="text" maxlength="18" tabindex="27" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="rfc">RFC</label>
+																<label for="rfc">RFC <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="rfc" name="rfc" type="text" maxlength="13" tabindex="28" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="imss">No. IMSS</label>
+																<label for="imss">No. IMSS <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="imss" name="imss" type="text" maxlength="11" tabindex="29" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="infonavit">No. Crédito Infonavit</label>
+																<label for="infonavit">No. Crédito Infonavit <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="infonavit" tabindex="30" name="infonavit" type="text" autocomplete="off">
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="infonavitmon">Monto de descuento infonavit</label>
+																<label for="infonavitmon">Monto de descuento infonavit <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="infonavitmon" tabindex="30" name="infonavitmon" type="text" autocomplete="off">
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="fonacot">No. Crédito fonacot</label>
+																<label for="fonacot">No. Crédito fonacot <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="fonacot" tabindex="30" name="fonacot" type="text" autocomplete="off">
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="fonacotmon">Monto de descuento fonacot</label>
+																<label for="fonacotmon">Monto de descuento fonacot <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="fonacotmon" tabindex="30" name="fonacotmon" type="text" autocomplete="off">
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="typelicence">Tipo de Licencia</label>
+																<label for="typelicence">Tipo de Licencia <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="typelicence" tabindex="31" name="typelicence" type="text" autocomplete="off">
 															</div>
 
 
 															<div class="input-field col m6 s12">
-																<label for="military">Cartilla Militar</label>
+																<label for="military">Cartilla Militar <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="military" tabindex="32" name="military" type="text" autocomplete="off">
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="city">Municipio</label>
+																<label for="city">Municipio <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="city" tabindex="14" name="city" type="text" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="suburb">Colonia</label>
+																<label for="suburb">Colonia <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="suburb" tabindex="15" name="suburb" type="text" autocomplete="off" required>
 															</div>
 
 
 															<div class="input-field col m6 s12">
-																<label for="country">Estado</label>
+																<label for="country">Estado <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="country" tabindex="16" name="country" type="text" autocomplete="off" required>
 															</div>
 
 															<div class="input-field col m6 s12">
-																<label for="cp">Codigo Postal</label>
+																<label for="cp">Codigo Postal <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="cp" name="cp" tabindex="17" type="text" maxlength="5" autocomplete="off" required>
 															</div>
 
 
 															<div class="input-field col m6 s12">
-																<label for="dependent">No. de dependientes</label>
+																<label for="dependent">No. de dependientes <b><FONT COLOR="red">*</FONT></b></label>
 																<input id="dependent" tabindex="33" name="dependent" type="text" maxlength="2" autocomplete="off">
 															</div>
 

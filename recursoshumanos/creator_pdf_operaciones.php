@@ -243,11 +243,11 @@ $cnt2++;}
 	$content .='<section >';
     $content .='<table  CELLPADDING="2">';		
 	$content .='<tr>';	
-	$content .='<td colspan="2"align="LEFT"> <b>LIC.LAURA GUTIERREZ</b></td>';
+	$content .='<td colspan="2"align="LEFT"> <b>LIC. SILVIA LETICIA ZEPEDA OSORIO</b></td>';
 	$content .='<td colspan="2"align="RIGHT"> <b>DIRECCION DE OPERACIONES</b></td>';
 	$content .='</tr>';	
 	$content .='<tr>';	
-	$content .='<td colspan="4"align="LEFT">GERENCIA RECURSOS HUMANOS</td>';	
+	$content .='<td colspan="4"align="LEFT">DIRECCION DE RECURSOS HUMANOS</td>';	
 	$content .='</tr>';	
     $content .= '</table>';
     $content .='</section>';
