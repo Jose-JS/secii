@@ -9,13 +9,11 @@ if (strlen($_SESSION['supervisor']) == 0) {
     if (isset($_POST['add'])) {
         $datetime = $_POST['datetime'];
 
-
         $service = $_POST['service'];
 
         $technical = substr($_POST['technical'], 6);
 
         $empid = substr($_POST['technical'], 0, 6);
-
 
         $issue = $_POST['issue'];
 
@@ -24,7 +22,6 @@ if (strlen($_SESSION['supervisor']) == 0) {
         $art = $_POST['art'];
 
         $productivity = $_POST['productivity'];
-
 
         $sql = "INSERT INTO tblincidents(datetime,service,empid,technical,issue,reason,art,productivity) VALUES(:datetime,:service,:empid,:technical,:issue,:reason,:art,:productivity)";
         $query = $dbh->prepare($sql);
@@ -40,6 +37,11 @@ if (strlen($_SESSION['supervisor']) == 0) {
         $lastInsertId = $dbh->lastInsertId();
         if ($lastInsertId) {
             $msg = "Incidencia creada con éxito";
+            echo '<script>
+ if ( window.history.replaceState ) {
+     window.history.replaceState( null, null, window.location.href );
+ }
+</script>';
         } else {
             $error = "Algo salió mal. Inténtalo de nuevo";
         }
@@ -171,20 +173,10 @@ if (strlen($_SESSION['supervisor']) == 0) {
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <select id="technical" name="technical" autocomplete="off" required>
-                                            <option value="">Técnico</option>
-                                            <?php $sql = "SELECT EmpId,name,firstname,lastname from tblemployees where Status='1' order by firstname asc";
-                                            $query = $dbh->prepare($sql);
-                                            $query->execute();
-                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                            $cnt = 1;
-                                            if ($query->rowCount() > 0) {
-                                                foreach ($results as $result) {   ?>
-                                                    <option value="<?php echo htmlentities($result->EmpId); ?>&nbsp;<?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?>" required><?php echo htmlentities($result->EmpId); ?>&nbsp;<?php echo htmlentities($result->firstname); ?>&nbsp;<?php echo htmlentities($result->lastname); ?>&nbsp;<?php echo htmlentities($result->name); ?></option>
-                                            <?php }
-                                            } ?>
-                                        </select>
-                                    </div>
+                                    <input autocomplete="off" type="text" id="technical" name="technical"onkeyup="autocompletar()">
+                                    <ul id="lista_id"></ul>
+                                        </div>
+
 
                                     <div class="input-field col s12">
                                         <label for="issue">No. de Incidencia</label>
@@ -252,6 +244,43 @@ if (strlen($_SESSION['supervisor']) == 0) {
                 }, 6000);
 
             });
+// Función autocompletar
+function autocompletar() {
+	var minimo_letras =0; // minimo letras visibles en el autocompletar
+	var palabra = $('#technical').val();
+    var minimo =' ';
+	//Contamos el valor del input mediante una condicional
+	if (palabra.length >= minimo_letras) {
+		$.ajax({
+			url: 'busqueda.php',
+			type: 'POST',
+			data: {palabra:palabra},
+			success:function(data){
+				$('#lista_id').show();
+				$('#lista_id').html(data);
+			}
+		});
+	}
+    if (palabra.length <= minimo) {
+        $('#lista_id').hide();
+        console.log("aplicando if");
+
+    }
+    else {
+		//ocultamos la lista
+		$('#lista_id').hide();
+	}
+}
+
+// Funcion Mostrar valores
+function set_item(opciones) {
+	// Cambiar el valor del formulario input
+	$('#technical').val(opciones);
+	// ocultar lista de proposiciones
+	$('#lista_id').hide();
+}
+
+
         </script>
     </body>
 

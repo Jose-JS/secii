@@ -843,17 +843,17 @@ donde se presta el servicio.</p>
         </p>
 
         <p align="justify"><b>SEGUNDA: EL TRABAJADOR</b> Autoriza para que <b>EL PATRÓN</b> pueda entregar a sus beneficiarios si
-        les corresponde y si <b>EL TRABAJADOR</b> se encuentra en los supuestos señalados en la declaración
-        primera, las siguientes prestaciones o cualquier otra que se le adeude:</p>
+        les corresponde y si <b>EL TRABAJADOR</b> se encuentra en los supuestos señalados en el 
+        inciso K) de la declaración II, las siguientes prestaciones o cualquier otra que se le adeude:</p>
 
         <p align="justify">
         •	Sueldos y salarios pendientes de pago por el patrón <br>
-        •	Prestaciones que le correspondan al trabajador (fondo de ahorro, aguinaldo, prima vacacional) <br>
+        •	Prestaciones que le correspondan al trabajador (aguinaldo,vacaciones, prima vacacional) <br>
         •	Indemnizaciones si existiera riesgo de trabajo.
 
         </p>
 
-        <p align="justify"><b>Lo anteriormente debidamente fundamentado en los numerales 115, 501 y demás relativos de la Ley federal del Trabajo</b>.</p>
+        <p align="justify">Lo anteriormente señalado en terminos de lo que disponen los articulos 115, 501 y demás relativos y aplicables de la Ley federal del Trabajo.</p>
 
         <table>
         <tr>
