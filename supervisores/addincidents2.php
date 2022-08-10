@@ -173,9 +173,9 @@ if (strlen($_SESSION['supervisor']) == 0) {
                                     </div>
 
                                     <div class="input-field col s12">
-                                    <input autocomplete="off" type="text" id="technical" name="technical"onkeyup="autocompletar()">
-                                    <ul id="lista_id"></ul>
-                                        </div>
+                                        <input autocomplete="off" type="text" id="technical" name="technical" onkeyup="autocompletar()">
+                                        <ul id="lista_id"></ul>
+                                    </div>
 
 
                                     <div class="input-field col s12">
@@ -244,43 +244,42 @@ if (strlen($_SESSION['supervisor']) == 0) {
                 }, 6000);
 
             });
-// Función autocompletar
-function autocompletar() {
-	var minimo_letras =0; // minimo letras visibles en el autocompletar
-	var palabra = $('#technical').val();
-    var minimo =' ';
-	//Contamos el valor del input mediante una condicional
-	if (palabra.length >= minimo_letras) {
-		$.ajax({
-			url: 'busqueda.php',
-			type: 'POST',
-			data: {palabra:palabra},
-			success:function(data){
-				$('#lista_id').show();
-				$('#lista_id').html(data);
-			}
-		});
-	}
-    if (palabra.length <= minimo) {
-        $('#lista_id').hide();
-        console.log("aplicando if");
+            // Función autocompletar
+            function autocompletar() {
+                var minimo_letras = 0; // minimo letras visibles en el autocompletar
+                var palabra = $('#technical').val();
+                var minimo = ' ';
+                //Contamos el valor del input mediante una condicional
+                if (palabra.length >= minimo_letras) {
+                    $.ajax({
+                        url: 'busqueda.php',
+                        type: 'POST',
+                        data: {
+                            palabra: palabra
+                        },
+                        success: function(data) {
+                            $('#lista_id').show();
+                            $('#lista_id').html(data);
+                        }
+                    });
+                }
+                if (palabra.length <= minimo) {
+                    $('#lista_id').hide();
+                    console.log("aplicando if");
 
-    }
-    else {
-		//ocultamos la lista
-		$('#lista_id').hide();
-	}
-}
+                } else {
+                    //ocultamos la lista
+                    $('#lista_id').hide();
+                }
+            }
 
-// Funcion Mostrar valores
-function set_item(opciones) {
-	// Cambiar el valor del formulario input
-	$('#technical').val(opciones);
-	// ocultar lista de proposiciones
-	$('#lista_id').hide();
-}
-
-
+            // Funcion Mostrar valores
+            function set_item(opciones) {
+                // Cambiar el valor del formulario input
+                $('#technical').val(opciones);
+                // ocultar lista de proposiciones
+                $('#lista_id').hide();
+            }
         </script>
     </body>
 
