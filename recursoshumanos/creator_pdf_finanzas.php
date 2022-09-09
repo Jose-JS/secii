@@ -20,12 +20,16 @@ class MYPDF extends TCPDF
 		// Logo
 		$image_file = K_PATH_IMAGES . 'logo.png';
 		$this->Image($image_file, 10, 10, 30, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+		
 		// Set font
 		$this->SetFont('helvetica', 'b', 18);
 		// Title
 		$this->Cell(0, 10, 'ALTA DE EMPLEADO', 0, 2, 'C', 0, '', 0, false, 'M', 'M');
 		$this->Cell(0, 2, '', 0, 2, 'C', 0, '', 0, false, 'M', 'M');
 		$this->Cell(0, 8, 'INFORMACION PERSONAL', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+		// Logo2
+		$image_file3 = K_PATH_IMAGES . 'logo ome.png';
+		$this->Image($image_file3, 175, 10, 25, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 	}
 
 	// Page footer
@@ -130,33 +134,34 @@ if ($query->rowCount() > 0) {
 
 		// set some text to print
 
-		$sql2 = "SELECT * FROM tbldocument where idemp='$eid' and name='MEDIO CUERPO'";
-		$query2 = $dbh->prepare($sql2);
-		$dbh->exec('SET CHARACTER SET utf8');
-		$query2->execute();
-		$cnt2 = 1;
-		if ($query2->rowCount() > 0) {
-			foreach ($query2 as $result2) {
-				$imagen = $result2['namedoc'];
+		
 
 				$content .= '<section >';
+				$content .= '<br> <br> ';
 				$content .= '<div align="left">';
 				$content .= '<table  CELLPADDING="2">';
-
+				
 				$content .= '<tr>';
 				$content .= '<td colspan="1" align="right"><b>' . $company . '</b></td>';
 				$content .= '</tr>';
-
+				$sql2 = "SELECT * FROM tbldocument where idemp='$eid' and name='MEDIO CUERPO'";
+				$query2 = $dbh->prepare($sql2);
+				$dbh->exec('SET CHARACTER SET utf8');
+				$query2->execute();
+				$cnt2 = 1;
+				if ($query2->rowCount() > 0) {
+					foreach ($query2 as $result2) {
+						$imagen = $result2['namedoc'];
 				$content .= '<tr>';
 				$content .= '<td colspan="1"align="right"><img src="' . $imagen . '" align="left" width="100" height="120"></td>';
 				$content .= '</tr>';
-
-				$content .= '</table>';
-				$content .= '</div>';
-				$content .= '</section>';
 			}
 			$cnt2++;
 		}
+				$content .= '</table>';
+				$content .= '</div>';
+				$content .= '</br>';
+		
 
 
 
